@@ -11,7 +11,8 @@
         public function run(){
             $this->call([
                 ActeurSeeder::class,
-                UserSeeder::class
+                UserSeeder::class,
+                CompteSeeder::class
             ]);
         }
     }
