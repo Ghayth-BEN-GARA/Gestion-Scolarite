@@ -10,7 +10,8 @@
          */
         public function run(){
             $this->call([
-                ActeurSeeder::class
+                ActeurSeeder::class,
+                UserSeeder::class
             ]);
         }
     }
