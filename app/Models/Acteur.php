@@ -5,8 +5,8 @@
 
     class Acteur extends Model{
         use HasFactory;
-        protected $table = 'acteurs';
-        protected $primaryKey = 'type_user';
+        protected $table = "acteurs";
+        protected $primaryKey = "type_user";
         public $timestamps = false;
         public $incrementing = false;
 
@@ -16,15 +16,15 @@
          * @var array<int, string>
          */
         protected $fillable = [
-            'type_user'
+            "type_user"
         ];
 
         public function getTypeUserAttribute(){
-            return $this->attributes['type_user'];
+            return $this->attributes["type_user"];
         }
 
         public function setTypeUserAttribute($value){
-            $this->attributes['type_user'] = $value;
+            $this->attributes["type_user"] = $value;
         }
     }
 ?>
