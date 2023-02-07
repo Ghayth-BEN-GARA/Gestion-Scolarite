@@ -12,7 +12,8 @@
             $this->call([
                 ActeurSeeder::class,
                 UserSeeder::class,
-                CompteSeeder::class
+                CompteSeeder::class,
+                JournalAuthentificationSeeder::class
             ]);
         }
     }
