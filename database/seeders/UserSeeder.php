@@ -21,6 +21,7 @@
             $user->setGenreUserAttribute("Non spécifié");
             $user->setMobileUserAttribute("70686486");
             $user->setTypeUserAttribute("Admin");
+            $user->setTravailUserAttribute("Aucun");
             $user->setPathPhotoProfileUserAttribute("images_profiles/user.png");
             $user->save();
         }

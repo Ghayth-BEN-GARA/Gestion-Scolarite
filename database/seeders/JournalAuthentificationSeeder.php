@@ -12,8 +12,8 @@
          */
         public function run(){
             $journal = new JournalAuthentification();
-            $journal->setTitreJournalAttribute("Connexion");
-            $journal->setDescriptionJournalAttribute("Se connecter au système en entrant l'adresse e-mail et le mot de passe de l'utilisateur");
+            $journal->setTitreJournalAttribute("Inscription");
+            $journal->setDescriptionJournalAttribute("S'inscrire dans le système en saisissant les informations requises.");
             $journal->setIdUserAttribute(1);
             $journal->save();
         }

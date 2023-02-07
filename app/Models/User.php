@@ -28,6 +28,7 @@
             "genre",
             "mobile",
             "type_user",
+            "travail",
             "path_photo_profile",
             "date_creation_user"
         ];
@@ -106,6 +107,14 @@
 
         public function setTypeUserAttribute($value){
             $this->attributes["type_user"] = $value;
+        }
+
+        public function getTravailUserAttribute(){
+            return $this->attributes["travail"];
+        }
+
+        public function setTravailUserAttribute($value){
+            $this->attributes["travail"] = $value;
         }
 
         public function getPathPhotoProfileUserAttribute(){

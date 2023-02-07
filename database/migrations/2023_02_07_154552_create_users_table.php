@@ -23,6 +23,7 @@
                 $table->string("genre", 200)->default("Non spécifié");
                 $table->integer("mobile")->default(0);
                 $table->string("type_user", 300)->default("Etudiant");
+                $table->string("travail", 500)->default("Aucun");
                 $table->string("path_photo_profile", 999)->default("images_profiles/user.png");
                 $table->datetime("date_creation_user")->default(DB::raw('CURRENT_TIMESTAMP'))->setTimezone('GMT');
                 $table->foreign("type_user")->references("type_user")->on("acteurs")->onDelete("cascade")->onUpdate("cascade");
