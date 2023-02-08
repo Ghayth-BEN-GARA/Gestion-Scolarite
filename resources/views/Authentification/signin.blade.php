@@ -10,7 +10,7 @@
                         <img src = "{{asset('/login/images/signup-img.jpg')}}" alt = "Image d'authentification">
                     </div>
                     <div class = "signup-form">
-                        <form method = "post" class = "register-form" id = "login-form" name = "login-form">
+                        <form method = "post" class = "register-form" id = "login-form" name = "login-form" action = "{{url('/login')}}">
                             @csrf
                             <h2>Connexion</h2>
                             <div class = "form-group">

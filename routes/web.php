@@ -1,6 +1,7 @@
 <?php
     use Illuminate\Support\Facades\Route;
     use App\Http\Controllers\AuthentificationController;
+    use App\Http\Controllers\PagesErreursController;
     /*
     |--------------------------------------------------------------------------
     | Web Routes
@@ -13,4 +14,5 @@
     */
 
     Route::get('/',[AuthentificationController::class,'ouvrirSignIn']); 
+    Route::get('/404',[PagesErreursController::class,'ouvrirPageIntrouvable']); 
 ?>
