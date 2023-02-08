@@ -13,11 +13,11 @@
 
         public function gestionLoginUser(Request $request){
             if(!$this->verifierUserExist($request->email)){
-                return back()->with("erreur", "Nous sommes désolés ! Nous n'avons pas trouvé un compte avec cette adresse e-mail.");
+                return back()->with("erreur", "Nous sommes désolés ! Nous n'avons pas trouvé le compte.");
             }
 
             else if(!$this->verifierEmailPasswordValide($request->email, $request->password)){
-                return back()->with("erreur", "Une erreur s'est produite lors de la tentative de connexion. Veuillez vérifier votre adresse e-mail et votre mot de passe et réessayer une autre fois.");
+                return back()->with("erreur", "Une erreur s'est produite lors de la tentative de connexion. Vérifier votre adresse e-mail et votre mot de passe et réessayer une autre fois.");
             }
 
             else if($this->creerJournalAuthentification(auth()->user()->getIdUserAttribute(), "Connexion", "Se connecter au système en entrant l'adresse e-mail et le mot de passe.")){

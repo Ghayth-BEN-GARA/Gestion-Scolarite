@@ -3,7 +3,7 @@
     use Closure;
     use Illuminate\Http\Request;
 
-    class SessionUserNotExist{
+    class SessionUserNotExistAdmin{
         /**
          * Handle an incoming request.
          *
@@ -12,7 +12,7 @@
          * @return \Illuminate\Http\Response|\Illuminate\Http\RedirectResponse
          */
         public function handle(Request $request, Closure $next){
-            if(!Session()->has("email") || !Session()->has("acteur")){
+            if(!Session()->has("email") || !Session()->get("acteur") == "Admin"){
                 return view('Errors.404');
             }
             return $next($request);

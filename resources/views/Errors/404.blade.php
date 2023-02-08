@@ -152,8 +152,8 @@
                         <h1>404</h1>
                         <h2>OH OH ! Vous êtes perdu.</h2>
                         <p>La page que vous recherchez n'existe pas. Comment vous êtes arrivé ici est un mystère. Mais vous pouvez cliquer sur le bouton ci-dessous pour revenir à la page précédente.</p>
-                        @if(Session()->has("email") || Session()->has("acteur"))
-                            <a href = "{{url()->previous()}}" class = "btn">Page Précédente</a>
+                        @if(Session()->has("email") || Session()->get("acteur") == "Admin")
+                            <a href = "{{url('/dashboard-admin')}}" class = "btn">Page D'Accueil</a>
                         @else
                             <a href = "{{url('/')}}" class = "btn green">Page D'Authentification</a>
                         @endif
