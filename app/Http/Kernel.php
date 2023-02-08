@@ -62,6 +62,7 @@
             'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
             'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
             'session_user_exist' => \App\Http\Middleware\SessionUserExist::class,
+            'session_user_not_exist' => \App\Http\Middleware\SessionUserNotExist::class,
         ];
     }
 ?>
