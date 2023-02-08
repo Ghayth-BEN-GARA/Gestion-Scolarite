@@ -4,8 +4,25 @@
         @include("Layouts.head_site")
         <title>Accueil | Université Sesame</title>
     </head>
-    <body>
+    @include("Layouts.body_configuration")
+        <div id = "preloader">
+            <div id = "status">
+                <div class = "bouncing-loader">
+                    <div></div><div></div><div></div>
+                </div>
+            </div>
+        </div>
+        <div class = "wrapper">
+            @include("Layouts.left_navbar")
+            <div class = "content-page">
+                <div class = "content">
+                    @include("Layouts.top_navbar")
+                    <div class = "container-fluid">
 
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class = "rightbar-overlay"></div>
         @include("Layouts.script_site")
     </body>
