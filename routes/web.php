@@ -21,4 +21,8 @@
     Route::get("/dashboard-admin",[DashboardController::class,"ouvrirDashboardAdmin"])->middleware("session_user_not_exist_admin");
     Route::get("/logout",[AuthentificationController::class,"gestionLogoutUser"]);
     Route::get("/journal-authentification",[JournalAuthentificationController::class,"ouvrirJournalAuthentification"])->middleware("session_user_not_exist");
+    Route::get("/dashboard-comptable",[DashboardController::class,"ouvrirDashboardComptable"])->middleware("session_user_not_exist_comptable");
+    Route::get("/dashboard-enseignant",[DashboardController::class,"ouvrirDashboardEnseignant"])->middleware("session_user_not_exist_enseignant");
+    Route::get("/dashboard-etudiant",[DashboardController::class,"ouvrirDashboardEtudiant"])->middleware("session_user_not_exist_etudiant");
+    Route::get("/dashboard-parent",[DashboardController::class,"ouvrirDashboardParent"])->middleware("session_user_not_exist_parent");
 ?>

@@ -62,8 +62,12 @@
             'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
             'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
             'session_user_exist' => \App\Http\Middleware\SessionUserExist::class,
-            'session_user_not_exist_admin' => \App\Http\Middleware\SessionUserNotExistAdmin::class,
             'session_user_not_exist' => \App\Http\Middleware\SessionUserNotExist::class,
+            'session_user_not_exist_admin' => \App\Http\Middleware\SessionUserNotExistAdmin::class,
+            'session_user_not_exist_comptable' => \App\Http\Middleware\SessionUserNotExistComptable::class,
+            'session_user_not_exist_enseignant' => \App\Http\Middleware\SessionUserNotExistEnseignant::class,
+            'session_user_not_exist_etudiant' => \App\Http\Middleware\SessionUserNotExistEtudiant::class,
+            'session_user_not_exist_parent' => \App\Http\Middleware\SessionUserNotExisParent::class,
         ];
     }
 ?>
