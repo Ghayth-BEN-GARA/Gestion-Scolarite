@@ -68,14 +68,15 @@ function questionSupprimerJournal() {
 function modifierConfigurationCompte() {
     var type_mode = null;
 
-    if($('#dark-mode-check').is(':checked')){
+    if($("#dark-mode-check").is(":checked")){
         type_mode = "Dark";
     }
 
-    else if($('#light-mode-check').is(':checked')){
+    else{
         type_mode = "Light";
     }
-    chargement("Modification du mode en cours..").then(modifierConfigurationCompteInstantannement(type_mode));
+
+    modifierConfigurationCompteInstantannement(type_mode);
 }
 
 function modifierConfigurationCompteInstantannement(type_mode) {
@@ -86,10 +87,8 @@ function modifierConfigurationCompteInstantannement(type_mode) {
         data: { 
             mode: type_mode
         },
-        success: function(data) {
-            if(data == true){
-                swal.close();
-            }
+        success: function() {
+            
         }
     })
 }
