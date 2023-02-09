@@ -8,3 +8,4 @@
 <link rel = "stylesheet" href = "{{asset('/css/app.min.css')}}" id = "light-style">
 <link rel = "stylesheet" href = "{{asset('/css/app-dark.min.css')}}"  id = "dark-style">
 <link rel = "stylesheet" href = "{{asset('/css/sweetalert2.css')}}">
+<link rel = "stylesheet" href = "{{asset('/css/pagination.css')}}">

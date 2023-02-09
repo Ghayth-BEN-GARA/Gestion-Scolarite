@@ -52,9 +52,33 @@
                                                             </tr>
                                                         </thead>
                                                         <tbody>
-                                                        
+                                                            @if($journal->count() == 0 && empty($journal))
+                                                                <tr>
+                                                                    <td colspan = "4" class = "text-center">Aucune action sur votre compte actuellement trouvée</td>
+                                                                </tr>
+                                                            @else
+                                                                <?php $i = 1; ?>
+                                                                @foreach($journal as $data)
+                                                                    <tr>
+                                                                        <th scope = "row">{{$i++}}</th>
+                                                                        <td>{{$data->getTitreJournalAttribute()}}</td>
+                                                                        <td>{{$data->getDescriptionJournalAttribute()}}</td>
+                                                                        <td class = "text-capitalize">
+                                                                            <?php 
+                                                                                setlocale (LC_TIME, 'fr_FR.utf8','fra'); 
+                                                                                echo utf8_encode($data->getFormattedDateCreationJournalAttribute());
+                                                                            ?>
+                                                                            à 
+                                                                            {{date('H:i',strtotime($data->getDateCreationJournalAttribute()))}}
+                                                                        </td>
+                                                                    </tr>
+                                                                @endforeach
+                                                            @endif
                                                         </tbody>
                                                     </table>
+                                                </div>
+                                                <div class = "mt-3 mb-3">
+                                                    {{$journal->links("vendor.pagination.pagination_normal")}}
                                                 </div>
                                             </div>
                                         </div>
@@ -66,6 +90,9 @@
                 </div>
             </div>
         </div>
+        <footer class = "footer">
+            @include("Layouts.footer_site")
+        </footer>
         <div class = "rightbar-overlay"></div>
         @include("Layouts.script_site")
     </body>

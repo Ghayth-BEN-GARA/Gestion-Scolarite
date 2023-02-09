@@ -4981,12 +4981,14 @@ fieldset:disabled .btn {
 .page-item:not(:first-child) .page-link {
     margin-left: -1px;
 }
+
 .page-item.active .page-link {
     z-index: 3;
     color: #fff;
-    background-color: #727cf5;
-    border-color: #727cf5;
+    background-color: #033D89;
+    border-color: #033D89;
 }
+
 .page-item.disabled .page-link {
     color: #98a6ad;
     pointer-events: none;

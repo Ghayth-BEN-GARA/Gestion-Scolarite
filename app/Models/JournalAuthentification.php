@@ -60,7 +60,6 @@
         }
 
         public function getFormattedDateCreationJournalAttribute(){
-            setlocale(LC_TIME, 'French');
             return strftime("%A %d %B %Y",strtotime(strftime($this->getDateCreationJournalAttribute())));
         }
     }
