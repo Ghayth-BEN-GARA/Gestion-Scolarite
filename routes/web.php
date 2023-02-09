@@ -3,6 +3,7 @@
     use App\Http\Controllers\AuthentificationController;
     use App\Http\Controllers\PagesErreursController;
     use App\Http\Controllers\DashboardController;
+    use App\Http\Controllers\JournalAuthentificationController;
     /*
     |--------------------------------------------------------------------------
     | Web Routes
@@ -18,5 +19,6 @@
     Route::get("/404",[PagesErreursController::class,"ouvrirPageIntrouvable"]);
     Route::post("/login-user",[AuthentificationController::class,"gestionLoginUser"]);
     Route::get("/dashboard-admin",[DashboardController::class,"ouvrirDashboardAdmin"])->middleware("session_user_not_exist_admin");
-    Route::get("/logout",[AuthentificationController::class,"gestionLogoutUser"]); 
+    Route::get("/logout",[AuthentificationController::class,"gestionLogoutUser"]);
+    Route::get("/journal-authentification",[JournalAuthentificationController::class,"ouvrirJournalAuthentification"])->middleware("session_user_not_exist");
 ?>

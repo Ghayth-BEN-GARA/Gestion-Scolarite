@@ -5,7 +5,7 @@
                 <img src = "{{asset('/images/favicon.png')}}" alt = "Logo de l'application" height = "120">
             </span>
             <span class = "logo-sm">
-                <img src = "{{asset('/images/favicon.png')}}" alt = "Logo de l'application" height = "16">
+                <img src = "{{asset('/images/favicon.png')}}" alt = "Logo de l'application" height = "60">
             </span>
         </a>
         <a href = "{{url('/dashboard-admin')}}" class = "logo text-center logo-dark">
@@ -13,7 +13,7 @@
                 <img src = "{{asset('/images/favicon.png')}}" alt = "Logo de l'application" height = "120">
             </span>
             <span class = "logo-sm">
-                <img src = "{{asset('/images/favicon.png')}}" alt = "Logo de l'application" height = "16">
+                <img src = "{{asset('/images/favicon.png')}}" alt = "Logo de l'application" height = "60">
             </span>
         </a>
     @endif
