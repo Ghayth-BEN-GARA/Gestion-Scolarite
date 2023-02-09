@@ -2378,10 +2378,12 @@ textarea.form-control-lg {
     padding-left: 1.612em;
     margin-bottom: 0;
 }
+
 .form-check .form-check-input {
     float: left;
     margin-left: -1.612em;
 }
+
 .form-check-input {
     width: 1.112em;
     height: 1.112em;
@@ -2410,32 +2412,39 @@ textarea.form-control-lg {
         background-position 0.15s ease-in-out, border-color 0.15s ease-in-out,
         box-shadow 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
 }
+
 @media (prefers-reduced-motion: reduce) {
     .form-check-input {
         -webkit-transition: none;
         transition: none;
     }
 }
+
 .form-check-input[type="checkbox"] {
     border-radius: 0.25em;
 }
+
 .form-check-input[type="radio"] {
     border-radius: 50%;
 }
+
 .form-check-input:active {
     -webkit-filter: brightness(90%);
     filter: brightness(90%);
 }
+
 .form-check-input:focus {
     border-color: #c8cbcf;
     outline: 0;
     -webkit-box-shadow: none;
     box-shadow: none;
 }
+
 .form-check-input:checked {
-    background-color: #727cf5;
-    border-color: #727cf5;
+    background-color: #033D89;
+    border-color: #033D89;
 }
+
 .form-check-input:checked[type="checkbox"] {
     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='M6 10l3 3l6-6'/%3e%3c/svg%3e");
 }

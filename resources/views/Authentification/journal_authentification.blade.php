@@ -92,7 +92,7 @@
                                                                 @endforeach
                                                             @else
                                                                 <tr>
-                                                                    <td colspan = "4" class = "text-center">Aucune action sur votre compte actuellement trouvée</td>
+                                                                    <td colspan = "4" class = "text-center">Aucune action sur votre compte actuellement trouvée.</td>
                                                                 </tr>
                                                             @endif
                                                         </tbody>
@@ -114,6 +114,7 @@
         <footer class = "footer">
             @include("Layouts.footer_site")
         </footer>
+        @include("Layouts.right_navbar_site")
         <div class = "rightbar-overlay"></div>
         @include("Layouts.script_site")
     </body>
