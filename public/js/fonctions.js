@@ -120,3 +120,30 @@ function modifierStatusCompteInstantannement(status) {
         }
     })
 }
+
+function questionSupprimerCompte() {
+    swal({
+        title: "Etes-vous sûr ?",
+        text: "Supprimer définitivement de votre compte  !",
+        type: 'warning',
+        showConfirmButton: true,
+        showCancelButton: true,
+        showCloseButton: true,
+        confirmButtonColor: '#033D89',
+        confirmButtonText: 'Oui, Je suis sûr !',
+        cancelButtonText: 'Annuler',
+        padding: 45
+    })
+
+    .then((result) => {
+        if (result.value) {
+            chargement("Suppression en cours..").then(
+                location.href = "/delete-compte"
+            );
+        }
+
+        else if (result.dismiss === swal.DismissReason.cancel) {
+            swal.close();
+        }
+    });
+}

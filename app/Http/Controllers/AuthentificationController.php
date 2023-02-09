@@ -101,5 +101,25 @@
                 return false;
             }
         }
+
+        public function gestionSupprimerCompte(){
+            if($this->supprimerCompte()){
+                if($this->logoutUser()){
+                    return redirect("/")->with("deleted", "Votre compte a été supprimé avec succès aujourd'hui. Si vous pensez qu'il a été supprimé par erreur, veuillez contacter l'administration.");
+                }
+
+                else{
+                    return redirect("/404"); 
+                }
+            }
+
+            else {
+                return redirect("/404");
+            }
+        }
+
+        public function supprimerCompte(){
+            return User::where("id_user", "=", auth()->user()->getIdUserAttribute())->delete();
+        }
     }
 ?>

@@ -58,7 +58,7 @@
                 Si vous avez choisi de supprimer votre compte, vos informations vos et données personnelles seront définitivement perdus.
             </p>
             <div class = "d-grid mt-4">
-                <button class = "btn btn-primary" id = "deleteBtn">Supprimer votre compte</button>
+                <button class = "btn btn-primary" id = "deleteBtn" onclick = "questionSupprimerCompte()">Supprimer votre compte</button>
             </div>
         </div>
     </div>

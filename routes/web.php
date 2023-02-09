@@ -30,4 +30,5 @@
     Route::get("/delete-journal-authentification",[JournalAuthentificationController::class,"gestionDeleteJournalAuthentification"]);
     Route::get("/update-type-mode-configuration",[ConfigurationCompteController::class,"modificationModeConfiguration"]);
     Route::get("/update-status-compte",[CompteController::class,"modificationStatusCompte"]);
+    Route::get("/delete-compte",[AuthentificationController::class,"gestionSupprimerCompte"]);
 ?>
