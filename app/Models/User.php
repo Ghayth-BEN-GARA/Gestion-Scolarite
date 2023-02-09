@@ -142,12 +142,10 @@
         }
 
         public function getFormattedDateNaissanceUserAttribute(){
-            setlocale(LC_TIME, 'French');
             return strftime("%A %d %B %Y",strtotime(strftime($this->getDateNaissanceUserAttribute())));
         }
 
         public function getFormattedDateCreationUserAttribute(){
-            setlocale(LC_TIME, 'French');
             return strftime("%A %d %B %Y",strtotime(strftime($this->getDateCreationUserAttribute())));
         }
     }

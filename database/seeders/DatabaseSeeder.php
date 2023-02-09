@@ -13,7 +13,8 @@
                 ActeurSeeder::class,
                 UserSeeder::class,
                 CompteSeeder::class,
-                JournalAuthentificationSeeder::class
+                JournalAuthentificationSeeder::class,
+                ConfigurationCompteSeeder::class
             ]);
         }
     }
