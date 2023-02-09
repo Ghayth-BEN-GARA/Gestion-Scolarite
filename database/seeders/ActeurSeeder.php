@@ -24,11 +24,11 @@
             $acteur3->save();
 
             $acteur4 = new Acteur();
-            $acteur4->setTypeUserAttribute("Enseignants");
+            $acteur4->setTypeUserAttribute("Enseignant");
             $acteur4->save();
 
             $acteur5 = new Acteur();
-            $acteur5->setTypeUserAttribute("Parents");
+            $acteur5->setTypeUserAttribute("Parent");
             $acteur5->save();
         }
     }

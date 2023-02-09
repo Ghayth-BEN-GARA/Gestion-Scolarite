@@ -154,8 +154,16 @@
                         <p>La page que vous recherchez n'existe pas. Comment vous êtes arrivé ici est un mystère. Mais vous pouvez cliquer sur le bouton ci-dessous pour revenir à la page précédente.</p>
                         @if(Session()->has("email") || Session()->get("acteur") == "Admin")
                             <a href = "{{url('/dashboard-admin')}}" class = "btn">Page D'Accueil</a>
+                        @elseif(Session()->has("email") || Session()->get("acteur") == "Comptable")
+                            <a href = "{{url('/dashboard-comptable')}}" class = "btn">Page D'accueil</a>
+                        @elseif(Session()->has("email") || Session()->get("acteur") == "Enseignant")
+                            <a href = "{{url('/dashboard-enseignant')}}" class = "btn">Page D'accueil</a>
+                        @elseif(Session()->has("email") || Session()->get("acteur") == "Etudiant")
+                            <a href = "{{url('/dashboard-etudiant')}}" class = "btn">Page D'accueil</a>
+                        @elseif(Session()->has("email") || Session()->get("acteur") == "Parent")
+                            <a href = "{{url('/dashboard-parent')}}" class = "btn">Page D'accueil</a>
                         @else
-                            <a href = "{{url('/')}}" class = "btn green">Page D'Authentification</a>
+                            <a href = "{{url('/')}}" class = "btn green">Page D'authentification</a>
                         @endif
                     </div>
                 </div>

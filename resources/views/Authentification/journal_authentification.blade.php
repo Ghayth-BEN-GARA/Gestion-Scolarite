@@ -23,11 +23,7 @@
                                 <div class = "page-title-box">
                                     <div class = "page-title-right">
                                         <ol class = "breadcrumb m-0">
-                                            @if(Session()->get("acteur") == "Admin")
-                                                <li class = "breadcrumb-item">
-                                                    <a href = "{{url('/dashboard-admin')}}">Accueil</a>
-                                                </li>
-                                            @endif
+                                            @include("Layouts.page_title_site")
                                             <li class = "breadcrumb-item active">Journal D'authentification</li>
                                         </ol>    
                                     </div>

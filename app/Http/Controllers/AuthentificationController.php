@@ -22,8 +22,25 @@
 
             else if($this->creerJournalAuthentification(auth()->user()->getIdUserAttribute(), "Connexion", "Se connecter au système en entrant l'adresse e-mail et le mot de passe.")){
                 $this->creerSessionUser($request->email, auth()->user()->getTypeUserAttribute());
+                
                 if(auth()->user()->getTypeUserAttribute() == "Admin"){
                     return redirect("/dashboard-admin");
+                }
+
+                else if(auth()->user()->getTypeUserAttribute() == "Comptable"){
+                    return redirect("/dashboard-comptable");
+                }
+
+                else if(auth()->user()->getTypeUserAttribute() == "Enseignant"){
+                    return redirect("/dashboard-enseignant");
+                }
+
+                else if(auth()->user()->getTypeUserAttribute() == "Etudiant"){
+                    return redirect("/dashboard-etudiant");
+                }
+
+                else if(auth()->user()->getTypeUserAttribute() == "Parent"){
+                    return redirect("/dashboard-parent");
                 }
             }
 
