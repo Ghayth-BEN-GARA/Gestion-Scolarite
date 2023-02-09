@@ -19097,3 +19097,7 @@ div.table-responsive
     display: none;
 }
 
+.cursor:hover{
+    cursor: pointer;
+}
+
