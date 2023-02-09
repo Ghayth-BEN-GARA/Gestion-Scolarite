@@ -14948,7 +14948,7 @@ h6 {
     width: 13px;
     height: 13px;
     margin: 32px 3px;
-    background: #727cf5;
+    background: #033D89;
     border-radius: 50%;
     -webkit-animation: bouncing-loader 0.6s infinite alternate;
     animation: bouncing-loader 0.6s infinite alternate;
@@ -14957,13 +14957,13 @@ h6 {
 .bouncing-loader > div:nth-child(2) {
     -webkit-animation-delay: 0.2s;
     animation-delay: 0.2s;
-    background: #fa5c7c;
+    background: #47BCC3;
 }
 
 .bouncing-loader > div:nth-child(3) {
     -webkit-animation-delay: 0.4s;
     animation-delay: 0.4s;
-    background: #0acf97;
+    background: #fff;
 }
 
 .hero-section {

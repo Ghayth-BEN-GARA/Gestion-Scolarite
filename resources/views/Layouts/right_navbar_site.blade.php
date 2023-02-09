@@ -10,25 +10,25 @@
             <div class = "alert alert-warning" role = "alert">
                 <strong>Personnaliser </strong> les paramètres de votre compte selon vos choix.
             </div>
-            <h5 class = "mt-3">Mode Sombre</h5>
+            <h5 class = "mt-3">Mode</h5>
             <hr class = "mt-1">
             @if(App\Http\Controllers\ConfigurationCompteController::getConfigurationCompteUser()->getTypeModeConfigurationAttribute() == "Light")
                 <div class = "form-check form-switch mb-1">
-                    <input class = "form-check-input" type = "radio" name = "color-scheme-mode" value = "active" id = "dark_active">
-                    <label class = "form-check-label" for = "light-mode-check">Activé</label>
+                    <input class = "form-check-input" type = "radio" name = "color-scheme-mode" value = "dark" id = "dark-mode-check" onclick = "modifierConfigurationCompte()">
+                    <label class = "form-check-label" for = "dark-mode-check">Sombre</label>
                 </div>
                 <div class = "form-check form-switch mb-1">
-                    <input class = "form-check-input" type = "radio" name = "color-scheme-mode" value = "desactive" id = "light_active" checked>
-                    <label class = "form-check-label" for = "light-mode-check">Désactivé</label>
+                    <input class = "form-check-input" type = "radio" name = "color-scheme-mode" value = "light" id = "light-mode-check" onclick = "modifierConfigurationCompte()" checked>
+                    <label class = "form-check-label" for = "light-mode-check">Normal</label>
                 </div>
             @else
                 <div class = "form-check form-switch mb-1">
-                    <input class = "form-check-input" type = "radio" name = "color-scheme-mode" value = "active" id = "dark_active" checked>
-                    <label class = "form-check-label" for = "light-mode-check">Activé</label>
+                    <input class = "form-check-input" type = "radio" name = "color-scheme-mode" value = "dark" id = "dark-mode-check" onclick = "modifierConfigurationCompte()" checked>
+                    <label class = "form-check-label" for = "dark-mode-check">Sombre</label>
                 </div>
                 <div class = "form-check form-switch mb-1">
-                    <input class = "form-check-input" type = "radio" name = "color-scheme-mode" value = "desactive" id = "light_active">
-                    <label class = "form-check-label" for = "light-mode-check">Désactivé</label>
+                    <input class = "form-check-input" type = "radio" name = "color-scheme-mode" value = "light" id = "light-mode-check" onclick = "modifierConfigurationCompte()">
+                    <label class = "form-check-label" for = "light-mode-check">Normal</label>
                 </div>
             @endif
             <h5 class = "mt-3">Statut du compte</h5>

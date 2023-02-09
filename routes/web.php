@@ -4,6 +4,7 @@
     use App\Http\Controllers\PagesErreursController;
     use App\Http\Controllers\DashboardController;
     use App\Http\Controllers\JournalAuthentificationController;
+    use App\Http\Controllers\ConfigurationCompteController;
     /*
     |--------------------------------------------------------------------------
     | Web Routes
@@ -26,4 +27,5 @@
     Route::get("/dashboard-etudiant",[DashboardController::class,"ouvrirDashboardEtudiant"])->middleware("session_user_not_exist_etudiant");
     Route::get("/dashboard-parent",[DashboardController::class,"ouvrirDashboardParent"])->middleware("session_user_not_exist_parent");
     Route::get("/delete-journal-authentification",[JournalAuthentificationController::class,"gestionDeleteJournalAuthentification"]);
+    Route::get("/update-type-mode-configuration",[ConfigurationCompteController::class,"modificationModeConfiguration"]);
 ?>

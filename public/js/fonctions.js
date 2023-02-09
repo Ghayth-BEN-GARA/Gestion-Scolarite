@@ -64,3 +64,32 @@ function questionSupprimerJournal() {
         }
     });
 }
+
+function modifierConfigurationCompte() {
+    var type_mode = null;
+
+    if($('#dark-mode-check').is(':checked')){
+        type_mode = "Dark";
+    }
+
+    else if($('#light-mode-check').is(':checked')){
+        type_mode = "Light";
+    }
+    chargement("Modification du mode en cours..").then(modifierConfigurationCompteInstantannement(type_mode));
+}
+
+function modifierConfigurationCompteInstantannement(type_mode) {
+    $.ajax({
+        url: '/update-type-mode-configuration',
+        type: "get",
+        cache: true,
+        data: { 
+            mode: type_mode
+        },
+        success: function(data) {
+            if(data == true){
+                swal.close();
+            }
+        }
+    })
+}

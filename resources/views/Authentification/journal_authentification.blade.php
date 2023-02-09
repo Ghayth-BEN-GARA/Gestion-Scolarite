@@ -110,11 +110,11 @@
                     </div>
                 </div>
             </div>
+            <footer class = "footer">
+                @include("Layouts.footer_site")
+            </footer>
+            @include("Layouts.right_navbar_site")
         </div>
-        <footer class = "footer">
-            @include("Layouts.footer_site")
-        </footer>
-        @include("Layouts.right_navbar_site")
         <div class = "rightbar-overlay"></div>
         @include("Layouts.script_site")
     </body>

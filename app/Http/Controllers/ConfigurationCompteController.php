@@ -7,5 +7,11 @@
         public static function getConfigurationCompteUser(){
             return ConfigurationCompte::where("id_user", "=", auth()->user()->getIdUserAttribute())->first();
         }
+
+        public function modificationModeConfiguration(Request $request){
+            return ConfigurationCompte::where("id_user", "=", auth()->user()->getIdUserAttribute())->update([
+                "type_mode" => $request->mode
+            ]);
+        }
     }
 ?>
