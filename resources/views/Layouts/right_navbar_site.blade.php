@@ -35,20 +35,20 @@
             <hr class = "mt-1">
             @if(App\Http\Controllers\CompteController::getCompteUser()->getStatusCompteAttribute() == "Activé")
                 <div class = "form-check form-switch mb-1">
-                    <input class = "form-check-input" type = "radio" name = "stauts-compte" value = "active" id = "status_compte_active" checked>
+                    <input class = "form-check-input" type = "radio" name = "stauts-compte" value = "active" id = "status_compte_active" onclick = "modifierStatusCompte()" checked>
                     <label class = "form-check-label" for = "active-status-compte">Activé</label>
                 </div>
                 <div class = "form-check form-switch mb-1">
-                    <input class = "form-check-input" type = "radio" name = "stauts-compte" value = "desactive" id = "status_compte_desactive">
+                    <input class = "form-check-input" type = "radio" name = "stauts-compte" value = "desactive" id = "status_compte_desactive" onclick = "modifierStatusCompte()">
                     <label class = "form-check-label" for = "desactive-status-compte">Désactivé</label>
                 </div>
             @else
                 <div class = "form-check form-switch mb-1">
-                    <input class = "form-check-input" type = "radio" name = "stauts-compte" value = "active" id = "status_compte_active">
+                    <input class = "form-check-input" type = "radio" name = "stauts-compte" value = "active" id = "status_compte_active" onclick = "modifierStatusCompte()">
                     <label class = "form-check-label" for = "active-status-compte">Activé</label>
                 </div>
                 <div class = "form-check form-switch mb-1">
-                    <input class = "form-check-input" type = "radio" name = "stauts-compte" value = "desactive" id = "status_compte_desactive" checked>
+                    <input class = "form-check-input" type = "radio" name = "stauts-compte" value = "desactive" id = "status_compte_desactive" checked onclick = "modifierStatusCompte()">
                     <label class = "form-check-label" for = "desactive-status-compte">Désactivé</label>
                 </div>
             @endif

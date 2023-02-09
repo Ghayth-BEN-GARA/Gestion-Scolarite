@@ -92,3 +92,31 @@ function modifierConfigurationCompteInstantannement(type_mode) {
         }
     })
 }
+
+function modifierStatusCompte() {
+    var status = null;
+
+    if($("#status_compte_active").is(":checked")){
+        status = "Activé";
+    }
+
+    else{
+        status = "Désactivé";
+    }
+
+    modifierStatusCompteInstantannement(status);
+}
+
+function modifierStatusCompteInstantannement(status) {
+    $.ajax({
+        url: '/update-status-compte',
+        type: "get",
+        cache: true,
+        data: { 
+            status: status
+        },
+        success: function() {
+            
+        }
+    })
+}
