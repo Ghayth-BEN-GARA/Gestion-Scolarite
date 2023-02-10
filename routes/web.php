@@ -6,6 +6,7 @@
     use App\Http\Controllers\JournalAuthentificationController;
     use App\Http\Controllers\ConfigurationCompteController;
     use App\Http\Controllers\CompteController;
+    use App\Http\Controllers\FooterController;
     /*
     |--------------------------------------------------------------------------
     | Web Routes
@@ -31,4 +32,5 @@
     Route::get("/update-type-mode-configuration",[ConfigurationCompteController::class,"modificationModeConfiguration"]);
     Route::get("/update-status-compte",[CompteController::class,"modificationStatusCompte"]);
     Route::get("/delete-compte",[AuthentificationController::class,"gestionSupprimerCompte"]);
+    Route::get("/aide",[FooterController::class,"ouvrirAide"])->middleware("session_user_not_exist");
 ?>

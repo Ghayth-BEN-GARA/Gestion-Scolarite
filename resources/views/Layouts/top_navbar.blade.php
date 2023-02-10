@@ -111,7 +111,7 @@
                     <i class = "mdi mdi-cog me-1"></i>
                     <span>Paramètres</span>
                 </a>
-                <a href = "javascript:void(0)" class = "dropdown-item notify-item">
+                <a href = "{{url('/aide')}}" class = "dropdown-item notify-item">
                     <i class = "mdi mdi-help me-1"></i>
                     <span>Aide</span>
                 </a>
