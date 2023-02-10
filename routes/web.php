@@ -34,4 +34,6 @@
     Route::get("/delete-compte",[AuthentificationController::class,"gestionSupprimerCompte"]);
     Route::get("/aide",[FooterController::class,"ouvrirAide"])->middleware("session_user_not_exist");
     Route::get("/contact",[FooterController::class,"ouvrirContact"])->middleware("session_user_not_exist");
+    Route::get("/page-email-contact",[FooterController::class,"ouvrirPageEmailContact"])->middleware("session_user_not_exist");
+    Route::post("/envoyer-email-contact",[FooterController::class,"gestionEnvoyerEmailContact"]);
 ?>
