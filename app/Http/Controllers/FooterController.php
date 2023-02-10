@@ -6,5 +6,9 @@
         public function ouvrirAide(){
             return view("Footer.help");
         }
+
+        public function ouvrirContact(){
+            return view("Footer.contact");
+        }
     }
 

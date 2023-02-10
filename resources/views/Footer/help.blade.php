@@ -199,7 +199,7 @@
                                                             Pour contacter l'Université Sesame vous pouvez :<br>
                                                             • Naviguer sur note site web <strong><a href = "https://universitesesame.com/">Université Sesame</a></strong><br>
                                                             • Envoyez-nous un e-mail sur <strong>sesame@sesame.com.tn</strong><br>
-                                                            • Appelez le numéro <strong> (+ 216) 70 686 486</strong> ou <strong> (+ 216) 97 397 292</strong>
+                                                            • Appelez le numéro <strong> (+ 216) 70 686 486</strong> ou <strong> 97 397 292</strong>
                                                         </div>
                                                     </div>
                                                 </div>

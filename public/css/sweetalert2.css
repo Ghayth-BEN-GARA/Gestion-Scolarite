@@ -1,6 +1,6 @@
 body.swal2-shown:not(.swal2-no-backdrop):not(.swal2-toast-shown),
 html.swal2-shown:not(.swal2-no-backdrop):not(.swal2-toast-shown) {
-    overflow-y: hidden
+    overflow-y: hidden;
 }
 
 body.swal2-toast-shown.swal2-has-input>.swal2-container>.swal2-toast {
@@ -226,7 +226,7 @@ body.swal2-no-backdrop>.swal2-shown.swal2-bottom-right {
     right: 0;
     bottom: 0;
     background-color: transparent;
-    z-index: 1060
+    z-index: 20000 !important;
 }
 
 .swal2-container.swal2-top {

@@ -33,4 +33,5 @@
     Route::get("/update-status-compte",[CompteController::class,"modificationStatusCompte"]);
     Route::get("/delete-compte",[AuthentificationController::class,"gestionSupprimerCompte"]);
     Route::get("/aide",[FooterController::class,"ouvrirAide"])->middleware("session_user_not_exist");
+    Route::get("/contact",[FooterController::class,"ouvrirContact"])->middleware("session_user_not_exist");
 ?>

@@ -124,7 +124,7 @@ function modifierStatusCompteInstantannement(status) {
 function questionSupprimerCompte() {
     swal({
         title: "Etes-vous sûr ?",
-        text: "Supprimer définitivement de votre compte  !",
+        text: "Supprimer définitivement votre compte  !",
         type: 'warning',
         showConfirmButton: true,
         showCancelButton: true,
