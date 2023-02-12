@@ -52,5 +52,24 @@
                 "adresse" => $adresse
             ]);
         }
+
+        public function gestionModifierReseauxSociaux(Request $request){
+            if($this->updateReseauxSociaux(auth()->user()->getIdUserAttribute(), $request->facebook, $request->instagram, $request->linkedin, $request->github)){
+                return back()->with("succes", "Nous sommes très heureux de vous informer que les liens des réseaux sociaux ont été modifiées avec succès.");
+            }
+
+            else{
+                return back()->with("erreur", "Pour des raisons techniques, vous ne pouvez pas modifier les liens des réseaux sociaux personnelles pour le moment. Veuillez réessayer plus tard.");
+            }
+        }
+
+        public function updateReseauxSociaux($id_user, $facebook, $instagram, $linkedin, $github){
+            return ReseauSocial::where("id_user", "=", $id_user)->update([
+                "link_facebook" => $facebook,
+                "link_instagram" => $instagram,
+                "link_linkedin" => $linkedin,
+                "link_github" => $github
+            ]);
+        }
     }
 ?>
