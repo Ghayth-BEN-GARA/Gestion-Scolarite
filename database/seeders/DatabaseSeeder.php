@@ -14,7 +14,8 @@
                 UserSeeder::class,
                 CompteSeeder::class,
                 JournalAuthentificationSeeder::class,
-                ConfigurationCompteSeeder::class
+                ConfigurationCompteSeeder::class,
+                ReseauSocialSeeder::class
             ]);
         }
     }

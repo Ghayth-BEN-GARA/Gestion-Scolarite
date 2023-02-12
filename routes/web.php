@@ -7,6 +7,7 @@
     use App\Http\Controllers\ConfigurationCompteController;
     use App\Http\Controllers\CompteController;
     use App\Http\Controllers\FooterController;
+    use App\Http\Controllers\ProfilController;
     /*
     |--------------------------------------------------------------------------
     | Web Routes
@@ -36,4 +37,5 @@
     Route::get("/contact",[FooterController::class,"ouvrirContact"])->middleware("session_user_not_exist");
     Route::get("/page-email-contact",[FooterController::class,"ouvrirPageEmailContact"])->middleware("session_user_not_exist");
     Route::post("/envoyer-email-contact",[FooterController::class,"gestionEnvoyerEmailContact"]);
+    Route::get("/profil",[ProfilController::class,"ouvrirProfilConnecte"])->middleware("session_user_not_exist");
 ?>
