@@ -38,4 +38,5 @@
     Route::get("/page-email-contact",[FooterController::class,"ouvrirPageEmailContact"])->middleware("session_user_not_exist");
     Route::post("/envoyer-email-contact",[FooterController::class,"gestionEnvoyerEmailContact"]);
     Route::get("/profil",[ProfilController::class,"ouvrirProfilConnecte"])->middleware("session_user_not_exist");
+    Route::post("/modifier-informations-profil",[ProfilController::class,"gestionModifierInformations"])->middleware("session_user_not_exist");
 ?>
