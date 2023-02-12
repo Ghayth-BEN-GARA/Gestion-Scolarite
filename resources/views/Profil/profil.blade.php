@@ -354,6 +354,55 @@
                                                     </div>
                                                 </form>
                                             </div>
+                                            <div class = "tab-pane" id = "securite">
+                                                <form name = "f-form-modifier-email" id  = "f-form-modifier-email" method = "post" action = "#">
+                                                    {{ csrf_field() }}
+                                                    <div class = "row">
+                                                        <div class = "col-md-12">
+                                                            <div class = "mb-3">
+                                                                <label for = "email" class = "form-label">Adresse Email</label>
+                                                                <input type = "email" class = "form-control" id = "email" name = "email" placeholder = "Saisissez votre adresse email.." value = "{{auth()->user()->getEmailUserAttribute()}}" required disabled>
+                                                                <span class = "form-text text-muted">
+                                                                    <small class = "text-danger">La modification de l'adresse e-mail n'est pas disponible.</small>
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class = "text-end">
+                                                        <button type = "submit" class = "btn btn-primary mt-2" disabled>
+                                                            <i class = "mdi mdi-content-save"></i> 
+                                                            Modifier
+                                                        </button>
+                                                    </div>
+                                                </form>
+                                                <h5 class = "mb-3 mt-3 text-uppercase bg-light p-2">
+                                                    <i class = "mdi mdi-lock me-1"></i> 
+                                                    Mot De Passe
+                                                </h5>
+                                                <form name = "f-form-modifier-password" id  = "f-form-modifier-password" method = "post" action = "{{url('/modifier-password-profil')}}">
+                                                    {{ csrf_field() }}
+                                                    <div class = "row">
+                                                        <div class = "col-md-6">
+                                                            <div class = "mb-3">
+                                                                <label for = "password" class = "form-label">Nouveau Mot De Passe</label>
+                                                                <input type = "password" class = "form-control" id = "password" name = "password" placeholder = "Saisissez le nouveau mot de passe.." required>
+                                                            </div>
+                                                        </div>
+                                                        <div class = "col-md-6">
+                                                            <div class = "mb-3">
+                                                                <label for = "confirm_password" class = "form-label">Confirmation Du Mot De Passe</label>
+                                                                <input type = "password" class = "form-control" id = "confirm_password" name = "confirm_password" placeholder = "Confirmez le nouveau mot de passe.." required>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class = "text-end">
+                                                        <button type = "submit" class = "btn btn-primary mt-2">
+                                                            <i class = "mdi mdi-content-save"></i> 
+                                                            Modifier
+                                                        </button>
+                                                    </div>
+                                                </form>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>

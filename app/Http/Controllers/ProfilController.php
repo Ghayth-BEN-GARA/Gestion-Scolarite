@@ -2,6 +2,7 @@
     namespace App\Http\Controllers;
     use Illuminate\Http\Request;
     use Illuminate\Support\Str;
+    use Illuminate\Support\Facades\Auth;
     use App\Models\ReseauSocial;
     use App\Models\User;
 
@@ -59,7 +60,7 @@
             }
 
             else{
-                return back()->with("erreur", "Pour des raisons techniques, vous ne pouvez pas modifier les liens des réseaux sociaux personnelles pour le moment. Veuillez réessayer plus tard.");
+                return back()->with("erreur", "Pour des raisons techniques, vous ne pouvez pas modifier les liens des réseaux sociaux pour le moment. Veuillez réessayer plus tard.");
             }
         }
 
@@ -69,6 +70,43 @@
                 "link_instagram" => $instagram,
                 "link_linkedin" => $linkedin,
                 "link_github" => $github
+            ]);
+        }
+
+        public function gestionModifierPassword(Request $request){
+            if($this->verifierEgalitePassword($request->password, $request->confirm_password)){
+                return back()->with("erreur", "Les deux mots de passe saisis ne sont pas identiques.");
+            }
+
+            else if($this->verifierAncienPasswordSaisie(auth()->user()->getEmailUserAttribute(), $request->password)){
+                return back()->with("erreur", "Vous avez saisi votre ancien mot de passe.");
+            }
+
+            else if($this->updatePasswordUser(auth()->user()->getEmailUserAttribute(), $request->password)){
+                return back()->with("succes", "Nous sommes très heureux de vous informer que votre mote de passea a été modifié avec succès.");
+            }
+
+            else{
+                return back()->with("erreur", "Pour des raisons techniques, vous ne pouvez pas modifier votre mot de passe pour le moment. Veuillez réessayer plus tard.");
+            }
+        }
+
+        public function verifierEgalitePassword($new_password, $confirm_password){
+            return strcmp($new_password, $confirm_password);
+        }
+
+        public function verifierAncienPasswordSaisie($email, $password){
+            $credentials = [
+                'email' => $email,
+                'password' => $password
+            ];
+
+            return Auth::attempt($credentials);
+        }
+
+        public function updatePasswordUser($email, $password){
+            return User::where("email", "=", $email)->update([
+                "password" => bcrypt($password)
             ]);
         }
     }
