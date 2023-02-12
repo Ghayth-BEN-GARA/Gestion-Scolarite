@@ -11,7 +11,7 @@
                     </div>
                     <div class = "signup-form">
                         <form method = "post" class = "register-form" id = "login-form" name = "login-form" action = "{{url('/login-user')}}">
-                            @csrf
+                            {{ csrf_field() }}
                             <h2>Connexion</h2>
                             @if(Session()->has("erreur"))
                                 <div class = "alert alert-danger d-flex alert-dismissible fade show mt-1" role = "alert">

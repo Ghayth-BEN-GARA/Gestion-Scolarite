@@ -65,7 +65,7 @@
                                                 <div class = "row">
                                                     <div class = "col-lg-7">
                                                         <form class = "form-contact" id = "form-contact" method = "post" action = "{{url('/envoyer-email-contact')}}">
-                                                            @csrf
+                                                            {{ csrf_field() }}
                                                             <div class = "row">
                                                                 <div class = "col-md-6">
                                                                     <div class = "mb-3">
