@@ -52,7 +52,7 @@
             $this->attributes["link_github"] = $value;
         }
 
-        public function getLinkLinkedingAttribute(){
+        public function getLinkLinkedinAttribute(){
             return $this->attributes["link_linkedin"];
         }
 
