@@ -38,7 +38,9 @@
     Route::get("/page-email-contact",[FooterController::class,"ouvrirPageEmailContact"])->middleware("session_user_not_exist");
     Route::post("/envoyer-email-contact",[FooterController::class,"gestionEnvoyerEmailContact"]);
     Route::get("/profil",[ProfilController::class,"ouvrirProfilConnecte"])->middleware("session_user_not_exist");
-    Route::post("/modifier-informations-profil",[ProfilController::class,"gestionModifierInformations"])->middleware("session_user_not_exist");
-    Route::post("/modifier-reseaux-sociaux-profil",[ProfilController::class,"gestionModifierReseauxSociaux"])->middleware("session_user_not_exist");
-    Route::post("/modifier-password-profil",[ProfilController::class,"gestionModifierPassword"])->middleware("session_user_not_exist");
+    Route::post("/modifier-informations-profil",[ProfilController::class,"gestionModifierInformations"]);
+    Route::post("/modifier-reseaux-sociaux-profil",[ProfilController::class,"gestionModifierReseauxSociaux"]);
+    Route::post("/modifier-password-profil",[ProfilController::class,"gestionModifierPassword"]);
+    Route::get("/edit-photo-profil",[ProfilController::class,"ouvrirPhotoDeProfil"])->middleware("session_user_not_exist");
+    Route::post("/modifier-photo-profil",[ProfilController::class,"gestionModifierPhotoProfil"]);
 ?>

@@ -3,6 +3,7 @@
     use Illuminate\Http\Request;
     use Illuminate\Support\Str;
     use Illuminate\Support\Facades\Auth;
+    use Illuminate\Support\Facades\File;
     use App\Models\ReseauSocial;
     use App\Models\User;
 
@@ -83,11 +84,11 @@
             }
 
             else if($this->updatePasswordUser(auth()->user()->getEmailUserAttribute(), $request->password)){
-                return back()->with("succes", "Nous sommes très heureux de vous informer que votre mote de passea a été modifié avec succès.");
+                return back()->with("success", "Nous sommes très heureux de vous informer que votre mote de passe a a été modifié avec succès.");
             }
 
             else{
-                return back()->with("erreur", "Pour des raisons techniques, vous ne pouvez pas modifier votre mot de passe pour le moment. Veuillez réessayer plus tard.");
+                return back()->with("error", "Pour des raisons techniques, vous ne pouvez pas modifier votre mot de passe pour le moment. Veuillez réessayer plus tard.");
             }
         }
 
@@ -107,6 +108,29 @@
         public function updatePasswordUser($email, $password){
             return User::where("email", "=", $email)->update([
                 "password" => bcrypt($password)
+            ]);
+        }
+
+        public function ouvrirPhotoDeProfil(){
+            return view("Profil.edit_photo_profil");
+        }
+
+        public function gestionModifierPhotoProfil(Request $request){
+            if($this->updatePhotoProfil(auth()->user()->getIdUserAttribute(), $request)){
+                return back()->with("succes", "Nous sommes très heureux de vous informer que votre photo de profil a a été modifié avec succès.");
+            }
+
+            else{
+                return back()->with("erreur", "Pour des raisons techniques, vous ne pouvez pas modifier votre photo de profil pour le moment. Veuillez réessayer plus tard.");
+            }
+        }
+
+        public function updatePhotoProfil($id_user, $request){
+            $filename = time().$request->file('file')->getClientOriginalName();
+            $path = $request->file->move('images_profiles/'.$id_user, $filename);
+
+            return User::where('id_user', '=', $id_user)->update([
+                    'path_photo_profile' => $path
             ]);
         }
     }
