@@ -98,18 +98,16 @@
                         title: "Photo acceptée",
                         text: "Nous sommes très heureux de vous informer que votre photo de profil a a été modifié avec succès.",
                         type: 'success',
-                        showConfirmButton: true,
-                        showCancelButton: false,
+                        showConfirmButton: false,
+                        showCancelButton: true,
                         showCloseButton: true,
-                        confirmButtonColor: '#033D89',
-                        confirmButtonText: 'Fermer',
+                        cancelButtonColor: '#033D89',
+                        cancelButtonText: 'Fermer',
                         padding: 60
                     })
 
                     .then((result) => {
-                        if (result.value) {
-                            location.reload()
-                        }
+                        location.reload()
                     });
                 },
             };

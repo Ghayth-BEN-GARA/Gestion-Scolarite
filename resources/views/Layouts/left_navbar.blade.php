@@ -34,6 +34,22 @@
                     <span> Profil </span>
                 </a>
             </li>
+            @if(Session()->get("acteur") == "Admin")
+                <li class = "side-nav-item">
+                    <a data-bs-toggle = "collapse" href = "#utilisateurs" aria-expanded = "false" aria-controls = "utilisateurs" class = "side-nav-link">
+                        <i class = "uil-users-alt"></i>
+                        <span> Utilisateurs </span>
+                        <span class = "menu-arrow"></span>
+                    </a>
+                    <div class = "collapse" id = "utilisateurs">
+                        <ul class = "side-nav-second-level">
+                            <li>
+                                <a href = "{{url('/liste-users')}}">Gérer</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+            @endif
         </ul>
     </div>
     <div class = "clearfix"></div>

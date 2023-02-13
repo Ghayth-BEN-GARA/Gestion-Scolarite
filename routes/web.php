@@ -8,6 +8,7 @@
     use App\Http\Controllers\CompteController;
     use App\Http\Controllers\FooterController;
     use App\Http\Controllers\ProfilController;
+    use App\Http\Controllers\UserController;
     /*
     |--------------------------------------------------------------------------
     | Web Routes
@@ -43,4 +44,5 @@
     Route::post("/modifier-password-profil",[ProfilController::class,"gestionModifierPassword"]);
     Route::get("/edit-photo-profil",[ProfilController::class,"ouvrirPhotoDeProfil"])->middleware("session_user_not_exist");
     Route::post("/modifier-photo-profil",[ProfilController::class,"gestionModifierPhotoProfil"]);
+    Route::get("/liste-users",[UserController::class,"ouvrirListeUsers"])->middleware("session_user_not_exist_admin");
 ?>
