@@ -19,7 +19,7 @@
 
         public function gestionModifierInformations(Request $request){
             if(!$this->validerNumeroMobileLength($request->mobile)){
-                return back()->with("erreur", "Votre numéro mobile doit comporter 8 chiffres.");
+                return back()->with("erreur", "Votre numéro mobile doit être composé de 8 chiffres.");
             }
 
             else if($this->verifierNumeroMobileExist(auth()->user()->getEmailUserAttribute(), $request->mobile)){
@@ -84,7 +84,7 @@
             }
 
             else if($this->updatePasswordUser(auth()->user()->getEmailUserAttribute(), $request->password)){
-                return back()->with("success", "Nous sommes très heureux de vous informer que votre mote de passe a a été modifié avec succès.");
+                return back()->with("success", "Nous sommes très heureux de vous informer que votre mot de passe a a été modifié avec succès.");
             }
 
             else{

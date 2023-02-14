@@ -7,7 +7,7 @@
     use Illuminate\Mail\Mailables\Envelope;
     use Illuminate\Queue\SerializesModels;
 
-    class creerMailContact extends Mailable{
+    class creerMailCreationUser extends Mailable{
         use Queueable, SerializesModels;
         public $mailData;
 
@@ -27,7 +27,7 @@
          */
         public function envelope(){
             return new Envelope(
-                subject: "Contact",
+                subject: "Paramètres du compte",
             );
         }
 
@@ -37,7 +37,7 @@
          * @return \Illuminate\Mail\Mailables\Content
          */
         public function build(){
-            return $this->subject("Contact")->markdown('Emails.email_contact');
+            return $this->subject("Paramètres du compte")->markdown('Emails.email_creer_user');
         }
 
         /**

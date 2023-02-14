@@ -147,3 +147,41 @@ function questionSupprimerCompte() {
         }
     });
 }
+
+function validerFormulaireCreerUtilisateur() {
+    var genre = document.getElementById("genre").selectedIndex;
+    var role = document.getElementById("role").selectedIndex;
+
+    if(genre == 0){
+        event.preventDefault();
+        afficherErreur("Vous devez sélectionner le genre de cet nouvel utilisateur.");
+    }
+
+    else if(role == 0){
+        event.preventDefault();
+        afficherErreur("Vous devez sélectionner le rôle de cet nouvel utilisateur.");
+    }
+
+    else{
+        $('#f-form-ajouter-user').submit();
+    }
+}
+
+function afficherErreur(message) {
+    swal({
+        type: "error",
+        title: "Oups !",
+        html: message,
+        width: 520,
+        padding: '2em',
+        showCancelButton: true,
+        cancelButtonText: "Fermer",
+        focusCancel: false,
+        popup: 'animated fadeInDown faster',
+        showConfirmButton: false,
+        allowEscapeKey: false,
+        allowEnterKey: false,
+        scrollbarPadding: true,
+        allowOutsideClick: false
+    })
+}

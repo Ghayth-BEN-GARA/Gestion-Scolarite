@@ -38,5 +38,9 @@
     
             return Mail::to($email)->send(new creerMailContact($mailData));
         }
+
+        public function ouvrirPageEmailCreerUser(){
+            return view("Emails.email_creer_user");
+        }
     }
 
