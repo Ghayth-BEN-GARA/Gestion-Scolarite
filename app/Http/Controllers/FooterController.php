@@ -18,7 +18,7 @@
         }
 
         public function gestionEnvoyerEmailContact(Request $request){
-            if($this->sendMailContact($request->prenom, $request->nom, $request->sujet, $request->message, $request->email, auth()->user()->getTypeUserAttribute())){
+            if($this->sendMailContact($request->prenom, $request->nom, $request->sujet, $request->message, $request->email)){
                 return back()->with("succes", "Nous sommes très heureux de vous informer que votre mail a été envoyé avec succès.");
             }
 
@@ -27,16 +27,15 @@
             }
         }
 
-        public function sendMailContact($nom, $prenom, $objet, $message, $email, $type){
+        public function sendMailContact($nom, $prenom, $objet, $message, $email){
             $mailData = [
                 'email' => $email,
                 'objet' => $objet,
                 'message' => $message,
-                'type' => $type,
                 'fullname' => $prenom." ".$nom
             ];
     
-            return Mail::to($email)->send(new creerMailContact($mailData));
+            return Mail::to("test.utilisateur012@gmail.com")->send(new creerMailContact($mailData));
         }
 
         public function ouvrirPageEmailCreerUser(){

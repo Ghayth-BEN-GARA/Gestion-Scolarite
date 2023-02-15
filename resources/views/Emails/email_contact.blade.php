@@ -9,37 +9,49 @@
         <link rel = "icon" href = "{{asset('/images/favicon.png')}}">
         <title>Email De Contact | Université Sesame</title>
     </head>
-    <body>
-        <div style = "max-width: auto; margin: auto;">
-            <div style = "margin-left: 50px; width: 80%;">
-                <p style = "border: 1px solid #808080; padding:40px">
-                    <span style = "text-transform: uppercase; font-size: 16px; font-weight: 500; font-family: Quicksand, Calibri, sans-serif; font-weight:700; letter-spacing: 3px; line-height: 35px;">
-                        Bonjour <b> Sesame,</b>
-                    </span>
-                    <br><br>
-                    <span style = "color: #888888;font-size: 16px; font-family: 'Work Sans', Calibri, sans-serif; line-height: 24px;">
-                        Un utilisateur nommé <b style = "color: #033D89;">{{$mailData['fullname']}}</b> vous a envoyé un message via le formulaire de contact. <br>Le message contient comme détails :<br>
-                        <b>• Objet : </b>{{$mailData['objet']}}
-                        <br>
-                        <b>• Message : </b>{{$mailData['message']}}
-                        <br>
-                        <b>• Email : </b>{{$mailData['email']}}
-                    </span>
-                    <br>
-                    <span style = "color: #888888;font-size: 16px; font-family: 'Work Sans', Calibri, sans-serif; line-height: 24px;">
-                        Ce message a été envoyé le <span style = "text-transform: capitalize"><?php setlocale (LC_TIME, 'fr_FR.utf8','fra');  echo utf8_encode(strftime("%A %d %B %Y",strtotime(strftime(date('Y-m-d'))))); ?></span> à <span>{{date('H:i')}}</span>.
-                    </span>
-                    <p style = "margin-top:80px">
-                        <span style = "color: #888888; font-size: 16px; font-family: 'Work Sans', Calibri, sans-serif; line-height: 24px;">
-                            Vous recevez des é-mails via le formulaire de contact.
-                            Cet e-mail provient de <span style = "text-transform: capitalize;">{{$mailData['fullname']}}</span>.
-                            ({{$mailData['type']}} de l'application).
-                            <br>
-                            Copyright © <?php setlocale (LC_TIME, 'fr_FR.utf8','fra'); echo utf8_encode(strftime("%B %Y",strtotime(strftime(date('Y-m-d')))));?> <b style = "color: #033D89;">Université Sesame</b>.<br><br>
-                            <span style = "text-align: center; font-weight: 600;">S'il vous plait ne répondez pas à cet email.</span>
-                        </span>
-                    </p>
-                </p>
+    <body style = "margin: 0; font-family: Nunito, sans-serif; font-size: 0.9rem; font-weight: 400; line-height: 1.5; color: #6c757d; background-color: #fafbfe; -webkit-text-size-adjust: 100%; -webkit-tap-highlight-color: transparent;">
+        <div style = "--bs-gutter-x: 0px; --bs-gutter-y: 0; display: -webkit-box; display: -ms-flexbox; display: flex; -ms-flex-wrap: wrap; flex-wrap: wrap; margin-top: calc(var(--bs-gutter-y) * -1); margin-right: calc(var(--bs-gutter-x) * -0.5); margin-left: calc(var(--bs-gutter-x) * -0.5);">
+            <div style = "-webkit-box-flex: 0; -ms-flex: 0 0 auto; flex: 0 0 auto; width: 100%;">
+                <div style = "position: relative; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; min-width: 0; word-wrap: break-word; background-color: #fff; background-clip: border-box; border: 1px solid #eef2f7; border-radius: 0.25rem;">
+                    <div style = "-webkit-box-flex: 1; -ms-flex: 1 1 auto; flex: 1 1 auto; padding: 1.5rem 1.5rem;">
+                        <div style = "margin: -1.5rem 0 -1.5rem 250px; padding: 1.5rem 0 1.5rem 25px;">
+                            <div style = "margin-top: 1.5rem !important;">
+                                <h5 style = "margin-top: 0; margin-bottom: 0.75rem; font-weight: 500; line-height: 1.1; font-size: 0.9375rem; margin: 10px 0; font-weight: 700; font-size: 18px !important;">Courriel du formulaire de contact !</h5>
+                                <hr style = "margin: 1rem 0; color: inherit; background-color: currentColor; border: 0; opacity: 0.25; height: 1px;">
+                                <div style = "display: -webkit-box !important; display: -ms-flexbox !important; display: flex !important; margin-bottom: 1.5rem !important; margin-top: 0.375rem !important;">
+                                    <img style = " display: -webkit-box !important; display: -ms-flexbox !important; display: flex !important; argin-right: 0.75rem !important; border-radius: 50% !important;" src = "{{asset('https://digital-beaver.com/images/user.png')}}" alt = "Photo de user.png" height = "32"/>
+                                    <div style = "width: 100% !important; overflow: hidden !important;">
+                                        <small style = "font-size: 0.75rem; float: right !important; text-transform: capitalize">
+                                            <?php setlocale (LC_TIME, 'fr_FR.utf8','fra'); echo utf8_encode(strftime("%A %d %B %Y",strtotime(strftime(date('Y-m-d')))));?>
+                                        </small>
+                                        <h6 style = "margin-top: 0; margin-bottom: 0.75rem; font-weight: 500; font-size: 0.75rem;  margin: 10px 0; font-weight: 700;  line-height: 1.1; margin-left:3px; margin-top: 0 !important; margin-right: 0 !important; margin-bottom: 0 !important; font-size: 14px !important;">{{$mailData['fullname']}}</h6>
+                                        <small style = "font-size: 0.75rem; color: #98a6ad !important; margin-left:3px;">De : {{$mailData['email']}}</small>
+                                    </div>
+                                </div>
+                                <p style = "margin-top: 0; margin-bottom: 1rem;">Bonjour Sesame !</p>
+                                <p style = "margin-top: 0; margin-bottom: 1rem;">
+                                    Un utilisateur nommé <b>{{$mailData['fullname']}}</b> vous a envoyé un message via le formulaire de contact. Le message contient comme détails :
+                                </p>
+                                <ul>
+                                    <li>
+                                        <b> Objet : </b> {{$mailData['objet']}}
+                                    </li>
+                                    <li>
+                                        <b> Message : </b> {{$mailData['message']}}
+                                    </li>
+                                    <li>
+                                        <b> Email : </b> {{$mailData['email']}}
+                                    </li>
+                                </ul>
+                                <hr style = "margin: 1rem 0; color: inherit; background-color: currentColor; border: 0; opacity: 0.25; height: 1px;">
+                                <p style = "margin-top: 0; margin-bottom: 1rem;">
+                                    Copyright © <?php setlocale (LC_TIME, 'fr_FR.utf8','fra'); echo utf8_encode(strftime("%B %Y",strtotime(strftime(date('Y-m-d')))));?> <b> Université Sesame </b>.
+                                </p>
+                            </div>
+                    
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </body>
