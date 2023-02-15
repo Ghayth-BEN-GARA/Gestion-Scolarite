@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang = "en">
     @include("Layouts.head_authentification")
-    <title>Connexion | Université Sesame</title>
+    <title>Récupération Du Compte | Université Sesame</title>
     <body>
         <div class = "main">
             <div class = "container">
@@ -10,9 +10,12 @@
                         <img src = "{{asset('/login/images/signup-img.jpg')}}" alt = "Image d'authentification">
                     </div>
                     <div class = "signup-form">
-                        <form method = "post" class = "register-form" id = "login-form" name = "login-form" action = "{{url('/login-user')}}">
+                        <form method = "post" class = "register-form" id = "login-form" name = "login-form" action = "#">
                             {{ csrf_field() }}
-                            <h2>Connexion</h2>
+                            <h2>Réinitialiser Le Mot De Passe</h2>
+                            <p class = "text-muted mb-4">
+                                Entrez votre adresse e-mail et nous vous enverrons un e-mail avec des instructions pour réinitialiser votre mot de passe.
+                            </p>
                             @if(Session()->has("erreur"))
                                 <div class = "alert alert-danger d-flex alert-dismissible fade show mt-1" role = "alert">
                                     <svg xmlns = "http://www.w3.org/2000/svg" width = "24" height = "24" fill = "currentColor" class = "bi flex-shrink-0 me-2" viewBox = "0 0 16 16" role = "img" aria-label = "Warning:">
@@ -38,23 +41,11 @@
                                 <label for = "address_email">Adresse Email :</label>
                                 <input type = "email" name = "email" id = "email" placeholder = "Saisissez votre adresse email.." required/>
                             </div>
-                            <div class = "form-group">
-                                <label for = "mot_de_passe">Mot De Passe :</label>
-                                <input type = "password" name = "password" id = "password" placeholder = "Saisissez votre mot de passe.." required/>
-                            </div>
-                            <div class = "form-row">
-                                <div class = "form-check form-radio">
-                                    <input class = "form-check-input" type = "checkbox" name = "souviens_de_moi" id = "souviens_de_moi" value = "Souviens De Moi">
-                                    <label class = "form-check-label" for = "souviens_de_moi">Souviens De Moi</label>
-                                </div>
-                                <div class = "form-group">
-                                    <label>
-                                        <a href = "{{url('/forget-password')}}"  class = "text-right">Mot De Passe Oublié ?</a>
-                                    </label>
-                                </div>
-                            </div>
                             <div class = "form-submit">
-                                <input type = "submit" value = "Se Connecter" class = "submit" name = "submit" id = "submit" />
+                                <button type = "button" class = "secondary" name = "secondary" id = "secondary">
+                                    <a href = "{{url('/')}}" class = "retour-login">Retour</a>
+                                </button>
+                                <input type = "submit" value = "Réinitialiser " class = "submit" name = "submit" id = "submit" />
                             </div>
                         </form>
                     </div>

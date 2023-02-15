@@ -121,5 +121,9 @@
         public function supprimerCompte(){
             return User::where("id_user", "=", auth()->user()->getIdUserAttribute())->delete();
         }
+
+        public function ouvrirForgetPassword(){
+            return view("Authentification.forget_password");
+        }
     }
 ?>

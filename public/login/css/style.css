@@ -380,14 +380,31 @@ label {
   border: none;
   cursor: pointer;
 }
+
+.secondary {
+  width: 140px;
+  height: 40px;
+  display: inline-block;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+}
     
 #submit {
   background-color: #033D89;
   color: #fff; 
 }
+
+#secondary {
+  background-color: #E8E8E8;
+}
     
 #submit:hover {
   background-color: #033F99; 
+}
+
+#secondary:hover {
+  background-color: #E8E8E8;
 }
   
 @media screen and (max-width: 992px) {
@@ -451,5 +468,21 @@ label {
   .submit {
     width: 100%; 
   }
+
+  .secondary {
+    width: 100%; 
+  }
+}
+
+.retour-login{
+  text-decoration: none;
+  color: #000; 
+  font-family: 'Poppins';
+  font-weight: 400;
+  font-size: 13px;
+}
+
+.retour-login:hover{
+  color: #000; 
 }
   
