@@ -16,6 +16,74 @@
                 <img src = "{{asset('/images/favicon_sm.png')}}" alt = "Logo de l'application" height = "30">
             </span>
         </a>
+    @elseif(Session()->get("acteur") == "Comptable")
+        <a href = "{{url('/dashboard-comptable')}}" class = "logo text-center logo-light">
+            <span class = "logo-lg">
+                <img src = "{{asset('/images/favicon.png')}}" alt = "Logo de l'application" height = "120">
+            </span>
+            <span class = "logo-sm">
+                <img src = "{{asset('/images/favicon_sm.png')}}" alt = "Logo de l'application" height = "30">
+            </span>
+        </a>
+        <a href = "{{url('/dashboard-comptable')}}" class = "logo text-center logo-dark">
+            <span class = "logo-lg">
+                <img src = "{{asset('/images/favicon.png')}}" alt = "Logo de l'application" height = "120">
+            </span>
+            <span class = "logo-sm">
+                <img src = "{{asset('/images/favicon_sm.png')}}" alt = "Logo de l'application" height = "30">
+            </span>
+        </a>
+    @elseif(Session()->get("acteur") == "Enseignant")
+        <a href = "{{url('/dashboard-enseignant')}}" class = "logo text-center logo-light">
+            <span class = "logo-lg">
+                <img src = "{{asset('/images/favicon.png')}}" alt = "Logo de l'application" height = "120">
+            </span>
+            <span class = "logo-sm">
+                <img src = "{{asset('/images/favicon_sm.png')}}" alt = "Logo de l'application" height = "30">
+            </span>
+        </a>
+        <a href = "{{url('/dashboard-enseignant')}}" class = "logo text-center logo-dark">
+            <span class = "logo-lg">
+                <img src = "{{asset('/images/favicon.png')}}" alt = "Logo de l'application" height = "120">
+            </span>
+            <span class = "logo-sm">
+                <img src = "{{asset('/images/favicon_sm.png')}}" alt = "Logo de l'application" height = "30">
+            </span>
+        </a>
+    @elseif(Session()->get("acteur") == "Etudiant")
+        <a href = "{{url('/dashboard-etudiant')}}" class = "logo text-center logo-light">
+            <span class = "logo-lg">
+                <img src = "{{asset('/images/favicon.png')}}" alt = "Logo de l'application" height = "120">
+            </span>
+            <span class = "logo-sm">
+                <img src = "{{asset('/images/favicon_sm.png')}}" alt = "Logo de l'application" height = "30">
+            </span>
+        </a>
+        <a href = "{{url('/dashboard-etudiant')}}" class = "logo text-center logo-dark">
+            <span class = "logo-lg">
+                <img src = "{{asset('/images/favicon.png')}}" alt = "Logo de l'application" height = "120">
+            </span>
+            <span class = "logo-sm">
+                <img src = "{{asset('/images/favicon_sm.png')}}" alt = "Logo de l'application" height = "30">
+            </span>
+        </a>
+    @elseif(Session()->get("acteur") == "Parent")
+        <a href = "{{url('/dashboard-parent')}}" class = "logo text-center logo-light">
+            <span class = "logo-lg">
+                <img src = "{{asset('/images/favicon.png')}}" alt = "Logo de l'application" height = "120">
+            </span>
+            <span class = "logo-sm">
+                <img src = "{{asset('/images/favicon_sm.png')}}" alt = "Logo de l'application" height = "30">
+            </span>
+        </a>
+        <a href = "{{url('/dashboard-parent')}}" class = "logo text-center logo-dark">
+            <span class = "logo-lg">
+                <img src = "{{asset('/images/favicon.png')}}" alt = "Logo de l'application" height = "120">
+            </span>
+            <span class = "logo-sm">
+                <img src = "{{asset('/images/favicon_sm.png')}}" alt = "Logo de l'application" height = "30">
+            </span>
+        </a>
     @endif
     <div class = "h-100 mt-4" id = "leftside-menu-container" data-simplebar = "">
         <ul class = "side-nav">
@@ -23,6 +91,34 @@
             @if(Session()->get("acteur") == "Admin")
                 <li class = "side-nav-item">
                     <a href = "{{url('/dashboard-admin')}}" class = "side-nav-link">
+                        <i class = "uil-home-alt"></i>
+                        <span> Statistiques </span>
+                    </a>
+                </li>
+            @elseif(Session()->get("acteur") == "Comptable")
+                <li class = "side-nav-item">
+                    <a href = "{{url('/dashboard-comptable')}}" class = "side-nav-link">
+                        <i class = "uil-home-alt"></i>
+                        <span> Statistiques </span>
+                    </a>
+                </li>
+            @elseif(Session()->get("acteur") == "Enseignant")
+                <li class = "side-nav-item">
+                    <a href = "{{url('/dashboard-enseignant')}}" class = "side-nav-link">
+                        <i class = "uil-home-alt"></i>
+                        <span> Statistiques </span>
+                    </a>
+                </li>
+            @elseif(Session()->get("acteur") == "Etudiant")
+                <li class = "side-nav-item">
+                    <a href = "{{url('/dashboard-etudiant')}}" class = "side-nav-link">
+                        <i class = "uil-home-alt"></i>
+                        <span> Statistiques </span>
+                    </a>
+                </li>
+            @elseif(Session()->get("acteur") == "Parent")
+                <li class = "side-nav-item">
+                    <a href = "{{url('/dashboard-parent')}}" class = "side-nav-link">
                         <i class = "uil-home-alt"></i>
                         <span> Statistiques </span>
                     </a>
