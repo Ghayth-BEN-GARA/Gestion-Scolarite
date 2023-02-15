@@ -42,7 +42,7 @@
                             <td>{{$data->getFormattedMobileUserAttribute()}}</td>
                             <td>{{$data->getTypeUserAttribute()}}</td>
                             <td>
-                                <a href = "javascript:void(0)" class = "action-icon">
+                                <a href = "{{url('/user?id_user='.$data->getIdUserAttribute())}}" class = "action-icon">
                                     <i class = "mdi mdi-eye"></i>
                                 </a>
                                 <a href = "javascript:void(0)" class = "action-icon">

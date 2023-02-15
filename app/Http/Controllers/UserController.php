@@ -130,5 +130,17 @@
     
             return Mail::to($email)->send(new creerMailCreationUser($mailData));
         }
+
+        public function ouvrirUser(Request $request){
+            $user = $this->getInformationsUser($request->input("id_user"));
+
+            return view("Users.user", compact("user"));
+        }
+
+        public function getInformationsUser($id_user){
+            return User::join("reseaux_sociaux", "reseaux_sociaux.id_user", "=", "users.id_user")
+            ->where("users.id_user", "=", $id_user)
+            ->first();
+        }
     }
 ?> 

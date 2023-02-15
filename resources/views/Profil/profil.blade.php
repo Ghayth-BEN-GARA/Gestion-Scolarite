@@ -205,7 +205,7 @@
                                                             <i class = "mdi mdi-email me-1"></i>
                                                             <b class = "text-capitalize">Adresse Email :</b>
                                                         </p>
-                                                        <span class = "mx-3 text-capitalize">
+                                                        <span class = "mx-3">
                                                             {{auth()->user()->getEmailUserAttribute()}}
                                                         </span>
                                                     </div>
