@@ -48,7 +48,7 @@
                                 <a href = "{{url('/edit-user?id_user='.$data->getIdUserAttribute())}}" class = "action-icon">
                                     <i class = "mdi mdi-square-edit-outline"></i>
                                 </a>
-                                <a href = "javascript:void(0)" class = "action-icon">
+                                <a href = "javascript:void(0)" class = "action-icon" onclick = "questionSupprimerUser({{$data->getIdUserAttribute()}})">
                                     <i class = "mdi mdi-delete"></i>
                                 </a>
                             </td>

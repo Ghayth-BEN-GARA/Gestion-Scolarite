@@ -51,4 +51,5 @@
     Route::get("/user",[UserController::class,"ouvrirUser"])->middleware("session_user_not_exist");
     Route::get("/edit-user",[UserController::class,"ouvrirEditUser"])->middleware("session_user_not_exist_admin");
     Route::post("/modifier-user",[UserController::class,"gestionModifierUser"]);
+    Route::get("/delete-user",[UserController::class,"gestionSupprimerUser"]);
 ?>

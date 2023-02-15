@@ -182,5 +182,19 @@
         public function verifierNumeroMobileExistNotUser($email, $numero){
             return User::where("mobile", "=", $numero)->where("email", "<>", $email)->exists();
         }
+
+        public function gestionSupprimerUser(Request $request){
+            if($this->supprimerUser($request->id_user)){
+                return back()->with("success", "Nous sommes très heureux de vous informer que cet utilisateur a été supprimé avec succès.");
+            }
+
+            else{
+                return back()->with("error", "Pour des raisons techniques, vous ne pouvez pas supprimer cet utilisateur pour le moment. Veuillez réessayer plus tard.");
+            }
+        }
+
+        public function supprimerUser($id_user){
+            return User::where("id_user", "=", $id_user)->delete();
+        }
     }
 ?> 
