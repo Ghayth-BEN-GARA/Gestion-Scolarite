@@ -43,7 +43,7 @@
                 $this->creerConfigurationCompteNouvelUser($this->getIdUserAttribute($request->email));
                 $this->creerJournalAuthentificationNouvelUser($this->getIdUserAttribute($request->email));
 
-                if($this->sendMailCreationNouvelUser($request->nom, $request->prenom, $request->email, $request->password, $request->role)){
+                if($this->sendMailCreationNouvelUser($request->nom, $request->prenom, $request->email, $request->password)){
                     return back()->with("success", "Nous sommes très heureux de vous informer que cet nouvel utilisateur a été créé avec succès.");
                 }
 
@@ -120,7 +120,7 @@
             return $journal->save();
         }
 
-        public function sendMailCreationNouvelUser($nom, $prenom, $email, $password, $type){
+        public function sendMailCreationNouvelUser($nom, $prenom, $email, $password){
             $mailData = [
                 'email' => $email,
                 'password' => $password,
