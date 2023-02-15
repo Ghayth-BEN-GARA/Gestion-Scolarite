@@ -125,13 +125,5 @@
     <button class = "button-menu-mobile open-left">
         <i class = "mdi mdi-menu"></i>
     </button>
-    <div class = "app-search dropdown d-none d-lg-block">
-        <form>
-            <div class = "input-group">
-                <input type = "text" class = "form-control dropdown-toggle" placeholder = "Chercher des utilisateurs.." id = "top-search">
-                <span class = "mdi mdi-magnify search-icon"></span>
-                <button class = "input-group-text btn-primary" type = "submit">Chercher</button>
-            </div>
-        </form>
-    </div>
+    <livewire:search-users-livewire/>
 </div>
