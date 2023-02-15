@@ -49,4 +49,5 @@
     Route::post("/creer-user",[UserController::class,"gestionCreerUser"]);
     Route::get("/page-email-creer-user",[FooterController::class,"ouvrirPageEmailCreerUser"])->middleware("session_user_not_exist");
     Route::get("/user",[UserController::class,"ouvrirUser"])->middleware("session_user_not_exist");
+    Route::get("/edit-user",[UserController::class,"ouvrirEditUser"])->middleware("session_user_not_exist_admin");
 ?>

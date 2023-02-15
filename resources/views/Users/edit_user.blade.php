@@ -2,7 +2,7 @@
 <html lang = "en">
     <head>
         @include("Layouts.head_site")
-        <title>Nouvel Utilisateur | Université Sesame</title>
+        <title>Modifier Un Utilisateur | Université Sesame</title>
     </head>
     @include("Layouts.body_configuration")
         <div id = "preloader">
@@ -24,10 +24,10 @@
                                     <div class = "page-title-right">
                                         <ol class = "breadcrumb m-0">
                                             @include("Layouts.page_title_site")
-                                            <li class = "breadcrumb-item active">Nouvel Utilisateur</li>
+                                            <li class = "breadcrumb-item active">Modifier Un Utilisateur</li>
                                         </ol>    
                                     </div>
-                                    <h4 class = "page-title text-blue">Nouvel Utilisateur</h4>
+                                    <h4 class = "page-title text-blue">Modifier Un Utilisateur</h4>
                                 </div>
                             </div>
                         </div>
@@ -35,9 +35,9 @@
                             <div class = "col-12">
                                 <div class = "card">
                                     <div class = "card-body">
-                                        <h4 class = "header-title">Nouvel Utilisateur</h4>
+                                        <h4 class = "header-title">Modifier Un Utilisateur</h4>
                                         <p class = "text-muted font-14">
-                                            Créez un nouvel utilisateur en ajoutant les informations requises pour chaque utilisateur. Cet utilisateur peut être un admin, un comptable, un étudiant, un enseignant ou un parent.
+                                            Modifiez cet utilisateur en ajoutant les nouvelles informations requises pour l'utilisateur choisi. Cet utilisateur peut être un admin, un comptable, un étudiant, un enseignant ou un parent.
                                         </p>
                                         @if(Session()->has("erreur"))
                                             <div class = "alert alert-danger d-flex alert-dismissible fade show mt-1" role = "alert">
@@ -60,7 +60,7 @@
                                                 <button type = "button" class = "btn-close" data-bs-dismiss = "alert" aria-label = "Close"></button>
                                             </div>
                                         @endif
-                                        <form name = "f-form-ajouter-user" id  = "f-form-ajouter-user" method = "post" action = "{{url('/creer-user')}}" onsubmit = "validerFormulaireCreerUtilisateur()">
+                                        <form name = "f-form-modifier-user" id  = "f-form-modifier-user" method = "post" action = "#">
                                             {{ csrf_field() }}
                                             <h5 class = "mb-3 mt-3 text-uppercase p-2">
                                                 <i class = "mdi mdi-account-circle me-1"></i> 
@@ -70,13 +70,13 @@
                                                 <div class = "col-md-6">
                                                     <div class = "mb-3">
                                                         <label for = "nom" class = "form-label">Nom</label>
-                                                        <input type = "text" class = "form-control" id = "nom" name = "nom" placeholder = "Saisissez le nom.." required>
+                                                        <input type = "text" class = "form-control" id = "nom" name = "nom" placeholder = "Saisissez le nom.." value = "{{$user->getNomUserAttribute()}}" required>
                                                     </div>
                                                 </div>
                                                 <div class = "col-md-6">
                                                     <div class = "mb-3">
                                                         <label for = "prenom" class = "form-label">Prénom</label>
-                                                        <input type = "text" class = "form-control" id = "prenom" name = "prenom" placeholder = "Saisissez le prénom.." required>
+                                                        <input type = "text" class = "form-control" id = "prenom" name = "prenom" placeholder = "Saisissez le prénom.." value = "{{$user->getPrenomUserAttribute()}}" required>
                                                     </div>
                                                 </div>
                                             </div>
@@ -84,13 +84,13 @@
                                                 <div class = "col-md-6">
                                                     <div class = "mb-3">
                                                         <label for = "date_naissance" class = "form-label">Date De Naissance</label>
-                                                        <input type = "date" class = "form-control" id = "date_naissance" name = "date_naissance" placeholder = "Saisissez le date de naissance.." required>
+                                                        <input type = "date" class = "form-control" id = "date_naissance" name = "date_naissance" placeholder = "Saisissez le date de naissance.." value = "{{$user->getDateNaissanceUserAttribute()}}" required>
                                                     </div>
                                                 </div>
                                                 <div class = "col-md-6">
                                                     <div class = "mb-3">
                                                         <label for = "travail" class = "form-label">Travail</label>
-                                                        <input type = "text" class = "form-control" id = "travail" name = "travail" placeholder = "Saisissez le travail.." required>
+                                                        <input type = "text" class = "form-control" id = "travail" name = "travail" placeholder = "Saisissez le travail.." value = "{{$user->getTravailUserAttribute()}}" required>
                                                     </div>
                                                 </div>
                                             </div>
@@ -100,9 +100,9 @@
                                                         <label for = "genre" class = "form-label">Genre</label>
                                                         <select class = "form-select" id = "genre" name = "genre" required>
                                                             <option value = "#" selected disabled>Sélectionnez le genre..</option>
-                                                            <option value = "Femme">Femme</option>
-                                                            <option value = "Homme">Homme</option>
-                                                            <option value = "Non spécifié">Non spécifié</option>
+                                                            <option value = "Femme" <?php echo !$user->getGenreUserAttribute() == null && $user->getGenreUserAttribute() == "Femme" ? "selected" : '' ?>>Femme</option>
+                                                            <option value = "Homme" <?php  echo !$user->getGenreUserAttribute() == null && $user->getGenreUserAttribute() == "Homme" ? "selected" : '' ?>>Homme</option>
+                                                            <option value = "Non spécifié" <?php echo !$user->getGenreUserAttribute() == null && $user->getGenreUserAttribute() == "Non spécifié" ? "selected" : '' ?>>Non spécifié</option>
                                                         </select>
                                                     </div>
                                                 </div>
@@ -111,11 +111,11 @@
                                                         <label for = "role" class = "form-label">Rôle</label>
                                                         <select class = "form-select" id = "role" name = "role" required>
                                                             <option value = "#" selected disabled>Sélectionnez le rôle..</option>
-                                                            <option value = "Admin">Admin</option>
-                                                            <option value = "Comptable">Comptable</option>
-                                                            <option value = "Enseignant">Enseignant</option>
-                                                            <option value = "Etudiant">Etudiant</option>
-                                                            <option value = "Parent">Parent</option>
+                                                            <option value = "Admin" <?php echo !$user->getTypeUserAttribute() == null && $user->getTypeUserAttribute() == "Admin" ? "selected" : '' ?>>Admin</option>
+                                                            <option value = "Comptable" <?php  echo !$user->getTypeUserAttribute() == null && $user->getTypeUserAttribute() == "Comptable" ? "selected" : '' ?>>Comptable</option>
+                                                            <option value = "Enseignant" <?php echo !$user->getTypeUserAttribute() == null && $user->getTypeUserAttribute() == "Enseignant" ? "selected" : '' ?>>Enseignant</option>
+                                                            <option value = "Etudiant" <?php echo !$user->getTypeUserAttribute() == null && $user->getTypeUserAttribute() == "Etudiant" ? "selected" : '' ?>>Etudiant</option>
+                                                            <option value = "Parent" <?php echo !$user->getTypeUserAttribute() == null && $user->getTypeUserAttribute() == "Parent" ? "selected" : '' ?>>Parent</option>
                                                         </select>
                                                     </div>
                                                 </div>
@@ -128,7 +128,7 @@
                                                 <div class = "col-md-12">
                                                     <div class = "mb-3">
                                                         <label for = "adresse" class = "form-label">Adresse</label>
-                                                        <textarea class = "form-control" id = "adresse" name = "adresse" placeholder = "Saisissez l'adresse.." rows = "4" required></textarea>
+                                                        <textarea class = "form-control" id = "adresse" name = "adresse" placeholder = "Saisissez l'adresse.." rows = "4" required>{{$user->getAdresseUserAttribute()}}</textarea>
                                                     </div>
                                                 </div>
                                             </div>
@@ -140,13 +140,13 @@
                                                 <div class = "col-md-6">
                                                     <div class = "mb-3">
                                                         <label for = "email" class = "form-label">Adresse Email</label>
-                                                        <input type = "email" class = "form-control" id = "email" name = "email" placeholder = "Saisissez l'adresse email.." required>
+                                                        <input type = "email" class = "form-control" id = "email" name = "email" placeholder = "Saisissez l'adresse email.." value = "{{$user->getEmailUserAttribute()}}" required>
                                                     </div>
                                                 </div>
                                                 <div class = "col-md-6">
                                                     <div class = "mb-3">
                                                         <label for = "numero_mobile" class = "form-label">Numéro Mobile</label>
-                                                        <input type = "phone" class = "form-control" id = "numero_mobile" name = "numero_mobile" placeholder = "Saisissez le numéro mobile.." onKeyPress = "if(this.value.length==8) return false; return event.charCode>=48 && event.charCode<=57" required>
+                                                        <input type = "phone" class = "form-control" id = "numero_mobile" name = "numero_mobile" placeholder = "Saisissez le numéro mobile.." onKeyPress = "if(this.value.length==8) return false; return event.charCode>=48 && event.charCode<=57" value = "{{$user->getMobileUserAttribute()}}" required>
                                                     </div>
                                                 </div>
                                             </div>
@@ -170,8 +170,8 @@
                                             </div>
                                             <div class = "text-end">
                                                 <button type = "submit" class = "btn btn-primary mt-2">
-                                                    <i class = "mdi mdi-account-plus"></i> 
-                                                    Créer
+                                                    <i class = "mdi mdi-account-edit"></i> 
+                                                    Modifier
                                                 </button>
                                             </div>
                                         </form>

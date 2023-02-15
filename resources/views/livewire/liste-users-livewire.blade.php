@@ -45,7 +45,7 @@
                                 <a href = "{{url('/user?id_user='.$data->getIdUserAttribute())}}" class = "action-icon">
                                     <i class = "mdi mdi-eye"></i>
                                 </a>
-                                <a href = "javascript:void(0)" class = "action-icon">
+                                <a href = "{{url('/edit-user?id_user='.$data->getIdUserAttribute())}}" class = "action-icon">
                                     <i class = "mdi mdi-square-edit-outline"></i>
                                 </a>
                                 <a href = "javascript:void(0)" class = "action-icon">

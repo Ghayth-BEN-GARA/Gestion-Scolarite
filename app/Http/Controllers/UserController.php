@@ -142,5 +142,11 @@
             ->where("users.id_user", "=", $id_user)
             ->first();
         }
+
+        public function ouvrirEditUser(Request $request){
+            $user = $this->getInformationsUser($request->input("id_user"));
+
+            return view("Users.edit_user", compact("user"));
+        }
     }
 ?> 

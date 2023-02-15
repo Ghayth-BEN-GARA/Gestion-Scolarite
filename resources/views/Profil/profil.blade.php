@@ -256,8 +256,8 @@
                                                                 <label for = "genre" class = "form-label">Genre</label>
                                                                 <select class = "form-select" id = "genre" name = "genre" required>
                                                                     <option value = "#" selected disabled>Sélectionnez votre genre..</option>
-                                                                    <option value = "Femme" <?php auth()->user()->getGenreUserAttribute() == 'Femme' ? 'selected' : '' ?>>Femme</option>
-                                                                    <option value = "Homme" <?php auth()->user()->getGenreUserAttribute() == 'Homme' ? 'selected' : '' ?>>Homme</option>
+                                                                    <option value = "Femme" <?php echo !auth()->user()->getGenreUserAttribute() == null && auth()->user()->getGenreUserAttribute() == 'Femme' ? 'selected' : '' ?>>Femme</option>
+                                                                    <option value = "Homme" <?php echo !auth()->user()->getGenreUserAttribute() == null && auth()->user()->getGenreUserAttribute() == 'Homme' ? 'selected' : '' ?>>Homme</option>
                                                                     <option value = "Non spécifié" <?php echo !auth()->user()->getGenreUserAttribute() == null && auth()->user()->getGenreUserAttribute() == 'Non spécifié' ? 'selected' : ''; ?>>Non spécifié</option>
                                                                 </select>
                                                             </div>
