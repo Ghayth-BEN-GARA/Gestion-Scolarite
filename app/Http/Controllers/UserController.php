@@ -148,5 +148,39 @@
 
             return view("Users.edit_user", compact("user"));
         }
+
+        public function gestionModifierUser(Request $request){
+            if(!$this->validerNumeroMobileLength($request->numero_mobile)){
+                return back()->with("erreur", "Le numéro mobile doit être composé de 8 chiffres.");
+            }
+
+            else if($this->verifierNumeroMobileExistNotUser($request->email, $request->numero_mobile)){
+                return back()->with("erreur", "Nous sommes désolés de vous dire que ce numéro mobile est utilisé par un autre utilisateur.");
+            }
+
+            else if($this->updateUser($request->email, $request->nom, $request->prenom, $request->date_naissance, $request->travail, $request->genre, $request->role, $request->numero_mobile)){
+                return back()->with("success", "Nous sommes très heureux de vous informer que cet utilisateur a été modifié avec succès.");
+            }
+
+            else{
+                return back()->with("error", "Pour des raisons techniques, vous ne pouvez pas modifier cet utilisateur pour le moment. Veuillez réessayer plus tard.");
+            }
+        }
+
+        public function updateUser($email, $nom, $prenom, $date_naissance, $travail, $genre, $type, $numero){
+            return User::where("email", "=", $email)->update([
+                "nom" => $nom,
+                "prenom" => $prenom,
+                "date_naissance" => $date_naissance,
+                "travail" => $travail,
+                "genre" => $genre,
+                "type_user" => $type,
+                "mobile" => $numero
+            ]);
+        }
+
+        public function verifierNumeroMobileExistNotUser($email, $numero){
+            return User::where("mobile", "=", $numero)->where("email", "<>", $email)->exists();
+        }
     }
 ?> 

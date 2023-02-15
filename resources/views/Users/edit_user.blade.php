@@ -60,7 +60,7 @@
                                                 <button type = "button" class = "btn-close" data-bs-dismiss = "alert" aria-label = "Close"></button>
                                             </div>
                                         @endif
-                                        <form name = "f-form-modifier-user" id  = "f-form-modifier-user" method = "post" action = "#">
+                                        <form name = "f-form-modifier-user" id  = "f-form-modifier-user" method = "post" action = "{{url('/modifier-user')}}">
                                             {{ csrf_field() }}
                                             <h5 class = "mb-3 mt-3 text-uppercase p-2">
                                                 <i class = "mdi mdi-account-circle me-1"></i> 
@@ -140,31 +140,13 @@
                                                 <div class = "col-md-6">
                                                     <div class = "mb-3">
                                                         <label for = "email" class = "form-label">Adresse Email</label>
-                                                        <input type = "email" class = "form-control" id = "email" name = "email" placeholder = "Saisissez l'adresse email.." value = "{{$user->getEmailUserAttribute()}}" required>
+                                                        <input type = "email" class = "form-control" id = "email" name = "email" placeholder = "Saisissez l'adresse email.." value = "{{$user->getEmailUserAttribute()}}" readonly required>
                                                     </div>
                                                 </div>
                                                 <div class = "col-md-6">
                                                     <div class = "mb-3">
                                                         <label for = "numero_mobile" class = "form-label">Numéro Mobile</label>
                                                         <input type = "phone" class = "form-control" id = "numero_mobile" name = "numero_mobile" placeholder = "Saisissez le numéro mobile.." onKeyPress = "if(this.value.length==8) return false; return event.charCode>=48 && event.charCode<=57" value = "{{$user->getMobileUserAttribute()}}" required>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <h5 class = "mb-3 mt-3 text-uppercase p-2">
-                                                <i class = "mdi mdi-lock me-1"></i> 
-                                                Sécurité
-                                            </h5>
-                                            <div class = "row">
-                                                <div class = "col-md-6">
-                                                    <div class = "mb-3">
-                                                        <label for = "password" class = "form-label">Mot De Passe</label>
-                                                        <input type = "password" class = "form-control" id = "password" name = "password" placeholder = "Saisissez le mot de passe.." required>
-                                                    </div>
-                                                </div>
-                                                <div class = "col-md-6">
-                                                    <div class = "mb-3">
-                                                        <label for = "confirm_password" class = "form-label">Confirmation De Mot De Passe</label>
-                                                        <input type = "password" class = "form-control" id = "confirm_password" name = "confirm_password" placeholder = "Confirmez le mot de passe.." required>
                                                     </div>
                                                 </div>
                                             </div>
