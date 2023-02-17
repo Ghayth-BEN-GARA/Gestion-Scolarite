@@ -385,9 +385,15 @@ label {
   width: 140px;
   height: 40px;
   display: inline-block;
+  font-family: 'Poppins';
+  font-weight: 400;
+  font-size: 13px;
   padding: 10px;
   border: none;
   cursor: pointer;
+  text-decoration: none;
+  color: #000; 
+  text-align: center;
 }
     
 #submit {
@@ -405,6 +411,7 @@ label {
 
 #secondary:hover {
   background-color: #E8E8E8;
+  color: #000; 
 }
   
 @media screen and (max-width: 992px) {
@@ -474,15 +481,4 @@ label {
   }
 }
 
-.retour-login{
-  text-decoration: none;
-  color: #000; 
-  font-family: 'Poppins';
-  font-weight: 400;
-  font-size: 13px;
-}
-
-.retour-login:hover{
-  color: #000; 
-}
   

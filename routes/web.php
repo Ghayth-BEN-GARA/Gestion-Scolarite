@@ -52,5 +52,8 @@
     Route::get("/edit-user",[UserController::class,"ouvrirEditUser"])->middleware("session_user_not_exist_admin");
     Route::post("/modifier-user",[UserController::class,"gestionModifierUser"]);
     Route::get("/delete-user",[UserController::class,"gestionSupprimerUser"]);
-    Route::get("/forget-password",[AuthentificationController::class,"ouvrirForgetPassword"])->middleware("session_user_exist");  
+    Route::get("/forget-password",[AuthentificationController::class,"ouvrirForgetPassword"])->middleware("session_user_exist");
+    Route::post("/recuperation-compte",[AuthentificationController::class,"gestionRecuperationCompte"]);   
+    Route::get("/page-email-forget-password",[AuthentificationController::class,"ouvrirPageEmailForgetPassword"])->middleware("session_user_exist");
+    Route::get("/reset-password",[AuthentificationController::class,"ouvrirResetPassword"])->middleware("session_user_exist");
 ?>

@@ -2,6 +2,8 @@
     namespace App\Http\Controllers;
     use Illuminate\Http\Request;
     use Illuminate\Support\Facades\Auth;
+    use Illuminate\Support\Facades\Mail;
+    use App\Mail\creerMailForgetPassword;
     use Session;
     use App\Models\User;
     use App\Models\JournalAuthentification;
@@ -13,7 +15,7 @@
 
         public function gestionLoginUser(Request $request){
             if(!$this->verifierUserExist($request->email)){
-                return back()->with("erreur", "Nous sommes désolés ! Nous n'avons pas trouvé le compte.");
+                return back()->with("erreur", "Nous sommes désolés ! Nous n'avons pas trouvé votre compte.");
             }
 
             else if(!$this->verifierEmailPasswordValide($request->email, $request->password)){
@@ -45,7 +47,7 @@
             }
 
             else{
-                return back()->with("erreur", "Pour des raisons techniques, vous ne pouvez pas vous authentifier pour le moment. Veuillez réessayer plus tard.");
+                return back()->with("erreur", "Pour des raisons techniques, vous ne pouvez pas vous s'authentifier pour le moment. Veuillez réessayer plus tard.");
             }
         }
 
@@ -124,6 +126,48 @@
 
         public function ouvrirForgetPassword(){
             return view("Authentification.forget_password");
+        }
+
+        public function gestionRecuperationCompte(Request $request){
+            if(!$this->verifierUserExist($request->email)){
+                return back()->with("erreur", "Nous sommes désolés ! Nous n'avons pas trouvé votre compte.");
+            }
+
+            else if($this->sendMailLinkResetPassword($this->getInformationsUser($request->email)->getNomUserAttribute(), $this->getInformationsUser($request->email)->getPrenomUserAttribute(), $request->email, $this->generateToken, $this->getInformationsUser($request->email)->getIdUserUserAttribute())){
+                return back()->with("link_sent", "")->with("email", $request->email);
+            }
+
+            else{
+                return back()->with("erreur", "Pour des raisons techniques, vous ne pouvez pas récupérer votre compte pour le moment. Veuillez réessayer plus tard.");
+            }
+        }
+
+        public function ouvrirPageEmailForgetPassword(){
+            return view("Emails.email_forget_password");
+        }
+
+        public function sendMailLinkResetPassword($nom, $prenom, $email, $token, $id_user){
+            $mailData = [
+                'email' => $email,
+                'fullname' => $prenom." ".$nom,
+                'token' => $token,
+                'id_user' => $id_user
+                
+            ];
+    
+            return Mail::to("test.utilisateur012@gmail.com")->send(new creerMailContact($mailData));
+        }
+
+        public function generateToken(){
+            return Str::random(64);
+        }
+
+        public function getInformationsUser($email){
+            return User::where("email", "=", $email)->first();
+        }
+
+        public function ouvrirResetPassword(Request $request){
+            # code...
         }
     }
 ?>

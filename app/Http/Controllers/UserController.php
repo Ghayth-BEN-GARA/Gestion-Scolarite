@@ -124,7 +124,6 @@
             $mailData = [
                 'email' => $email,
                 'password' => $password,
-                'type' => $type,
                 'fullname' => $prenom." ".$nom
             ];
     
