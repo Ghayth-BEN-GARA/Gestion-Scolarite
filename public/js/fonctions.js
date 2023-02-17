@@ -212,3 +212,16 @@ function questionSupprimerUser(id_user) {
         }
     });
 }
+
+function validerFormulaireCreerSalle() {
+    var etage = document.getElementById("etage").selectedIndex;
+
+    if(etage == 0){
+        event.preventDefault();
+        afficherErreur("Vous devez sélectionner l'étage de cette nouvelle salle.");
+    }
+
+    else{
+        $('#f-form-ajouter-salle').submit();
+    }
+}
