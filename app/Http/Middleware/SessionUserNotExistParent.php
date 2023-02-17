@@ -2,6 +2,7 @@
     namespace App\Http\Middleware;
     use Closure;
     use Illuminate\Http\Request;
+    use Session;
 
     class SessionUserNotExistParent{
         /**
@@ -12,8 +13,12 @@
          * @return \Illuminate\Http\Response|\Illuminate\Http\RedirectResponse
          */
         public function handle(Request $request, Closure $next){
-            if(!Session()->has("email") || !Session()->get("acteur") == "Parent"){
+            if(Session()->has("email") && Session::get("acteur") != "Parent"){
                 return view('Errors.404');
+            }
+
+            else if(!Session()->has("email")){
+                return view("Errors.404");
             }
             return $next($request);
         }
