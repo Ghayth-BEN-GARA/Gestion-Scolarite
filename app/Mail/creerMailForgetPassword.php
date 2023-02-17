@@ -37,7 +37,7 @@
          * @return \Illuminate\Mail\Mailables\Content
          */
         public function build(){
-            return $this->subject("Réinitialiser le mot de passe")->markdown('Emails.email_forget_passord');
+            return $this->subject("Réinitialiser le mot de passe")->markdown('Emails.email_forget_password');
         }
 
         /**

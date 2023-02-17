@@ -19,7 +19,7 @@
                                 <h5 style = "margin-top: 0; margin-bottom: 0.75rem; font-weight: 500; line-height: 1.1; font-size: 0.9375rem; margin: 10px 0; font-weight: 700; font-size: 18px !important;">Courriel du formulaire de contact !</h5>
                                 <hr style = "margin: 1rem 0; color: inherit; background-color: currentColor; border: 0; opacity: 0.25; height: 1px;">
                                 <div style = "display: -webkit-box !important; display: -ms-flexbox !important; display: flex !important; margin-bottom: 1.5rem !important; margin-top: 0.375rem !important;">
-                                    <img style = " display: -webkit-box !important; display: -ms-flexbox !important; display: flex !important; argin-right: 0.75rem !important; border-radius: 50% !important;" src = "{{asset('https://digital-beaver.com/images/user.png')}}" alt = "Photo de user.png" height = "32"/>
+                                    <img style = " display: -webkit-box !important; display: -ms-flexbox !important; display: flex !important; argin-right: 0.75rem !important; border-radius: 50% !important;" src = "{{asset('https://www.ecoles.com.tn/sites/default/files/universite/logo/sesame_logo.jpg')}}" alt = "Photo de user.png" height = "80"/>
                                     <div style = "width: 100% !important; overflow: hidden !important;">
                                         <small style = "font-size: 0.75rem; float: right !important; text-transform: capitalize">
                                             <?php setlocale (LC_TIME, 'fr_FR.utf8','fra'); echo utf8_encode(strftime("%A %d %B %Y",strtotime(strftime(date('Y-m-d')))));?>

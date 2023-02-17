@@ -3,10 +3,12 @@
     use Illuminate\Http\Request;
     use Illuminate\Support\Facades\Auth;
     use Illuminate\Support\Facades\Mail;
+    use Illuminate\Support\Str;
     use App\Mail\creerMailForgetPassword;
     use Session;
     use App\Models\User;
     use App\Models\JournalAuthentification;
+    use App\Models\PasswordReset;
 
     class AuthentificationController extends Controller{
         public function ouvrirSignIn(){
@@ -129,12 +131,22 @@
         }
 
         public function gestionRecuperationCompte(Request $request){
+            $token = $this->generateToken();
+             
             if(!$this->verifierUserExist($request->email)){
                 return back()->with("erreur", "Nous sommes désolés ! Nous n'avons pas trouvé votre compte.");
             }
 
-            else if($this->sendMailLinkResetPassword($this->getInformationsUser($request->email)->getNomUserAttribute(), $this->getInformationsUser($request->email)->getPrenomUserAttribute(), $request->email, $this->generateToken, $this->getInformationsUser($request->email)->getIdUserUserAttribute())){
-                return back()->with("link_sent", "")->with("email", $request->email);
+            else if($this->sendMailLinkResetPassword($this->getInformationsUser($request->email)->getNomUserAttribute(), $this->getInformationsUser($request->email)->getPrenomUserAttribute(), $request->email, $token, $this->getInformationsUser($request->email)->getIdUserAttribute())){
+                if($this->verifierPasswordResetUserExist($this->getInformationsUser($request->email)->getIdUserAttribute())){
+                    $this->updatePasswordResetUser($this->getInformationsUser($request->email)->getIdUserAttribute(), $token);
+                    return back()->with("link_sent", "Un email a été envoyé à l'adresse ".$request->email.". Veuillez rechercher dans votre boite de réception un e-mail de la plateforme et cliquez sur le lien inclus pour réinitialiser votre mot de passe.");
+                }
+
+                else{
+                    $this->creerPasswordResetUser($this->getInformationsUser($request->email)->getIdUserAttribute(), $token);
+                    return back()->with("link_sent", "Un email a été envoyé à l'adresse ".$request->email.". Veuillez rechercher dans votre boite de réception un e-mail de la plateforme et cliquez sur le lien inclus pour réinitialiser votre mot de passe.");
+                }
             }
 
             else{
@@ -155,7 +167,7 @@
                 
             ];
     
-            return Mail::to("test.utilisateur012@gmail.com")->send(new creerMailContact($mailData));
+            return Mail::to($email)->send(new creerMailForgetPassword($mailData));
         }
 
         public function generateToken(){
@@ -166,8 +178,71 @@
             return User::where("email", "=", $email)->first();
         }
 
+        public function creerPasswordResetUser($id_user, $token){
+            $password_reset = new PasswordReset();
+            $password_reset->setTokenAttribute($token);
+            $password_reset->setIdUserAttribute($id_user);
+
+            return $password_reset->save();
+        }
+
+        public function updatePasswordResetUser($id_user, $token){
+            return PasswordReset::where("id_user", "=", $id_user)->update([
+                "token" => $token
+            ]);
+        }
+
+        public function verifierPasswordResetUserExist($id_user){
+            return PasswordReset::where("id_user", "=", $id_user)->exists();
+        }
+
         public function ouvrirResetPassword(Request $request){
-            # code...
+            $token = $request->token;
+            $id_user = $request->input('id_user');
+            $verifier_token = $this->verifierTokenUser($id_user, $token);
+            return view("Authentification.reset_password", compact("token", "id_user", "verifier_token"));
+        }
+
+        public function verifierTokenUser($id_user, $token){
+            return PasswordReset::where("id_user", "=", $id_user)->where("token", "=", $token)->exists();
+        }
+
+        public function gestionModifierPassword(Request $request){
+            if($this->verifierEgalitePassword($request->password, $request->confirm_password)){
+                return back()->with("erreur", "Les deux mots de passe saisis ne sont pas identiques.");
+            }
+
+            else if($this->verifierAncienPasswordSaisie($request->id_user, $request->password)){
+                return back()->with("erreur", "Vous avez saisi votre ancien mot de passe.");
+            }
+       
+            else if($this->updatePasswordUser($request->id_user, $request->password)){
+                $this->creerJournalAuthentification($request->id_user, "Réinitialisation du mot de passe", "Récupération de compte en suivant le processus de réinitialisation du mot de passe.");
+                return redirect('/')->with('success', 'Nous sommes très heureux de vous informer que votre mot de passe a a été réinitialisé avec succès.');
+            }
+
+            else{
+                return back()->with("erreur", "Pour des raisons techniques, vous ne pouvez pas modifier votre nouveau mot de passe pour le moment. Veuillez réessayer plus tard.");
+            }
+        }
+
+        public function verifierEgalitePassword($new_password, $confirm_password){
+            return strcmp($new_password, $confirm_password);
+        }
+
+        public function verifierAncienPasswordSaisie($id_user, $password){
+            $credentials = [
+                'id_user' => $id_user,
+                'password' => $password
+            ];
+
+            return Auth::attempt($credentials);
+        }
+
+        public function updatePasswordUser($id_user, $password){
+            return User::where("id_user", "=", $id_user)->update([
+                "password" => bcrypt($password)
+            ]);
         }
     }
 ?>

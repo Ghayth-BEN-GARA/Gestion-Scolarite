@@ -34,11 +34,11 @@
                                     <br><br>
                                     Vous pouvez réinitialiser votre mot de passe en cliquant sur le lien ci-dessous :
                                     <div style = "text-align: left; padding-top: 15px; padding-bottom: 15px;">
-                                        <a href = "http://127.0.0.1:8000/reset-password?token={{$mailData['token']}}&id_user={{$mailData['id_user']" style = "text-decoration:none; width: auto; height: 30px; display: inline-block; font-family: Nunito, sans-serif; font-weight: 700; font-size: 14px; padding: 10px; border: none; margin-left:30px; background-color: #033D89; color: #fff; text-align:center; letter-spacing:0.9px;">Réinitialisez votre mot de passe</a>
+                                        <a href = "http://127.0.0.1:8000/reset-password?token={{$mailData['token']}}&id_user={{$mailData['id_user']}}" style = "text-decoration:none; width: auto; height: 40px; display: inline-block; font-family: Nunito, sans-serif; font-weight: 700; font-size: 14px; padding: 10px; border: none; margin-left:30px; background-color: #033D89; color: #fff; text-align:center; letter-spacing:0.9px;" target = "_blank">Réinitialisez votre mot de passe</a>
                                     </div>
                                 </p>
                                 <p style = "margin-top: 0; margin-bottom: 1rem;">
-                                    Si vous n'avez pas demander pas de nouveau mot de passe, veuillez nous informer immédiatement en répondant à cet e-mail. Vous pouvez trouver des réponses et nous contacter à <a href = "http://127.0.0.1:8000/aide" style = "text-decoration:none; color:#033D89;">Centre d'aide</a>. Nous sommes là pour vous aider à n'importe quelle étape.
+                                    Si vous n'avez pas demander pas de nouveau mot de passe, veuillez nous informer immédiatement en répondant à cet e-mail. Vous pouvez trouver des réponses et nous contacter à <b style = "text-decoration:none; color:#000;">Centre d'aide</b>. Nous sommes là pour vous aider à n'importe quelle étape.
                                 </p>
                                 <hr style = "margin: 1rem 0; color: inherit; background-color: currentColor; border: 0; opacity: 0.25; height: 1px;">
                                 <p style = "margin-top: 0; margin-bottom: 1rem;">
