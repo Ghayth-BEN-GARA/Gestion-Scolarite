@@ -10,12 +10,10 @@
          * @return void
          */
         public function up(){
-            Schema::create('salles', function (Blueprint $table) {
+            Schema::create('etages', function (Blueprint $table) {
                 $table->collation = "utf8_general_ci";
                 $table->charset = "utf8";
-                $table->id("id_salle");
-                $table->integer("numero_salle")->default(0);
-                $table->integer("etage")->default(0);
+                $table->id("numero_etage");
             });
         }
 
@@ -25,7 +23,7 @@
          * @return void
          */
         public function down(){
-            Schema::dropIfExists('salles');
+            Schema::dropIfExists('etages');
         }
     };
 ?>

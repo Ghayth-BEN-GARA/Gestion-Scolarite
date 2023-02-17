@@ -145,6 +145,20 @@
                         </ul>
                     </div>
                 </li>
+                <li class = "side-nav-item">
+                    <a data-bs-toggle = "collapse" href = "#salles" aria-expanded = "false" aria-controls = "salles" class = "side-nav-link">
+                        <i class = "uil-building"></i>
+                        <span> Salles </span>
+                        <span class = "menu-arrow"></span>
+                    </a>
+                    <div class = "collapse" id = "salles">
+                        <ul class = "side-nav-second-level">
+                            <li>
+                                <a href = "{{url('/liste-salles')}}">Gérer</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
             @endif
         </ul>
     </div>

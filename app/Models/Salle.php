@@ -18,7 +18,7 @@
         protected $fillable = [
             "id_salle",
             "numero_salle",
-            "etage"
+            "numero_etage"
         ];
 
         public function getIdSalleAttribute(){
@@ -34,11 +34,11 @@
         }
 
         public function getEtageSalleAttribute(){
-            return $this->attributes["etage"];
+            return $this->attributes["numero_etage"];
         }
 
         public function setEtageSalleAttribute($value){
-            $this->attributes["etage"] = $value;
+            $this->attributes["numero_etage"] = $value;
         }
     }
 ?>
