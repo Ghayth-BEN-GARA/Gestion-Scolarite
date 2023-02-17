@@ -60,4 +60,6 @@
     Route::get("/reset-password",[AuthentificationController::class,"ouvrirResetPassword"])->middleware("session_user_exist");
     Route::post("/update-reset-password-user",[AuthentificationController::class,"gestionModifierPassword"]);
     Route::get("/liste-salles",[SalleController::class,"ouvrirListeSalles"])->middleware("session_user_not_exist_admin");
+    Route::get("/add-etage",[SalleController::class,"ouvrirAddEtage"])->middleware("session_user_not_exist_admin");
+    Route::post("/creer-etage",[SalleController::class,"gestionCreerEtage"]);
 ?>

@@ -2,7 +2,7 @@
 <html lang = "en">
     <head>
         @include("Layouts.head_site")
-        <title>Salles | Université Sesame</title>
+        <title>Nouvel Étage | Université Sesame</title>
     </head>
     @include("Layouts.body_configuration")
         <div id = "preloader">
@@ -24,10 +24,10 @@
                                     <div class = "page-title-right">
                                         <ol class = "breadcrumb m-0">
                                             @include("Layouts.page_title_site")
-                                            <li class = "breadcrumb-item active">Liste Des Salles</li>
+                                            <li class = "breadcrumb-item active">Nouvel Étage</li>
                                         </ol>    
                                     </div>
-                                    <h4 class = "page-title text-blue">Liste Des Salles</h4>
+                                    <h4 class = "page-title text-blue">Nouvel Étage</h4>
                                 </div>
                             </div>
                         </div>
@@ -35,22 +35,10 @@
                             <div class = "col-12">
                                 <div class = "card">
                                     <div class = "card-body">
-                                        <div class = "row mb-2">
-                                            <div class = "col-sm-4">
-                                                <a href = "{{url('/add-salle')}}" class = "btn btn-primary mb-2">
-                                                    <i class = "mdi mdi-plus-circle me-2"></i> 
-                                                    Créer Des Salles
-                                                </a>
-                                            </div>
-                                            <div class = "col-sm-8">
-                                                <div class = "text-sm-end">
-                                                    <a href = "{{url('/add-etage')}}" class = "btn btn-success mb-2 text-capitalize">
-                                                        <i class = "mdi mdi-plus-circle me-2"></i> 
-                                                        Créer Des étages
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
+                                        <h4 class = "header-title">Nouvel Étage</h4>
+                                        <p class = "text-muted font-14">
+                                            Créez un nouvel étage en ajoutant le numéro de l'étage. Notez bien qu'il y a des étages qui sont déjà créés par défaut.
+                                        </p>
                                         @if(Session()->has("erreur"))
                                             <div class = "alert alert-danger d-flex alert-dismissible fade show mt-1" role = "alert">
                                                 <svg xmlns = "http://www.w3.org/2000/svg" width = "24" height = "24" fill = "currentColor" class = "bi flex-shrink-0 me-2" viewBox = "0 0 16 16" role = "img" aria-label = "Warning:">
@@ -72,7 +60,26 @@
                                                 <button type = "button" class = "btn-close" data-bs-dismiss = "alert" aria-label = "Close"></button>
                                             </div>
                                         @endif
-                                      
+                                        <form name = "f-form-ajouter-etage" id  = "f-form-ajouter-etage" method = "post" action = "{{url('/creer-etage')}}">
+                                            {{ csrf_field() }}
+                                            <div class = "row">
+                                                <div class = "col-md-6">
+                                                    <div class = "mb-3">
+                                                        <label for = "etage" class = "form-label">Numéro d'étage</label>
+                                                        <input type = "number" class = "form-control" id = "etage" name = "etage" placeholder = "Saisissez le numéro d'étage.." onKeyPress = "return event.charCode>=48 && event.charCode<=57" required>
+                                                    </div>
+                                                </div>
+                                                <div class = "col-md-6">
+                                                    <div class = "mb-3">
+                                                        <label for = "submit" class = "form-label">&emsp;</label>
+                                                        <button type = "submit" class = "btn btn-primary" style = "margin-top:28px">
+                                                            <i class = "mdi mdi-account-plus"></i> 
+                                                            Créer
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
                                     </div>
                                 </div>
                             </div>
