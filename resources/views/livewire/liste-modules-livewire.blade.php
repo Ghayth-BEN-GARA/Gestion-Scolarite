@@ -27,7 +27,7 @@
                             <td>{{$data->getNombreHeureModuleAttribute()}}</td>
                             <td>{{$data->getCoefficientModuleAttribute()}}</td>
                             <td>
-                                <a href = "#" class = "action-icon">
+                                <a href = "{{url('/module?id_module='.$data->getIdModuleAttribute())}}" class = "action-icon">
                                     <i class = "mdi mdi-eye"></i>
                                 </a>
                                 <a href = "#" class = "action-icon">

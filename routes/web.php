@@ -71,4 +71,5 @@
     Route::get("/liste-modules",[ModuleController::class,"ouvrirListeModules"])->middleware("session_user_not_exist_admin");
     Route::get("/add-module",[ModuleController::class,"ouvrirAddModule"])->middleware("session_user_not_exist_admin");
     Route::post("/creer-module",[ModuleController::class,"gestionCreerModule"]);
+    Route::get("/module",[ModuleController::class,"ouvrirModule"])->middleware("session_user_not_exist_admin");
 ?>

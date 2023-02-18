@@ -39,5 +39,14 @@
 
             return $module->save();
         }
+
+        public function ouvrirModule(Request $request){
+            $module = $this->getInformationsModule($request->input("id_module"));
+            return view("Modules.module", compact("module"));
+        }
+
+        public function getInformationsModule($id_module){
+            return Module::where("id_module", "=", $id_module)->first();
+        }
     }
 ?>
