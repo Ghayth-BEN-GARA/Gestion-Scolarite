@@ -159,6 +159,20 @@
                         </ul>
                     </div>
                 </li>
+                <li class = "side-nav-item">
+                    <a data-bs-toggle = "collapse" href = "#modules" aria-expanded = "false" aria-controls = "modules" class = "side-nav-link">
+                        <i class = "uil-book-open"></i>
+                        <span> Modules </span>
+                        <span class = "menu-arrow"></span>
+                    </a>
+                    <div class = "collapse" id = "modules">
+                        <ul class = "side-nav-second-level">
+                            <li>
+                                <a href = "{{url('/liste-modules')}}">Gérer</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
             @endif
         </ul>
     </div>
