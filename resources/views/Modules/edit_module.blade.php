@@ -2,7 +2,7 @@
 <html lang = "en">
     <head>
         @include("Layouts.head_site")
-        <title>Modifier Une Salle | Université Sesame</title>
+        <title>Modifier Un Module | Université Sesame</title>
     </head>
     @include("Layouts.body_configuration")
         <div id = "preloader">
@@ -24,10 +24,10 @@
                                     <div class = "page-title-right">
                                         <ol class = "breadcrumb m-0">
                                             @include("Layouts.page_title_site")
-                                            <li class = "breadcrumb-item active">Modifier Une Salle</li>
+                                            <li class = "breadcrumb-item active">Modifier Un Module</li>
                                         </ol>    
                                     </div>
-                                    <h4 class = "page-title text-blue">Modifier Une Salle</h4>
+                                    <h4 class = "page-title text-blue">Modifier Un Module</h4>
                                 </div>
                             </div>
                         </div>
@@ -35,9 +35,9 @@
                             <div class = "col-12">
                                 <div class = "card">
                                     <div class = "card-body">
-                                        <h4 class = "header-title">Modifier Une Salle</h4>
+                                        <h4 class = "header-title">Modifier Un Module</h4>
                                         <p class = "text-muted font-14">
-                                            Modifiez cette salle en ajoutant les nouvelles informations requises pour la salle choisie.
+                                            Modifiez ce module en ajoutant les nouvelles informations requises pour le module choisi.
                                         </p>
                                         @if(Session()->has("erreur"))
                                             <div class = "alert alert-danger d-flex alert-dismissible fade show mt-1" role = "alert">
@@ -60,29 +60,40 @@
                                                 <button type = "button" class = "btn-close" data-bs-dismiss = "alert" aria-label = "Close"></button>
                                             </div>
                                         @endif
-                                        @if($salle != null)
-                                            <form name = "f-form-modifier-salle" id  = "f-form-modifier-salle" method = "post" action = "{{url('/modifier-salle')}}">
+                                        @if($module != null)
+                                            <form name = "f-form-modifier-module" id  = "f-form-modifier-module" method = "post" action = "{{url('/modifier-module')}}">
                                                 {{ csrf_field() }}
                                                 <div class = "row">
-                                                    <div class = "col-md-6">
+                                                    <div class = "col-md-12">
                                                         <div class = "mb-3">
-                                                            <label for = "salle" class = "form-label">Salle</label>
-                                                            <input type = "number" class = "form-control" id = "salle" name = "salle" placeholder = "Saisissez le numéro de la salle.." value = "{{$salle->getNumeroSalleAttribute()}}" onKeyPress = "return event.charCode>=48 && event.charCode<=57" required>
-                                                        </div>
-                                                    </div>
-                                                    <div class = "col-md-6">
-                                                        <div class = "mb-3">
-                                                            <label for = "etage" class = "form-label">Étage</label>
-                                                            <select class = "form-select" id = "etage" name = "etage" required>
-                                                                <option value = "#" selected disabled>Sélectionnez l'étage..</option>
-                                                                @foreach($liste_etages as $data)
-                                                                    <option value = "{{$data->getNumeroEtageAttribute()}}" <?php echo !$data->getNumeroEtageAttribute() == null && $data->getNumeroEtageAttribute() == $salle->getEtageSalleAttribute() ? "selected" : '' ?>>L'étage numéro {{$data->getNumeroEtageAttribute()}}</option>
-                                                                @endforeach
-                                                            </select>
+                                                            <label for = "nom_module" class = "form-label">Nom du module</label>
+                                                            <input type = "text" class = "form-control" id = "nom_module" name = "nom_module" placeholder = "Saisissez le nom du module.." value = "{{$module->getNomModuleAttribute()}}" required>
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <input type = "hidden" name = "id_salle" id = "id_salle" value = "{{$salle->getIdSalleAttribute()}}">
+                                                <div class = "row">
+                                                    <div class = "col-md-6">
+                                                        <div class = "mb-3">
+                                                            <label for = "nbr_heure" class = "form-label">Nombre d'heure du module</label>
+                                                            <input type = "number" class = "form-control" id = "nbr_heure" name = "nbr_heure" placeholder = "Saisissez le nombre d'heure du module.." value = "{{$module->getNombreHeureModuleAttribute()}}" onKeyPress = "return event.charCode>=48 && event.charCode<=57" required>
+                                                        </div>
+                                                    </div>
+                                                    <div class = "col-md-6">
+                                                        <div class = "mb-3">
+                                                            <label for = "coefficient" class = "form-label">Coefficient du module</label>
+                                                            <input type = "number" class = "form-control" id = "coefficient" name = "coefficient" placeholder = "Saisissez le coefficient du module.." value = "{{$module->getCoefficientModuleAttribute()}}" onKeyPress = "return event.charCode>=48 && event.charCode<=57" required>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class = "row">
+                                                    <div class = "col-md-12">
+                                                        <div class = "mb-3">
+                                                            <label for = "description" class = "form-label">Description</label>
+                                                            <textarea class = "form-control" id = "description" name = "description" placeholder = "Saisissez la description.." rows = "4" required>{{$module->getDescriptionModuleAttribute()}}</textarea>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <input type = "hidden" name = "id_module" id = "id_module" value = "{{$module->getIdModuleAttribute()}}">
                                                 <div class = "text-end">
                                                     <button type = "submit" class = "btn btn-primary mt-2">
                                                         <i class = "mdi mdi-pencil"></i> 
@@ -98,7 +109,7 @@
                                                         <h2 class = "text-error mt-0">404</h2>
                                                         <h4 class = "text-uppercase text-danger mt-3">Page Introuvable</h4>
                                                         <p class = "text-muted mt-2">
-                                                            Malheureusement, nous n'avons pas trouvé une salle avec cet identifiant. Veuillez vérifier l'identifiant et réessayer plus tard.
+                                                            Malheureusement, nous n'avons pas trouvé un module avec cet identifiant. Veuillez vérifier l'identifiant et réessayer plus tard.
                                                         </p>
                                                     </div>
                                                 </div>

@@ -62,5 +62,37 @@
         public function deleteModule($id_module){
             return Module::where("id_module", "=", $id_module)->delete();
         }
+
+        public function ouvrirEditModule(Request $request){
+            $module = $this->getInformationsModule($request->input("id_module"));
+            return view("Modules.edit_module", compact("module"));
+        }
+
+        public function gestionModifierModule(Request $request){
+            if($this->verifierModulePasActuelExist($request->id_module, $request->nom_module)){
+                return back()->with("erreur", "Nous sommes désolés de vous dire qu'il y a une autre salle déjà créé avec ce nom.");
+            }
+
+            else if($this->modifierModule($request->id_module, $request->nom_module, $request->nbr_heure, $request->coefficient, $request->description)){
+                return back()->with("success", "Nous sommes très heureux de vous informer que ce module a été modifié avec succès.");
+            }
+
+            else{
+                return back()->with("erreur", "Pour des raisons techniques, vous ne pouvez pas modifier ce module pour le moment. Veuillez réessayer plus tard.");
+            }
+        }
+
+        public function verifierModulePasActuelExist($id_module, $nom_module){
+            return Module::where("id_module", "<>", $id_module)->where("nom_module", "=", $nom_module)->exists();
+        }
+
+        public function modifierModule($id_module, $nom_module, $nbr_heure, $coefficient, $description){
+            return Module::where("id_module", "=", $id_module)->update([
+                "nom_module" => $nom_module,
+                "nombre_heure_module" => $nbr_heure,
+                "coefficient_module" => $coefficient,
+                "description_module" => $description
+            ]);
+        }
     }
 ?>
