@@ -10,6 +10,7 @@
     use App\Http\Controllers\ProfilController;
     use App\Http\Controllers\UserController;
     use App\Http\Controllers\SalleController;
+    use App\Http\Controllers\ModuleController;
     
     /*
     |--------------------------------------------------------------------------
@@ -67,4 +68,7 @@
     Route::get("/delete-salle",[SalleController::class,"gestionDeleteSalle"]);
     Route::get("/edit-salle",[SalleController::class,"ouvrirEditSalle"])->middleware("session_user_not_exist_admin");
     Route::post("/modifier-salle",[SalleController::class,"gestionModifierSalle"]);
+    Route::get("/liste-modules",[ModuleController::class,"ouvrirListeModules"])->middleware("session_user_not_exist_admin");
+    Route::get("/add-module",[ModuleController::class,"ouvrirAddModule"])->middleware("session_user_not_exist_admin");
+    Route::post("/creer-module",[ModuleController::class,"gestionCreerModule"]);
 ?>

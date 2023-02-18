@@ -2,7 +2,7 @@
 <html lang = "en">
     <head>
         @include("Layouts.head_site")
-        <title>Nouvelle Salle | Université Sesame</title>
+        <title>Nouvel Module | Université Sesame</title>
     </head>
     @include("Layouts.body_configuration")
         <div id = "preloader">
@@ -24,10 +24,10 @@
                                     <div class = "page-title-right">
                                         <ol class = "breadcrumb m-0">
                                             @include("Layouts.page_title_site")
-                                            <li class = "breadcrumb-item active">Nouvelle Salle</li>
+                                            <li class = "breadcrumb-item active">Nouvel Module</li>
                                         </ol>    
                                     </div>
-                                    <h4 class = "page-title text-blue">Nouvelle Salle</h4>
+                                    <h4 class = "page-title text-blue">Nouvel Module</h4>
                                 </div>
                             </div>
                         </div>
@@ -35,9 +35,9 @@
                             <div class = "col-12">
                                 <div class = "card">
                                     <div class = "card-body">
-                                        <h4 class = "header-title">Nouvelle Salle</h4>
+                                        <h4 class = "header-title">Nouvel Module</h4>
                                         <p class = "text-muted font-14">
-                                            Créez une nouvelle salle en ajoutant les informations réquises de la nouvelle salle. Notez bien qu'il y a des salles qui sont déjà créés par défaut.
+                                            Créez un nouvel module en ajoutant les informations réquises du nouvel module. notez bien qu'il est possible qu'un module peut être enseigné par plusieurs enseignants.
                                         </p>
                                         @if(Session()->has("erreur"))
                                             <div class = "alert alert-danger d-flex alert-dismissible fade show mt-1" role = "alert">
@@ -60,30 +60,41 @@
                                                 <button type = "button" class = "btn-close" data-bs-dismiss = "alert" aria-label = "Close"></button>
                                             </div>
                                         @endif
-                                        <form name = "f-form-ajouter-salle" id  = "f-form-ajouter-salle" method = "post" action = "{{url('/creer-salle')}}" onsubmit = "validerFormulaireCreerSalle()">
+                                        <form name = "f-form-ajouter-module" id  = "f-form-ajouter-module" method = "post" action = "{{url('/creer-module')}}">
                                             {{ csrf_field() }}
+                                            <div class = "row">
+                                                <div class = "col-md-12">
+                                                    <div class = "mb-3">
+                                                        <label for = "nom" class = "form-label">Nom du module</label>
+                                                        <input type = "text" class = "form-control" id = "nom_module" name = "nom_module" placeholder = "Saisissez le nom du module.." required>
+                                                    </div>
+                                                </div>
+                                            </div>
                                             <div class = "row">
                                                 <div class = "col-md-6">
                                                     <div class = "mb-3">
-                                                        <label for = "salle" class = "form-label">Numéro de la salle</label>
-                                                        <input type = "number" class = "form-control" id = "salle" name = "salle" placeholder = "Saisissez le numéro de la salle.." onKeyPress = "return event.charCode>=48 && event.charCode<=57" required>
+                                                        <label for = "nbr_heure" class = "form-label">Nombre d'heure du module</label>
+                                                        <input type = "number" class = "form-control" id = "nbr_heure" name = "nbr_heure" placeholder = "Saisissez le nombre d'heure du module.." onKeyPress = "return event.charCode>=48 && event.charCode<=57" required>
                                                     </div>
                                                 </div>
                                                 <div class = "col-md-6">
                                                     <div class = "mb-3">
-                                                        <label for = "etage" class = "form-label">Étage</label>
-                                                        <select class = "form-select" id = "etage" name = "etage" required>
-                                                            <option value = "#" selected disabled>Sélectionnez l'étage..</option>
-                                                            @foreach($liste_etages as $data)
-                                                                <option value = "{{$data->getNumeroEtageAttribute()}}">Étage numéro {{$data->getNumeroEtageAttribute()}}</option>
-                                                            @endforeach
-                                                        </select>
+                                                        <label for = "coefficient" class = "form-label">Coefficient du module</label>
+                                                        <input type = "number" class = "form-control" id = "coefficient" name = "coefficient" placeholder = "Saisissez le coefficient du module.." onKeyPress = "return event.charCode>=48 && event.charCode<=57" required>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class = "row">
+                                                <div class = "col-md-12">
+                                                    <div class = "mb-3">
+                                                        <label for = "description" class = "form-label">Description</label>
+                                                        <textarea class = "form-control" id = "description" name = "description" placeholder = "Saisissez la description.." rows = "4" required></textarea>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class = "text-end">
                                                 <button type = "submit" class = "btn btn-primary">
-                                                    <i class = "mdi mdi-account-plus"></i> 
+                                                    <i class = "mdi mdi-plus"></i> 
                                                     Créer
                                                 </button>
                                             </div>

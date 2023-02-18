@@ -23,7 +23,7 @@
             }
 
             else{
-                return back()->with("error", "Pour des raisons techniques, vous ne pouvez pas créer cet nouvel étage pour le moment. Veuillez réessayer plus tard.");
+                return back()->with("erreur", "Pour des raisons techniques, vous ne pouvez pas créer cet nouvel étage pour le moment. Veuillez réessayer plus tard.");
             }
         }
 
