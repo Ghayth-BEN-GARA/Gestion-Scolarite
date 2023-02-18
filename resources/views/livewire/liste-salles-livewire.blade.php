@@ -28,16 +28,17 @@
             </thead>
             <tbody>
                 @if(!empty($salles) && ($salles->count()))
+                    <?php $i = 1; ?>
                     @foreach($salles as $data)
                         <tr>
-                            <th scope = "row">{{$data->getIdSalleAttribute()}}</th>
+                            <th scope = "row">{{$i++}}</th>
                             <td>{{$data->getNumeroSalleAttribute()}}</td>
                             <td>Étage numéro {{$data->getEtageSalleAttribute()}}</td>
                             <td>
-                                <a href = "#" class = "action-icon">
+                                <a href = "{{url('/edit-salle?id_salle='.$data->getIdSalleAttribute())}}" class = "action-icon">
                                     <i class = "mdi mdi-square-edit-outline"></i>
                                 </a>
-                                <a href = "javascript:void(0)" class = "action-icon">
+                                <a href = "javascript:void(0)" class = "action-icon" onclick = "questionSupprimerSalle({{$data->getIdSalleAttribute()}})">
                                     <i class = "mdi mdi-delete"></i>
                                 </a>
                             </td>

@@ -225,3 +225,30 @@ function validerFormulaireCreerSalle() {
         $('#f-form-ajouter-salle').submit();
     }
 }
+
+function questionSupprimerSalle($id_salle) {
+    swal({
+        title: "Etes-vous sûr ?",
+        text: "Supprimer définitivement cette salle !",
+        type: 'warning',
+        showConfirmButton: true,
+        showCancelButton: true,
+        showCloseButton: true,
+        confirmButtonColor: '#033D89',
+        confirmButtonText: 'Oui, Je suis sûr !',
+        cancelButtonText: 'Annuler',
+        padding: 45
+    })
+
+    .then((result) => {
+        if (result.value) {
+            chargement("Suppression en cours..").then(
+                location.href = "/delete-salle?id_salle="+$id_salle
+            );
+        }
+
+        else if (result.dismiss === swal.DismissReason.cancel) {
+            swal.close();
+        }
+    });
+}

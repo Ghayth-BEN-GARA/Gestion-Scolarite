@@ -64,4 +64,7 @@
     Route::post("/creer-etage",[SalleController::class,"gestionCreerEtage"]);
     Route::get("/add-salle",[SalleController::class,"ouvrirAddSalle"])->middleware("session_user_not_exist_admin");
     Route::post("/creer-salle",[SalleController::class,"gestionCreerSalle"]);
+    Route::get("/delete-salle",[SalleController::class,"gestionDeleteSalle"]);
+    Route::get("/edit-salle",[SalleController::class,"ouvrirEditSalle"])->middleware("session_user_not_exist_admin");
+    Route::post("/modifier-salle",[SalleController::class,"gestionModifierSalle"]);
 ?>
