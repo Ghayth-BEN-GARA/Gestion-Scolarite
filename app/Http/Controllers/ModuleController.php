@@ -48,5 +48,19 @@
         public function getInformationsModule($id_module){
             return Module::where("id_module", "=", $id_module)->first();
         }
+
+        public function gestionDeleteModule(Request $request){
+            if($this->deleteModule($request->id_module)){
+                return back()->with("success", "Nous sommes très heureux de vous informer que ce module a été supprimé avec succès.");
+            }
+
+            else{
+                return back()->with("erreur", "Pour des raisons techniques, vous ne pouvez pas supprimer ce module pour le moment. Veuillez réessayer plus tard.");
+            }
+        }
+
+        public function deleteModule($id_module){
+            return Module::where("id_module", "=", $id_module)->delete();
+        }
     }
 ?>

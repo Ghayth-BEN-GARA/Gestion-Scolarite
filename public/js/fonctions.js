@@ -226,7 +226,7 @@ function validerFormulaireCreerSalle() {
     }
 }
 
-function questionSupprimerSalle($id_salle) {
+function questionSupprimerSalle(id_salle) {
     swal({
         title: "Etes-vous sûr ?",
         text: "Supprimer définitivement cette salle !",
@@ -243,7 +243,34 @@ function questionSupprimerSalle($id_salle) {
     .then((result) => {
         if (result.value) {
             chargement("Suppression en cours..").then(
-                location.href = "/delete-salle?id_salle="+$id_salle
+                location.href = "/delete-salle?id_salle="+id_salle
+            );
+        }
+
+        else if (result.dismiss === swal.DismissReason.cancel) {
+            swal.close();
+        }
+    });
+}
+
+function questionSupprimerModule(id_module) {
+    swal({
+        title: "Etes-vous sûr ?",
+        text: "Supprimer définitivement ce module !",
+        type: 'warning',
+        showConfirmButton: true,
+        showCancelButton: true,
+        showCloseButton: true,
+        confirmButtonColor: '#033D89',
+        confirmButtonText: 'Oui, Je suis sûr !',
+        cancelButtonText: 'Annuler',
+        padding: 45
+    })
+
+    .then((result) => {
+        if (result.value) {
+            chargement("Suppression en cours..").then(
+                location.href = "/delete-module?id_module="+id_module
             );
         }
 
