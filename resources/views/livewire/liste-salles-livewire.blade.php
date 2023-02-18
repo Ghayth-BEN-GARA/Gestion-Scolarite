@@ -52,4 +52,7 @@
             </tbody>
         </table>
     </div>
+    <div class = "mt-3 mb-3">
+        {{$salles->links("vendor.pagination.pagination_livewire")}}
+    </div>
 </div>
