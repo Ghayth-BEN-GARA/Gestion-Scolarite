@@ -14,7 +14,7 @@
                 $table->collation = "utf8_general_ci";
                 $table->charset = "utf8";
                 $table->id("id_specialite");
-                $table->string("nom_specialite");
+                $table->string("nom_specialite", 700)->default("Aucun");
             });
         }
 

@@ -2,7 +2,7 @@
 <html lang = "en">
     <head>
         @include("Layouts.head_site")
-        <title>Spécialités | Université Sesame</title>
+        <title>Nouvelle Spécialité | Université Sesame</title>
     </head>
     @include("Layouts.body_configuration")
         <div id = "preloader">
@@ -24,10 +24,10 @@
                                     <div class = "page-title-right">
                                         <ol class = "breadcrumb m-0">
                                             @include("Layouts.page_title_site")
-                                            <li class = "breadcrumb-item active">Liste Des Spécialités</li>
+                                            <li class = "breadcrumb-item active">Nouvelle Spécialité</li>
                                         </ol>    
                                     </div>
-                                    <h4 class = "page-title text-blue">Liste Des Spécialités</h4>
+                                    <h4 class = "page-title text-blue">Nouvelle Spécialité</h4>
                                 </div>
                             </div>
                         </div>
@@ -35,14 +35,10 @@
                             <div class = "col-12">
                                 <div class = "card">
                                     <div class = "card-body">
-                                        <div class = "row mb-2">
-                                            <div class = "col-sm-4">
-                                                <a href = "{{url('/add-specialite')}}" class = "btn btn-primary mb-2">
-                                                    <i class = "mdi mdi-plus-circle me-2"></i> 
-                                                    Créer Des Spécialités
-                                                </a>
-                                            </div>
-                                        </div>
+                                        <h4 class = "header-title">Nouvelle Spécialité</h4>
+                                        <p class = "text-muted font-14">
+                                            Créez une nouvelle spécialité en ajoutant le nom de la spécialité. Notez bien qu'il y a des spécialités qui sont déjà créés par défaut.
+                                        </p>
                                         @if(Session()->has("erreur"))
                                             <div class = "alert alert-danger d-flex alert-dismissible fade show mt-1" role = "alert">
                                                 <svg xmlns = "http://www.w3.org/2000/svg" width = "24" height = "24" fill = "currentColor" class = "bi flex-shrink-0 me-2" viewBox = "0 0 16 16" role = "img" aria-label = "Warning:">
@@ -64,7 +60,26 @@
                                                 <button type = "button" class = "btn-close" data-bs-dismiss = "alert" aria-label = "Close"></button>
                                             </div>
                                         @endif
-                                        <livewire:liste-specialites-livewire/>
+                                        <form name = "f-form-ajouter-specialite" id  = "f-form-ajouter-specialite" method = "post" action = "{{url('/creer-specialite')}}">
+                                            {{ csrf_field() }}
+                                            <div class = "row">
+                                                <div class = "col-md-6">
+                                                    <div class = "mb-3">
+                                                        <label for = "specialite" class = "form-label">Nom</label>
+                                                        <input type = "text" class = "form-control" id = "specialite" name = "specialite" placeholder = "Saisissez le nom de la spécialité.." required>
+                                                    </div>
+                                                </div>
+                                                <div class = "col-md-6">
+                                                    <div class = "mb-3">
+                                                        <label for = "submit" class = "form-label">&emsp;</label>
+                                                        <button type = "submit" class = "btn btn-primary" style = "margin-top:28px">
+                                                            <i class = "mdi mdi-plus"></i> 
+                                                            Créer
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
                                     </div>
                                 </div>
                             </div>

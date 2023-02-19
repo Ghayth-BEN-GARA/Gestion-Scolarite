@@ -11,6 +11,7 @@
     use App\Http\Controllers\UserController;
     use App\Http\Controllers\SalleController;
     use App\Http\Controllers\ModuleController;
+    use App\Http\Controllers\SpecialiteController;
     
     /*
     |--------------------------------------------------------------------------
@@ -75,4 +76,7 @@
     Route::get("/delete-module",[ModuleController::class,"gestionDeleteModule"]);
     Route::get("/edit-module",[ModuleController::class,"ouvrirEditModule"])->middleware("session_user_not_exist_admin");
     Route::post("/modifier-module",[ModuleController::class,"gestionModifierModule"]);
+    Route::get("/liste-specialites",[SpecialiteController::class,"ouvrirListeSpecialites"])->middleware("session_user_not_exist_admin");
+    Route::get("/add-specialite",[SpecialiteController::class,"ouvrirAddSpecialite"])->middleware("session_user_not_exist_admin");
+    Route::post("/creer-specialite",[SpecialiteController::class,"gestionCreerSpecialite"]);
 ?>
