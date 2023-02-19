@@ -65,7 +65,7 @@
                                             <div class = "row">
                                                 <div class = "col-md-6">
                                                     <div class = "mb-3">
-                                                        <label for = "salle" class = "form-label">Numéro de la salle</label>
+                                                        <label for = "salle" class = "form-label">Numéro De La Salle</label>
                                                         <input type = "number" class = "form-control" id = "salle" name = "salle" placeholder = "Saisissez le numéro de la salle.." onKeyPress = "return event.charCode>=48 && event.charCode<=57" required>
                                                     </div>
                                                 </div>

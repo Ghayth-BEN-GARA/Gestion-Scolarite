@@ -65,7 +65,7 @@
                                             <div class = "row">
                                                 <div class = "col-md-12">
                                                     <div class = "mb-3">
-                                                        <label for = "nom" class = "form-label">Nom du module</label>
+                                                        <label for = "nom" class = "form-label">Nom</label>
                                                         <input type = "text" class = "form-control" id = "nom_module" name = "nom_module" placeholder = "Saisissez le nom du module.." required>
                                                     </div>
                                                 </div>
@@ -73,13 +73,13 @@
                                             <div class = "row">
                                                 <div class = "col-md-6">
                                                     <div class = "mb-3">
-                                                        <label for = "nbr_heure" class = "form-label">Nombre d'heure du module</label>
+                                                        <label for = "nbr_heure" class = "form-label">Nombre D'heure</label>
                                                         <input type = "number" class = "form-control" id = "nbr_heure" name = "nbr_heure" placeholder = "Saisissez le nombre d'heure du module.." onKeyPress = "return event.charCode>=48 && event.charCode<=57" required>
                                                     </div>
                                                 </div>
                                                 <div class = "col-md-6">
                                                     <div class = "mb-3">
-                                                        <label for = "coefficient" class = "form-label">Coefficient du module</label>
+                                                        <label for = "coefficient" class = "form-label">Coefficient</label>
                                                         <input type = "number" class = "form-control" id = "coefficient" name = "coefficient" placeholder = "Saisissez le coefficient du module.." onKeyPress = "return event.charCode>=48 && event.charCode<=57" required>
                                                     </div>
                                                 </div>
