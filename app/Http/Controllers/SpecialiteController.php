@@ -36,5 +36,19 @@
 
             return $specialite_branche->save();
         }
+
+        public function gestionDeleteSpecialite(Request $request){
+            if($this->deleteSpecialite($request->input("id_specialite"))){
+                return back()->with("success", "Nous sommes très heureux de vous informer que cette spécialité a été supprimée avec succès.");
+            }
+
+            else{
+                return back()->with("erreur", "Pour des raisons techniques, vous ne pouvez pas supprimer cette spécialité pour le moment. Veuillez réessayer plus tard.");
+            }
+        }
+
+        public function deleteSpecialite($id_specialite){
+            return Specialite::where("id_specialite", "=", $id_specialite)->delete();
+        }
     }
 ?>

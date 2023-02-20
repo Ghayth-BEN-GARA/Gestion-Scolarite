@@ -79,4 +79,5 @@
     Route::get("/liste-specialites",[SpecialiteController::class,"ouvrirListeSpecialites"])->middleware("session_user_not_exist_admin");
     Route::get("/add-specialite",[SpecialiteController::class,"ouvrirAddSpecialite"])->middleware("session_user_not_exist_admin");
     Route::post("/creer-specialite",[SpecialiteController::class,"gestionCreerSpecialite"]);
+    Route::get("/delete-specialite",[SpecialiteController::class,"gestionDeleteSpecialite"]);
 ?>
