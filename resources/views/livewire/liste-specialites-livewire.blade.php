@@ -23,7 +23,7 @@
                             <th scope = "row">{{$i++}}</th>
                             <td>{{$data->getNomSpecialiteAttribute()}}</td>
                             <td>
-                                <a href = "{{url('/edit-specialite?id_module='.$data->getIdSpecialiteAttribute())}}" class = "action-icon">
+                                <a href = "{{url('/edit-specialite?id_specialite='.$data->getIdSpecialiteAttribute())}}" class = "action-icon">
                                         <i class = "mdi mdi-square-edit-outline"></i>
                                 </a>
                                 <a href = "javascript:void(0)" class = "action-icon" onclick = "questionSupprimerSpecialite({{$data->getIdSpecialiteAttribute()}})">

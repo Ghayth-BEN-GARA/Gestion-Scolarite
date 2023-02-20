@@ -50,5 +50,30 @@
         public function deleteSpecialite($id_specialite){
             return Specialite::where("id_specialite", "=", $id_specialite)->delete();
         }
+
+        public function ouvrirEditSpecialite(Request $request){
+            $specialite = $this->getInformationsSpecialite($request->input("id_specialite"));
+            return view("Specialites.edit_specialite", compact("specialite"));
+        }
+
+        public function getInformationsSpecialite($id_specialite){
+            return Specialite::where("id_specialite", "=", $id_specialite)->first();
+        }
+
+        public function gestionModifierSpecialite(Request $request){
+            if($this->modifierSpecialite($request->id_specialite, $request->nom_specialite)){
+                return back()->with("success", "Nous sommes très heureux de vous informer que cette spécialité a été modifiée avec succès.");
+            }
+
+            else{
+                return back()->with("erreur", "Pour des raisons techniques, vous ne pouvez pas modifier cette spécialité pour le moment. Veuillez réessayer plus tard.");
+            }
+        }
+
+        public function modifierSpecialite($id_specialite, $nom_specialite){
+            return Specialite::where("id_specialite", "=", $id_specialite)->update([
+                "nom_specialite" => $nom_specialite
+            ]);
+        }
     }
 ?>

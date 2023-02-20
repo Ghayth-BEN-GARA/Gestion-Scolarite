@@ -80,4 +80,6 @@
     Route::get("/add-specialite",[SpecialiteController::class,"ouvrirAddSpecialite"])->middleware("session_user_not_exist_admin");
     Route::post("/creer-specialite",[SpecialiteController::class,"gestionCreerSpecialite"]);
     Route::get("/delete-specialite",[SpecialiteController::class,"gestionDeleteSpecialite"]);
+    Route::get("/edit-specialite",[SpecialiteController::class,"ouvrirEditSpecialite"])->middleware("session_user_not_exist_admin");
+    Route::post("/modifier-specialite",[SpecialiteController::class,"gestionModifierSpecialite"]);
 ?>
