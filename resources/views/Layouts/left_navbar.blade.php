@@ -187,6 +187,20 @@
                         </ul>
                     </div>
                 </li>
+                <li class = "side-nav-item">
+                    <a data-bs-toggle = "collapse" href = "#annees_universitaire" aria-expanded = "false" aria-controls = "annees_universitaire" class = "side-nav-link">
+                        <i class = "uil-calendar-alt"></i>
+                        <span> Années Universitaire </span>
+                        <span class = "menu-arrow"></span>
+                    </a>
+                    <div class = "collapse" id = "annees_universitaire">
+                        <ul class = "side-nav-second-level">
+                            <li>
+                                <a href = "{{url('/liste-annees-universitaire')}}">Gérer</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
             @endif
         </ul>
     </div>
