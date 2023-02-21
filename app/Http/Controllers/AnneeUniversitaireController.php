@@ -67,5 +67,14 @@
 
             return $annee->save();
         }
+
+        public function ouvrirAnneeUniversitaire(Request $request){
+            $annee_universitaire = $this->getInformationsAnneeUniversitaire($request->input("id_annee_universitaire"));
+            return view("Annees_Universitaire.annee_universitaire", compact("annee_universitaire"));
+        }
+
+        public function getInformationsAnneeUniversitaire($id_annee_universitaire){
+            return AnneeUniversitaire::where("id_annee_universitaire", "=", $id_annee_universitaire)->first();
+        }
     }
 ?>

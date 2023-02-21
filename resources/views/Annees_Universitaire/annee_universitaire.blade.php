@@ -2,7 +2,7 @@
 <html lang = "en">
     <head>
         @include("Layouts.head_site")
-        <title>Module | Université Sesame</title>
+        <title>Année Universitaire | Université Sesame</title>
     </head>
     @include("Layouts.body_configuration")
         <div id = "preloader">
@@ -24,10 +24,10 @@
                                     <div class = "page-title-right">
                                         <ol class = "breadcrumb m-0">
                                             @include("Layouts.page_title_site")
-                                            <li class = "breadcrumb-item active">Module</li>
+                                            <li class = "breadcrumb-item active">Année Universitaire</li>
                                         </ol>    
                                     </div>
-                                    <h4 class = "page-title text-blue">Module</h4>
+                                    <h4 class = "page-title text-blue">Année Universitaire</h4>
                                 </div>
                             </div>
                         </div>
@@ -35,28 +35,24 @@
                             <div class = "col-12">
                                 <div class = "card">
                                     <div class = "card-body">
-                                        <h4 class = "header-title">Module</h4>
+                                        <h4 class = "header-title">Année Universitaire</h4>
                                         <p class = "text-muted font-14">
-                                            Consultez les informations de ce module qui est enregistré dans notre système.
+                                            Consultez les informations de cette année universitaire qui est enregistré dans notre système.
                                         </p>
-                                        @if($module != null)
+                                        @if($annee_universitaire != null)
                                             <table class = "table table-bordered table-centered mb-0">
                                                 <thead>
                                                     <tr class = "text-center">
                                                         <th>Identifiant</th>
-                                                        <th>Nom</th>
-                                                        <th>Description</th>
-                                                        <th>Coefficient</th>
-                                                        <th>Nombre d'heure</th>
+                                                        <th>Année De Début</th>
+                                                        <th>Année De La Fin</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
                                                     <tr class = "text-center">
-                                                        <td>{{$module->getIdModuleAttribute()}}</td>
-                                                        <td>{{$module->getNomModuleAttribute()}}</td>
-                                                        <td>{{$module->getDescriptionModuleAttribute()}}</td>
-                                                        <td>{{$module->getCoefficientModuleAttribute()}}</td>
-                                                        <td>{{$module->getNombreHeureModuleAttribute()}}</td>
+                                                        <td>{{$annee_universitaire->getIdAnneeUniversitaireAttribute()}}</td>
+                                                        <td>{{$annee_universitaire->getDebutAnneeUniversitaireAttribute()}}</td>
+                                                        <td>{{$annee_universitaire->getFinAnneeUniversitaireAttribute()}}</td>
                                                     </tr>
                                                 </tbody>
                                             </table>
@@ -68,7 +64,7 @@
                                                         <h2 class = "text-error mt-0">404</h2>
                                                         <h4 class = "text-uppercase text-danger mt-3">Page Introuvable</h4>
                                                         <p class = "text-muted mt-2">
-                                                            Malheureusement, nous n'avons pas trouvé un module avec cet identifiant. Veuillez vérifier l'identifiant et réessayer plus tard.
+                                                            Malheureusement, nous n'avons pas trouvé une année universitaire avec cet identifiant. Veuillez vérifier l'identifiant et réessayer plus tard.
                                                         </p>
                                                     </div>
                                                 </div>
