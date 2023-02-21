@@ -201,6 +201,20 @@
                         </ul>
                     </div>
                 </li>
+                <li class = "side-nav-item">
+                    <a data-bs-toggle = "collapse" href = "#classes" aria-expanded = "false" aria-controls = "classes" class = "side-nav-link">
+                        <i class = "uil-meeting-board"></i>
+                        <span> Classes </span>
+                        <span class = "menu-arrow"></span>
+                    </a>
+                    <div class = "collapse" id = "classes">
+                        <ul class = "side-nav-second-level">
+                            <li>
+                                <a href = "{{url('/liste-classes')}}">Gérer</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
             @endif
         </ul>
     </div>

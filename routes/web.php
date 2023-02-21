@@ -13,6 +13,7 @@
     use App\Http\Controllers\ModuleController;
     use App\Http\Controllers\SpecialiteController;
     use App\Http\Controllers\AnneeUniversitaireController;
+    use App\Http\Controllers\ClasseController;
     
     /*
     |--------------------------------------------------------------------------
@@ -90,4 +91,5 @@
     Route::get("/delete-annee-universitaire",[AnneeUniversitaireController::class,"gestionDeleteAnneeUniversitaire"]);
     Route::get("/edit-annee-universitaire",[AnneeUniversitaireController::class,"ouvrirEditAnneeUniversitaire"])->middleware("session_user_not_exist_admin");
     Route::post("/modifier-annee-universitaire",[AnneeUniversitaireController::class,"gestionModifierAnneeUniversitaire"]);
+    Route::get("/liste-classes",[ClasseController::class,"ouvrirListeClasses"])->middleware("session_user_not_exist_admin");
 ?>

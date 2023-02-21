@@ -1,12 +1,14 @@
 <?php
     namespace App\Http\Livewire;
     use Livewire\Component;
+    use Carbon\Carbon;
     use App\Models\User;
     use App\Models\Etage;
     use App\Models\Salle;
     use App\Models\Module;
     use App\Models\Specialite;
     use App\Models\AnneeUniversitaire;
+    use App\Models\Classe;
 
     class StatistiquesAdminLivewire extends Component{
         public function render(){
@@ -55,6 +57,10 @@
 
         public function getNbrAnneeUniversitaire(){
             return AnneeUniversitaire::get()->count();
+        }
+
+        public function getNbrClasseCurrentYear(){
+            return Classe::whereYear("date_creation_classe", "=", Carbon::now()->year)->count();
         }
     }
 ?>
