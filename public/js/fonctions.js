@@ -306,3 +306,30 @@ function questionSupprimerSpecialite(id_specialite) {
         }
     });
 }
+
+function questionSupprimerAnneeUniversitaire(id_annee_universitaire) {
+    swal({
+        title: "Etes-vous sûr ?",
+        text: "Supprimer définitivement cette année universitaire !",
+        type: 'warning',
+        showConfirmButton: true,
+        showCancelButton: true,
+        showCloseButton: true,
+        confirmButtonColor: '#033D89',
+        confirmButtonText: 'Oui, Je suis sûr !',
+        cancelButtonText: 'Annuler',
+        padding: 40
+    })
+
+    .then((result) => {
+        if (result.value) {
+            chargement("Suppression en cours..").then(
+                location.href = "/delete-annee-universitaire?id_annee_universitaire="+id_annee_universitaire
+            );
+        }
+
+        else if (result.dismiss === swal.DismissReason.cancel) {
+            swal.close();
+        }
+    });
+}

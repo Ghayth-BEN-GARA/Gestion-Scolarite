@@ -76,5 +76,19 @@
         public function getInformationsAnneeUniversitaire($id_annee_universitaire){
             return AnneeUniversitaire::where("id_annee_universitaire", "=", $id_annee_universitaire)->first();
         }
+
+        public function gestionDeleteAnneeUniversitaire(Request $request){
+            if($this->deleteAnneeUniversitaire($request->input("id_annee_universitaire"))){
+                return back()->with("success", "Nous sommes très heureux de vous informer que cette année universitaire a été supprimée avec succès.");
+            }
+
+            else{
+                return back()->with("erreur", "Pour des raisons techniques, vous ne pouvez pas supprimer cette année universitaire pour le moment. Veuillez réessayer plus tard.");
+            }
+        }
+
+        public function deleteAnneeUniversitaire($id_annee_universitaire){
+            return AnneeUniversitaire::where("id_annee_universitaire", "=", $id_annee_universitaire)->delete();
+        }
     }
 ?>
