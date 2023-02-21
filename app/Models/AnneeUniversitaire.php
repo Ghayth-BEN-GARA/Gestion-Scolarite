@@ -18,8 +18,7 @@
         protected $fillable = [
             "id_annee_universitaire",
             "debut_annee_universitaire",
-            "fin_annee_universitaire",
-            "semestre_annee_universitaire"
+            "fin_annee_universitaire"
         ];
 
         public function getIdAnneeUniversitaireAttribute(){
@@ -40,14 +39,6 @@
 
         public function setFinAnneeUniversitaireAttribute($value){
             $this->attributes["fin_annee_universitaire"] = $value;
-        }
-
-        public function getSemestreAnneeUniversitaireAttribute(){
-            return $this->attributes["semestre_annee_universitaire"];
-        }
-
-        public function setSemestreAnneeUniversitaireAttribute($value){
-            $this->attributes["semestre_annee_universitaire"] = $value;
         }
     }
 ?>

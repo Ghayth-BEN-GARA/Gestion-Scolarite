@@ -2,7 +2,7 @@
 <html lang = "en">
     <head>
         @include("Layouts.head_site")
-        <title>Années Universitaire | Université Sesame</title>
+        <title>Nouvelle Année Universitaire | Université Sesame</title>
     </head>
     @include("Layouts.body_configuration")
         <div id = "preloader">
@@ -24,10 +24,10 @@
                                     <div class = "page-title-right">
                                         <ol class = "breadcrumb m-0">
                                             @include("Layouts.page_title_site")
-                                            <li class = "breadcrumb-item active">Liste Des Années Universitaire</li>
+                                            <li class = "breadcrumb-item active">Nouvelle Année Universitaire</li>
                                         </ol>    
                                     </div>
-                                    <h4 class = "page-title text-blue">Liste Des Années Universitaire</h4>
+                                    <h4 class = "page-title text-blue">Nouvelle Année Universitaire</h4>
                                 </div>
                             </div>
                         </div>
@@ -35,14 +35,10 @@
                             <div class = "col-12">
                                 <div class = "card">
                                     <div class = "card-body">
-                                        <div class = "row mb-2">
-                                            <div class = "col-sm-4">
-                                                <a href = "{{url('/add-annee-universitaire')}}" class = "btn btn-primary mb-2">
-                                                    <i class = "mdi mdi-plus-circle me-2"></i> 
-                                                    Créer Des Années Universitaire
-                                                </a>
-                                            </div>
-                                        </div>
+                                        <h4 class = "header-title">Nouvelle Année Universitaire</h4>
+                                        <p class = "text-muted font-14">
+                                            Créez une nouvelle année universitaire en ajoutant les informations réquises de cette nouvelle année universitaire.
+                                        </p>
                                         @if(Session()->has("erreur"))
                                             <div class = "alert alert-danger d-flex alert-dismissible fade show mt-1" role = "alert">
                                                 <svg xmlns = "http://www.w3.org/2000/svg" width = "24" height = "24" fill = "currentColor" class = "bi flex-shrink-0 me-2" viewBox = "0 0 16 16" role = "img" aria-label = "Warning:">
@@ -64,7 +60,29 @@
                                                 <button type = "button" class = "btn-close" data-bs-dismiss = "alert" aria-label = "Close"></button>
                                             </div>
                                         @endif
-                                        
+                                        <form name = "f-form-ajouter-annee-universitaire" id  = "f-form-ajouter-annee-universitaire" method = "post" action = "{{url('/creer-annee-universitaire')}}">
+                                            {{ csrf_field() }}
+                                            <div class = "row">
+                                                <div class = "col-md-6">
+                                                    <div class = "mb-3">
+                                                        <label for = "date_debut" class = "form-label">Année Universitaire Du Début</label>
+                                                        <input type = "number" class = "form-control" id = "date_debut" name = "date_debut" placeholder = "Saisissez l'année de début.." onKeyPress = "return event.charCode>=48 && event.charCode<=57" required>
+                                                    </div>
+                                                </div>
+                                                <div class = "col-md-6">
+                                                    <div class = "mb-3">
+                                                        <label for = "date_fin" class = "form-label">Année Universitaire De La Fin</label>
+                                                        <input type = "number" class = "form-control" id = "date_fin" name = "date_fin" placeholder = "Saisissez l'année de fin.." onKeyPress = "return event.charCode>=48 && event.charCode<=57" required>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class = "text-end">
+                                                <button type = "submit" class = "btn btn-primary">
+                                                    <i class = "mdi mdi-plus"></i> 
+                                                    Créer
+                                                </button>
+                                            </div>
+                                        </form>
                                     </div>
                                 </div>
                             </div>

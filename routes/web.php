@@ -12,6 +12,7 @@
     use App\Http\Controllers\SalleController;
     use App\Http\Controllers\ModuleController;
     use App\Http\Controllers\SpecialiteController;
+    use App\Http\Controllers\AnneeUniversitaireController;
     
     /*
     |--------------------------------------------------------------------------
@@ -82,4 +83,7 @@
     Route::get("/delete-specialite",[SpecialiteController::class,"gestionDeleteSpecialite"]);
     Route::get("/edit-specialite",[SpecialiteController::class,"ouvrirEditSpecialite"])->middleware("session_user_not_exist_admin");
     Route::post("/modifier-specialite",[SpecialiteController::class,"gestionModifierSpecialite"]);
+    Route::get("/liste-annees-universitaire",[AnneeUniversitaireController::class,"ouvrirListeAnneesUniversitaire"])->middleware("session_user_not_exist_admin");
+    Route::get("/add-annee-universitaire",[AnneeUniversitaireController::class,"ouvrirAddAnneeUniversitaire"])->middleware("session_user_not_exist_admin");
+    Route::post("/creer-annee-universitaire",[AnneeUniversitaireController::class,"gestionCreerAnneeUniversitaire"]);
 ?>

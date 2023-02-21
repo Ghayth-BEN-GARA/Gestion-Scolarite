@@ -16,8 +16,6 @@
                 $table->id("id_annee_universitaire");
                 $table->year("debut_annee_universitaire")->default(DB::raw('CURRENT_TIMESTAMP'));
                 $table->year("fin_annee_universitaire")->default(DB::raw('CURRENT_TIMESTAMP'));
-                $table->string("semestre_annee_universitaire", 500)->default("Premier semestre");
-                $table->timestamps();
             });
         }
 
