@@ -90,5 +90,66 @@
         public function deleteAnneeUniversitaire($id_annee_universitaire){
             return AnneeUniversitaire::where("id_annee_universitaire", "=", $id_annee_universitaire)->delete();
         }
+
+        public function ouvrirEditAnneeUniversitaire(Request $request){
+            $annee_universitaire = $this->getInformationsAnneeUniversitaire($request->input("id_annee_universitaire"));
+            return view("Annees_Universitaire.edit_annee_universitaire", compact("annee_universitaire"));
+        }
+
+        public function gestionModifierAnneeUniversitaire(Request $request){
+            if($this->verifierAnneeUniversitairePasActuelExiste($request->id_annee_universitaire, $request->date_debut, $request->date_fin)){
+                return back()->with("erreur", "Nous sommes désolés de vous dire qu'il y a une autre année universitaire déjà créé avec les années saisies.");
+            }
+
+            else if($this->verifierDateDebutPasActuelExiste($request->id_annee_universitaire, $request->date_debut)){
+                return back()->with("erreur", "Nous sommes désolés de vous dire qu'il y a une autre date universitaire déjà créé avec l'année de début saisie.");
+            }
+
+            else if($this->verifierDateFinPasActuelExiste($request->id_annee_universitaire, $request->date_fin)){
+                return back()->with("erreur", "Nous sommes désolés de vous dire qu'il y a une autre date universitaire déjà créé avec l'année de la fin saisie.");
+            }
+
+            else if($this->verifierEgaliteDateAnneeUniversitaire($request->date_debut, $request->date_fin) == 0){
+                return back()->with("erreur", "Nous sommes désolés de vous dire que l'année universitaire que vous avez saisie n'est pas valide.");
+            }
+
+            else if($this->verifierEgaliteDateAnneeUniversitaire($request->date_debut, $request->date_fin) == 1){
+                return back()->with("erreur", "Nous sommes désolés de vous dire que l'année universitaire que vous avez saisie n'est pas valide.");
+            }
+
+            else if($this->modifierAnneeUniversitaire($request->id_annee_universitaire, $request->date_debut, $request->date_fin)){
+                return back()->with("success", "Nous sommes très heureux de vous informer que cette année universitaire a été modifiée avec succès.");
+            }
+
+            else{
+                return back()->with("erreur", "Pour des raisons techniques, vous ne pouvez pas modifier cette année universitaire pour le moment. Veuillez réessayer plus tard.");
+            }
+        }
+
+        public function verifierAnneeUniversitairePasActuelExiste($id_annee_universitaire, $debut, $fin){
+            return AnneeUniversitaire::where("debut_annee_universitaire", "=", $debut)
+            ->where("fin_annee_universitaire", "=", $fin)
+            ->where("id_annee_universitaire", "<>", $id_annee_universitaire)
+            ->exists();
+        }
+
+        public function verifierDateDebutPasActuelExiste($id_annee_universitaire, $debut){
+            return AnneeUniversitaire::where("debut_annee_universitaire", "=", $debut)
+            ->where("id_annee_universitaire", "<>", $id_annee_universitaire)
+            ->exists();
+        }
+
+        public function verifierDateFinPasActuelExiste($id_annee_universitaire, $fin){
+            return AnneeUniversitaire::where("fin_annee_universitaire", "=", $fin)
+            ->where("id_annee_universitaire", "<>", $id_annee_universitaire)
+            ->exists();
+        }
+
+        public function modifierAnneeUniversitaire($id_annee_universitaire, $debut, $fin){
+            return AnneeUniversitaire::where("id_annee_universitaire", "=", $id_annee_universitaire)->update([
+                "debut_annee_universitaire" => $debut,
+                "fin_annee_universitaire" => $fin
+            ]);
+        }
     }
 ?>

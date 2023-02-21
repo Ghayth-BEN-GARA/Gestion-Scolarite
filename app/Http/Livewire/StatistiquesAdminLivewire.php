@@ -6,6 +6,7 @@
     use App\Models\Salle;
     use App\Models\Module;
     use App\Models\Specialite;
+    use App\Models\AnneeUniversitaire;
 
     class StatistiquesAdminLivewire extends Component{
         public function render(){
@@ -50,6 +51,10 @@
 
         public function getNbrSpecialite(){
             return Specialite::get()->count();
+        }
+
+        public function getNbrAnneeUniversitaire(){
+            return AnneeUniversitaire::get()->count();
         }
     }
 ?>

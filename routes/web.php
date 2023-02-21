@@ -88,4 +88,6 @@
     Route::post("/creer-annee-universitaire",[AnneeUniversitaireController::class,"gestionCreerAnneeUniversitaire"]);
     Route::get("/annee-universitaire",[AnneeUniversitaireController::class,"ouvrirAnneeUniversitaire"])->middleware("session_user_not_exist_admin");
     Route::get("/delete-annee-universitaire",[AnneeUniversitaireController::class,"gestionDeleteAnneeUniversitaire"]);
+    Route::get("/edit-annee-universitaire",[AnneeUniversitaireController::class,"ouvrirEditAnneeUniversitaire"])->middleware("session_user_not_exist_admin");
+    Route::post("/modifier-annee-universitaire",[AnneeUniversitaireController::class,"gestionModifierAnneeUniversitaire"]);
 ?>

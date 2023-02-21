@@ -144,5 +144,19 @@
                 </div>
             </div>
         </div>
+        <div class = "col-lg-4 col-xl-3">
+            <div class = "card tilebox-one">
+                <div class = "card-body">
+                    <i class = 'uil uil-users-arrows float-end'></i>
+                    <h6 class = "text-uppercase mt-0">Année Universitaire</h6>
+                    <h2 class = "my-2" id = "active-users-count">{{$this->getNbrAnneeUniversitaire()}}</h2>
+                    <p class = "mb-0 text-muted">
+                        <span class = "text-nowrap text-capitalize">
+                            <?php setlocale (LC_TIME, 'fr_FR.utf8','fra'); echo utf8_encode(strftime("%A %d %B %Y",strtotime(strftime(date('Y-m-d')))));?>
+                        </span> 
+                    </p>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
