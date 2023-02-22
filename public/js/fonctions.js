@@ -333,3 +333,22 @@ function questionSupprimerAnneeUniversitaire(id_annee_universitaire) {
         }
     });
 }
+
+function validerFormulaireCreerClasse() {
+    var liste_etudiants = document.getElementById("etudiants").value;
+    var annee_universitaire = document.getElementById("annee_universitaire").value;
+
+    if((liste_etudiants == "#") || (liste_etudiants == "")){
+        event.preventDefault();
+        afficherErreur("Vous devez sélectionner une liste des étudiants.");
+    }
+
+    else if((annee_universitaire == "#") || (annee_universitaire == "")){
+        event.preventDefault();
+        afficherErreur("Vous devez sélectionner l'année universitaire.");
+    }
+
+    else{
+        $("#f-form-ajouter-classe").submit();
+    }
+}

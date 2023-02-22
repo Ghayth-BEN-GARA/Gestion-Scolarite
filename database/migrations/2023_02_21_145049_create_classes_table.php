@@ -16,9 +16,8 @@
                 $table->id("id_classe");
                 $table->string("designation_classe", 300)->default("Aucun");
                 $table->datetime("date_creation_classe")->default(DB::raw('CURRENT_TIMESTAMP'))->setTimezone('GMT');
-                $table->bigInteger("etudiant_classe")->unsigned()->nullable();
+                $table->string("etudiant_classe", 400)->default("Aucun");
                 $table->bigInteger("id_annee_universitaire")->unsigned()->nullable();
-                $table->foreign("etudiant_classe")->references("id_user")->on("users")->onDelete("cascade")->onUpdate("cascade");
                 $table->foreign("id_annee_universitaire")->references("id_annee_universitaire")->on("annees_universitaires")->onDelete("cascade")->onUpdate("cascade");
             });
         }

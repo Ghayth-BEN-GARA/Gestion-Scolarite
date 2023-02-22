@@ -93,4 +93,5 @@
     Route::post("/modifier-annee-universitaire",[AnneeUniversitaireController::class,"gestionModifierAnneeUniversitaire"]);
     Route::get("/liste-classes",[ClasseController::class,"ouvrirListeClasses"])->middleware("session_user_not_exist_admin");
     Route::get("/add-classe",[ClasseController::class,"ouvrirAddClasse"])->middleware("session_user_not_exist_admin");
+    Route::post("/creer-classe",[ClasseController::class,"gestionCreerClasse"]);
 ?>

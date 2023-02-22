@@ -60,13 +60,13 @@
                                                 <button type = "button" class = "btn-close" data-bs-dismiss = "alert" aria-label = "Close"></button>
                                             </div>
                                         @endif
-                                        <form name = "f-form-ajouter-classe" id  = "f-form-ajouter-classe" method = "post" action = "{{url('/creer-classe')}}">
+                                        <form name = "f-form-ajouter-classe" id  = "f-form-ajouter-classe" method = "post" action = "{{url('/creer-classe')}}" onsubmit = "validerFormulaireCreerClasse()">
                                             {{ csrf_field() }}
                                             <div class = "row">
                                                 <div class = "col-md-6">
                                                     <div class = "mb-3">
                                                         <label for = "etudiants" class = "form-label">Liste Des Étudiants</label>
-                                                        <select class = "select2 form-control select2-multiple" data-toggle = "select2" multiple = "multiple" data-placeholder = "Sélectionnez les étudiants.." name = "etudiants">
+                                                        <select class = "select2 form-control select2-multiple" data-toggle = "select2" multiple data-placeholder = "Sélectionnez les étudiants.." name = "etudiants[]" id = "etudiants">
                                                             <optgroup label = "Étudiants">
                                                                 @if(count($liste_etudiants) == 0)
                                                                     <option value = "#" selected disabled>La liste des étudiants est vide.</option>
