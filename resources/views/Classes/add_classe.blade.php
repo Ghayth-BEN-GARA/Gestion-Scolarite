@@ -96,6 +96,34 @@
                                                 </div>
                                             </div>
                                             <div class = "row">
+                                                <div class = "col-md-6">
+                                                    <div class = "mb-3">
+                                                        <label for = "specialite" class = "form-label">Spécialité</label>
+                                                        <select class = "form-select" name = "specialite" id = "specialite">
+                                                            <option value = "#">Sélectionnez la spécialité..</option>
+                                                            @if(count($liste_specialite) == 0)
+                                                                <option value = "#" selected disabled>La liste des spécialités est vide.</option>
+                                                            @else
+                                                                @foreach($liste_specialite as $data)
+                                                                    <option value = "{{$data->getIdSpecialiteAttribute()}}">{{$data->getNomSpecialiteAttribute()}}</option>
+                                                                @endforeach
+                                                            @endif
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class = "col-md-6">
+                                                    <div class = "mb-3">
+                                                        <label for = "niveau" class = "form-label">Niveau</label>
+                                                        <select class = "form-select" name = "niveau" id = "niveau">
+                                                            <option value = "#">Sélectionnez le niveau..</option>
+                                                            <option value = "Licence">Licence</option>
+                                                            <option value = "Master professionnels">Master professionnels</option>
+                                                            <option value = "Cycle d'ingénieur">Cycle d'ingénieur</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class = "row">
                                                 <div class = "col-md-12">
                                                     <div class = "mb-3">
                                                         <label for = "designation" class = "form-label">Désignation</label>

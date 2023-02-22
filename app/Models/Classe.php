@@ -20,7 +20,9 @@
             "designation_classe",
             "date_creation_classe",
             "etudiant_classe",
-            "id_annee_universitaire"
+            "id_annee_universitaire",
+            "id_specialite",
+            "niveau_classe"
         ];
 
         public function getIdClasseAttribute(){
@@ -57,6 +59,22 @@
 
         public function setIdAnneeUniversitaireAttribute($value){
             $this->attributes["id_annee_universitaire"] = $value;
+        }
+
+        public function getIdSpecialiteAttribute(){
+            return $this->attributes["id_specialite"];
+        }
+
+        public function setIdSpecialiteAttribute($value){
+            $this->attributes["id_specialite"] = $value;
+        }
+
+        public function getNiveauClasseAttribute(){
+            return $this->attributes["niveau_classe"];
+        }
+
+        public function setNiveauClasseAttribute($value){
+            $this->attributes["niveau_classe"] = $value;
         }
 
         public function getFormattedDateCreationClasseAttribute(){

@@ -337,6 +337,8 @@ function questionSupprimerAnneeUniversitaire(id_annee_universitaire) {
 function validerFormulaireCreerClasse() {
     var liste_etudiants = document.getElementById("etudiants").value;
     var annee_universitaire = document.getElementById("annee_universitaire").value;
+    var specialite = document.getElementById("specialite").selectedIndex;
+    var niveau = document.getElementById("niveau").selectedIndex;
 
     if((liste_etudiants == "#") || (liste_etudiants == "")){
         event.preventDefault();
@@ -346,6 +348,16 @@ function validerFormulaireCreerClasse() {
     else if((annee_universitaire == "#") || (annee_universitaire == "")){
         event.preventDefault();
         afficherErreur("Vous devez sélectionner l'année universitaire.");
+    }
+
+    else if(specialite == 0){
+        event.preventDefault();
+        afficherErreur("Vous devez sélectionner la spécialité.");
+    }
+
+    else if(niveau == 0){
+        event.preventDefault();
+        afficherErreur("Vous devez sélectionner le niveau.");
     }
 
     else{
