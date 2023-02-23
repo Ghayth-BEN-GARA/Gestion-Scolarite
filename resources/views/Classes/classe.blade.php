@@ -59,8 +59,32 @@
                                         @endif
                                         @if($classe != null)
                                             <div class = "row">
-                                                <div class = "col-lg-9">
+                                                <div class = "col-lg-8">
                                                     @livewire('liste-etudiants-classe-livewire', ['etudiants' => $classe->getEtudiantClasseAttribute(), "id_classe" => $_GET['id_classe']])
+                                                    <div class = "mt-3">
+                                                        <label for = "example-textarea" class = "form-label">Description :</label>
+                                                        <br>
+                                                        <span class = "font-14">
+                                                            La classe est nommée <b>{{$classe->getDesignationClasseAttribute()}}</b> pour l'année universitaire <b>{{$classe->debut_annee_universitaire}} - {{$classe->fin_annee_universitaire}}</b> a été créée le <?php setlocale (LC_TIME, 'fr_FR.utf8','fra'); echo utf8_encode($classe->getFormattedDateCreationClasseAttribute());?> dont le niveau est <b>{{$classe->getNiveauClasseAttribute()}}</b> et la spécialité est <b>{{$classe->nom_specialite}}</b>.
+                                                        </span>
+                                                    </div>
+                                                    <div class = "row mt-4">
+                                                        <div class = "col-sm-6">
+                                                            <a href = "{{url('/liste-classes')}}" class = "btn text-muted d-none d-sm-inline-block btn-link fw-semibold">
+                                                            <i class = "mdi mdi-arrow-left"></i> Retour aux classes </a>
+                                                        </div>
+                                                        <div class = "col-sm-6">
+                                                            <div class = "text-sm-end">
+                                                                <a href = "javascript:void(0)" class = "btn btn-primary">
+                                                                    <i class = "mdi mdi-pencil me-1"></i>
+                                                                     Modifier la classe 
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class = "col-lg-4">
+                                                    @livewire('liste-informations-classe-livewire', ['classe' => $classe])
                                                 </div>
                                             </div>
                                         @else

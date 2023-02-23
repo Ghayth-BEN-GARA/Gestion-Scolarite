@@ -80,7 +80,9 @@
         }
 
         public function getInformationsClasse($id_classe){
-            return Classe::where("id_classe", "=", $id_classe)->first();
+            return Classe::join("annees_universitaires", "annees_universitaires.id_annee_universitaire", "=", "classes.id_annee_universitaire")
+            ->join("specialites", "specialites.id_specialite", "=", "classes.id_specialite")
+            ->where("id_classe", "=", $id_classe)->first();
         }
 
         public function gestionDeleteEtudiantDeClasse(Request $request){
