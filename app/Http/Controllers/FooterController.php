@@ -41,5 +41,9 @@
         public function ouvrirPageEmailCreerUser(){
             return view("Emails.email_creer_user");
         }
+
+        public function ouvrirPageEmailInviterEtudiantsClasse(){
+            return view("Emails.email_inviter_etudiants_classe");
+        }
     }
 

@@ -39,7 +39,7 @@
                                         <i class = "mdi mdi-delete me-1"></i>
                                         Supprimer
                                     </a>
-                                    <a href = "javascript:void(0)" class = "dropdown-item">
+                                    <a href = "javascript:void(0)" class = "dropdown-item" onclick = "questionInviterEtudiants({{$data->getIdClasseAttribute()}})">
                                         <i class = "mdi mdi-email-outline me-1"></i>
                                         Inviter
                                     </a>

@@ -418,3 +418,30 @@ function questionSupprimerEtudiant(id_user, id_classe) {
         }
     });
 }
+
+function questionInviterEtudiants(id_classe) {
+    swal({
+        title: "Etes-vous sûr ?",
+        text: "Si vous confirmez l'action, des e-mails seront envoyés aux étudiants concernés de cette classe.",
+        type: 'warning',
+        showConfirmButton: true,
+        showCancelButton: true,
+        showCloseButton: true,
+        confirmButtonColor: '#033D89',
+        confirmButtonText: 'Oui, Je suis sûr !',
+        cancelButtonText: 'Annuler',
+        padding: 40
+    })
+
+    .then((result) => {
+        if (result.value) {
+            chargement("Envoi des emails en cours..").then(
+                location.href = "/inviter-etudiant-classe?id_classe="+id_classe
+            );
+        }
+
+        else if (result.dismiss === swal.DismissReason.cancel) {
+            swal.close();
+        }
+    });
+}

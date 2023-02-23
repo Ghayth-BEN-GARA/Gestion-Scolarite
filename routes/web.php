@@ -97,4 +97,6 @@
     Route::get("/delete-classe",[ClasseController::class,"gestionDeleteClasse"]);
     Route::get("/classe",[ClasseController::class,"ouvrirClasse"])->middleware("session_user_not_exist_admin");
     Route::get("/delete-etudiant-classe",[ClasseController::class,"gestionDeleteEtudiantDeClasse"]);
+    Route::get("/inviter-etudiant-classe",[ClasseController::class,"gestionInviterEtudiantDeClasse"]);
+    Route::get("/page-email-inviter-etudiants-classe",[FooterController::class,"ouvrirPageEmailInviterEtudiantsClasse"])->middleware("session_user_not_exist");
 ?>

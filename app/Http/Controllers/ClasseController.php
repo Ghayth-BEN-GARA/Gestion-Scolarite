@@ -1,6 +1,8 @@
 <?php
     namespace App\Http\Controllers;
     use Illuminate\Http\Request;
+    use Illuminate\Support\Facades\Mail;
+    use App\Mail\creerMailInviterEtudiantsClasse;
     use App\Models\User;
     use App\Models\AnneeUniversitaire;
     use App\Models\Classe;
@@ -114,6 +116,44 @@
             return Classe::where("id_classe", "=", $id_classe)->update([
                 "etudiant_classe" => $new_results
             ]);
+        }
+
+        public function gestionInviterEtudiantDeClasse(Request $request){
+            if($this->sendMailInviterEtudiantsAuClasse($request->input("id_classe"))){
+                return back()->with("success", "Nous sommes très heureux de vous informer que les e-mails ont bien été envoyés aux étudiants de cette classe.");
+            }
+
+            else{
+                return back()->with("erreur", "Pour des raisons techniques, vous ne pouvez pas inviter ces étudiants pour le moment. Veuillez réessayer plus tard.");
+            }
+        }
+
+        public function sendMailInviterEtudiantsAuClasse($id_classe){
+            $classe = Classe::join("annees_universitaires", "annees_universitaires.id_annee_universitaire", "=", "classes.id_annee_universitaire")->where("id_classe", "=", $id_classe)->first();
+            $etudiants = explode(",", $classe->getEtudiantClasseAttribute());
+            $count_mails = 0;
+
+            foreach ($etudiants as $key => $item) {
+                $user = User::where("id_user", "=", $etudiants[$key])->get();
+                foreach ($user as $data) {
+                    $mailData = [
+                        'fullname' => $data->getFullNameUserAttribute(),
+                        'nom_classe' => $classe->getDesignationClasseAttribute(),
+                        'annee_universitaire' => $classe->debut_annee_universitaire." - ".$classe->fin_annee_universitaire
+                    ];
+    
+                    Mail::to($data->getEmailUserAttribute())->send(new creerMailInviterEtudiantsClasse($mailData));
+                    $count_mails++;
+                }
+            }
+
+            if($count_mails == count($etudiants)){
+                return true;
+            }
+
+            else{
+                return false;
+            }
         }
     }
 ?>

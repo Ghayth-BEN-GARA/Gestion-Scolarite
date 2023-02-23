@@ -25,7 +25,7 @@
                         <td class = "pt-3">{{$this->getNbrCoursClasse($classe->getIdClasseAttribute())}}</td>
                     </tr>
                     <tr>
-                        <td>Nombre <br> D'étudiant :</td>
+                        <td>Nombre Des <br> Étudiants :</td>
                         <td class = "pt-3">{{$this->getCountEtudiants($classe->getEtudiantClasseAttribute())}}</td>
                     </tr>
                     <tr>
