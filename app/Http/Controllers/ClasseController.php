@@ -73,5 +73,14 @@
         public function deleteClasse($id_classe){
             return Classe::where("id_classe", "=", $id_classe)->delete();
         }
+
+        public function ouvrirClasse(Request $request){
+            $classe = $this->getInformationsClasse($request->input("id_classe"));
+            return view("Classes.classe", compact("classe"));
+        }
+
+        public function getInformationsClasse($id_classe){
+            return Classe::where("id_classe", "=", $id_classe)->first();
+        }
     }
 ?>

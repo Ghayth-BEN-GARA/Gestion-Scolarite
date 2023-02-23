@@ -141,6 +141,10 @@
             return '(+216) '.substr($this->getMobileUserAttribute(), 0, 2)." ".substr($this->getMobileUserAttribute(), 2, 3)." ".substr($this->getMobileUserAttribute(), 5, 3);
         }
 
+        public function getFormattedMobile2UserAttribute(){
+            return substr($this->getMobileUserAttribute(), 0, 2)." ".substr($this->getMobileUserAttribute(), 2, 3)." ".substr($this->getMobileUserAttribute(), 5, 3);
+        }
+
         public function getFormattedDateNaissanceUserAttribute(){
             return strftime("%A %d %B %Y",strtotime(strftime($this->getDateNaissanceUserAttribute())));
         }

@@ -41,7 +41,7 @@ async function chargement(message) {
 function questionSupprimerJournal() {
     swal({
         title: "Etes-vous sûr ?",
-        text: "Supprimer définitivement le journal d'authentification  !",
+        text: "Supprimer définitivement votre journal d'authentification  !",
         type: 'warning',
         showConfirmButton: true,
         showCancelButton: true,
@@ -154,12 +154,12 @@ function validerFormulaireCreerUtilisateur() {
 
     if(genre == 0){
         event.preventDefault();
-        afficherErreur("Vous devez sélectionner le genre de cet nouvel utilisateur.");
+        afficherErreur("Vous devez sélectionner le genre de ce nouvel utilisateur.");
     }
 
     else if(role == 0){
         event.preventDefault();
-        afficherErreur("Vous devez sélectionner le rôle de cet nouvel utilisateur.");
+        afficherErreur("Vous devez sélectionner le rôle de ce nouvel utilisateur.");
     }
 
     else{
@@ -189,7 +189,7 @@ function afficherErreur(message) {
 function questionSupprimerUser(id_user) {
     swal({
         title: "Etes-vous sûr ?",
-        text: "Supprimer définitivement cet utilisateur !",
+        text: "Supprimer définitivement l'utilisateur choisi !",
         type: 'warning',
         showConfirmButton: true,
         showCancelButton: true,
