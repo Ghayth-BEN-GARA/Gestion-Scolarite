@@ -59,5 +59,19 @@
             $classe->setNiveauClasseAttribute($niveau);
             return $classe->save();
         }
+
+        public function gestionDeleteClasse(Request $request){
+            if($this->deleteclasse($request->input("id_classe"))){
+                return back()->with("success", "Nous sommes très heureux de vous informer que cette classe a été supprimée avec succès.");
+            }
+
+            else{
+                return back()->with("erreur", "Pour des raisons techniques, vous ne pouvez pas supprimer cette classe pour le moment. Veuillez réessayer plus tard.");
+            }
+        }
+
+        public function deleteClasse($id_classe){
+            return Classe::where("id_classe", "=", $id_classe)->delete();
+        }
     }
 ?>

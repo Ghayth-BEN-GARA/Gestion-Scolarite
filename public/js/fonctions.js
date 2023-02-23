@@ -364,3 +364,30 @@ function validerFormulaireCreerClasse() {
         $("#f-form-ajouter-classe").submit();
     }
 }
+
+function questionSupprimerClasses(id_classe) {
+    swal({
+        title: "Etes-vous sûr ?",
+        text: "Supprimer définitivement cette classe !",
+        type: 'warning',
+        showConfirmButton: true,
+        showCancelButton: true,
+        showCloseButton: true,
+        confirmButtonColor: '#033D89',
+        confirmButtonText: 'Oui, Je suis sûr !',
+        cancelButtonText: 'Annuler',
+        padding: 40
+    })
+
+    .then((result) => {
+        if (result.value) {
+            chargement("Suppression en cours..").then(
+                location.href = "/delete-classe?id_classe="+id_classe
+            );
+        }
+
+        else if (result.dismiss === swal.DismissReason.cancel) {
+            swal.close();
+        }
+    });
+}
