@@ -155,5 +155,9 @@
                 return false;
             }
         }
+
+        public function ouvrirEditClasse(Request $request){
+            return view("Classes.edit_classe");
+        }
     }
 ?>
