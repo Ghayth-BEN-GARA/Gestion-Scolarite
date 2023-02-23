@@ -58,7 +58,12 @@
                 Si vous avez choisi de supprimer votre compte, vos informations vos et données personnelles seront définitivement perdus.
             </p>
             <div class = "d-grid mt-4">
-                <button class = "btn btn-primary" id = "deleteBtn" onclick = "questionSupprimerCompte()">Supprimer votre compte</button>
+                @if(auth()->user()->getTypeUserAttribute() == "Etudiant" || auth()->user()->getTypeUserAttribute() == "Enseignant")
+                    <button class = "btn btn-primary" id = "deleteBtn" disabled>Supprimer votre compte</button>
+                    <span class = "font-13 text-danger mt-2">Vous n'êtes pas autorisé à utiliser cette fonctionnalité.</span>
+                @else
+                    <button class = "btn btn-primary" id = "deleteBtn" onclick = "questionSupprimerCompte()">Supprimer votre compte</button>
+                @endif
             </div>
         </div>
     </div>

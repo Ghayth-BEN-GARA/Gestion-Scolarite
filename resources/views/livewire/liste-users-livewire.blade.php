@@ -48,9 +48,15 @@
                                 <a href = "{{url('/edit-user?id_user='.$data->getIdUserAttribute())}}" class = "action-icon">
                                     <i class = "mdi mdi-square-edit-outline"></i>
                                 </a>
-                                <a href = "javascript:void(0)" class = "action-icon" onclick = "questionSupprimerUser({{$data->getIdUserAttribute()}})">
-                                    <i class = "mdi mdi-delete"></i>
-                                </a>
+                                @if($data->getTypeUserAttribute() == "Etudiant" || $data->getTypeUserAttribute() == "Enseignant")
+                                    <a href = "javascript:void(0)" class = "action-icon" onclick = "afficherErreur('Cette fonctionnalité est indisponible pour cette utilisateur.')">
+                                        <i class = "mdi mdi-delete"></i>
+                                    </a>
+                                @else
+                                    <a href = "javascript:void(0)" class = "action-icon" onclick = "questionSupprimerUser({{$data->getIdUserAttribute()}})">
+                                        <i class = "mdi mdi-delete"></i>
+                                    </a>
+                                @endif
                             </td>
                         </tr>
                     @endforeach
