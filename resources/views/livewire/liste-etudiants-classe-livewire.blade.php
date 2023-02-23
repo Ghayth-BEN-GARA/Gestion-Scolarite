@@ -31,7 +31,7 @@
                                 {{$this->getInformationsEtudiants($data)->getFormattedMobile2UserAttribute()}}
                             </td>
                             <td>
-                                <a href = "javascript:void(0)" class = "action-icon"> 
+                                <a href = "javascript:void(0)" class = "action-icon" onclick = "questionSupprimerEtudiant({{$this->getInformationsEtudiants($data)->getIdUserAttribute()}}, {{$id_classe}})"> 
                                     <i class = "mdi mdi-delete"></i>
                                 </a>
                             </td>

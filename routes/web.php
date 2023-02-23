@@ -96,4 +96,5 @@
     Route::post("/creer-classe",[ClasseController::class,"gestionCreerClasse"]);
     Route::get("/delete-classe",[ClasseController::class,"gestionDeleteClasse"]);
     Route::get("/classe",[ClasseController::class,"ouvrirClasse"])->middleware("session_user_not_exist_admin");
+    Route::get("/delete-etudiant-classe",[ClasseController::class,"gestionDeleteEtudiantDeClasse"]);
 ?>

@@ -82,5 +82,36 @@
         public function getInformationsClasse($id_classe){
             return Classe::where("id_classe", "=", $id_classe)->first();
         }
+
+        public function gestionDeleteEtudiantDeClasse(Request $request){
+            if($this->deleteEtudiantDeClasse($request->input("id_user"), $request->input("id_classe"))){
+                return back()->with("success", "Nous sommes très heureux de vous informer que cette étudiant a été retirée de la classe avec succès.");
+            }
+
+            else{
+                return back()->with("erreur", "Pour des raisons techniques, vous ne pouvez pas supprimer cette étudiant pour le moment. Veuillez réessayer plus tard.");
+            }
+        }
+
+        public function deleteEtudiantDeClasse($id_user, $id_classe){
+            $classe = Classe::where("id_classe", "=", $id_classe)->first();
+            $etudiants = explode(",", $classe->getEtudiantClasseAttribute());
+            $final_results = null;
+
+            foreach ($etudiants as $key => $item) {
+                if($item == $id_user){
+                    unset($etudiants[$key]);
+                    $final_results = implode(",", $etudiants);
+                }
+            }
+            
+            return $this->updateNewClasse($id_classe, $final_results);
+        }
+
+        public function updateNewClasse($id_classe, $new_results){
+            return Classe::where("id_classe", "=", $id_classe)->update([
+                "etudiant_classe" => $new_results
+            ]);
+        }
     }
 ?>

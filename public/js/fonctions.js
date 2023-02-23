@@ -391,3 +391,30 @@ function questionSupprimerClasses(id_classe) {
         }
     });
 }
+
+function questionSupprimerEtudiant(id_user, id_classe) {
+    swal({
+        title: "Etes-vous sûr ?",
+        text: "Supprimer définitivement l'étudiant de cette classe !",
+        type: 'warning',
+        showConfirmButton: true,
+        showCancelButton: true,
+        showCloseButton: true,
+        confirmButtonColor: '#033D89',
+        confirmButtonText: 'Oui, Je suis sûr !',
+        cancelButtonText: 'Annuler',
+        padding: 40
+    })
+
+    .then((result) => {
+        if (result.value) {
+            chargement("Suppression en cours..").then(
+                location.href = "/delete-etudiant-classe?id_user="+id_user+"&id_classe="+id_classe
+            );
+        }
+
+        else if (result.dismiss === swal.DismissReason.cancel) {
+            swal.close();
+        }
+    });
+}
