@@ -7859,9 +7859,11 @@ fieldset:disabled .btn {
 .text-reset {
     color: inherit !important;
 }
+
 .bg-primary {
-    background-color: #727cf5 !important;
+    background-color: #033D89 !important;
 }
+
 .bg-secondary {
     background-color: #6c757d !important;
 }
