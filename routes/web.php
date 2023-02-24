@@ -101,4 +101,6 @@
     Route::get("/page-email-inviter-etudiants-classe",[FooterController::class,"ouvrirPageEmailInviterEtudiantsClasse"])->middleware("session_user_not_exist");
     Route::get("/edit-classe",[ClasseController::class,"ouvrirEditClasse"])->middleware("session_user_not_exist_admin");
     Route::post("/modifier-classe",[ClasseController::class,"gestionModifierClasse"]);
+    Route::get("/edit-annee-universitaire-actuel",[AnneeUniversitaireController::class,"ouvrirEditAnneeUniversitaireActuel"])->middleware("session_user_not_exist_admin");
+    Route::post("/modifier-annee-universitaire-actuel",[AnneeUniversitaireController::class,"gestionModifierAnneeUniversitaireActuel"]);
 ?>

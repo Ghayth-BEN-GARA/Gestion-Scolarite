@@ -2,6 +2,7 @@
     namespace App\Http\Controllers;
     use Illuminate\Http\Request;
     use App\Models\AnneeUniversitaire;
+    use App\Models\AnneeUniversitaireActuel;
 
     class AnneeUniversitaireController extends Controller{
         public function ouvrirListeAnneesUniversitaire(){
@@ -149,6 +150,57 @@
             return AnneeUniversitaire::where("id_annee_universitaire", "=", $id_annee_universitaire)->update([
                 "debut_annee_universitaire" => $debut,
                 "fin_annee_universitaire" => $fin
+            ]);
+        }
+
+        public function ouvrirEditAnneeUniversitaireActuel(){
+            $annee_universitaire = $this->getListeAnneeUniversitaire();
+            return view("Annees_Universitaire.edit_annee_universitaire_actuel", compact("annee_universitaire"));
+        }
+
+        public function getListeAnneeUniversitaire(){
+            return AnneeUniversitaire::get();
+        }
+
+        public function gestionModifierAnneeUniversitaireActuel(Request $request){
+            if($this->verifierAnneeUniversitaireActuelExiste() == 0){
+                if($this->creerAnneeUniversitaireActuel($request->annee_universitaire)){
+                    return back()->with("success", "Nous sommes très heureux de vous informer que l'année universitaire actuelle a été modifiée avec succès.");
+                }
+
+                else{
+                    return back()->with("erreur", "Pour des raisons techniques, vous ne pouvez pas changer l'année universitaire actuelle pour le moment. Veuillez réessayer plus tard.");
+                }
+            }
+
+            else if($this->verifierAnneeUniversitaireActuelExiste() == 1){
+                if($this->updateAnneeUniversitaireActuel($request->annee_universitaire)){
+                    return back()->with("success", "Nous sommes très heureux de vous informer que l'année universitaire actuelle a été modifiée avec succès.");
+                }
+
+                else{
+                    return back()->with("erreur", "Pour des raisons techniques, vous ne pouvez pas changer l'année universitaire actuelle pour le moment. Veuillez réessayer plus tard.");
+                }
+            }
+
+            else{
+                return back()->with("erreur", "Pour des raisons techniques, vous ne pouvez pas changer l'année universitaire actuelle pour le moment. Veuillez réessayer plus tard.");
+            }
+        }
+
+        public function verifierAnneeUniversitaireActuelExiste(){
+            return AnneeUniversitaireActuel::count();
+        }
+
+        public function creerAnneeUniversitaireActuel($id_annee_universitaire){
+            $annee_universitaire = new AnneeUniversitaireActuel();
+            $annee_universitaire->setIdAnneeUniversitaireAttribute($id_annee_universitaire);
+            return $annee_universitaire->save();
+        }
+
+        public function updateAnneeUniversitaireActuel($id_annee_universitaire){
+            return AnneUniversitaireActuel::update([
+                "id_annee_universitaire" => $id_annee_universitaire
             ]);
         }
     }

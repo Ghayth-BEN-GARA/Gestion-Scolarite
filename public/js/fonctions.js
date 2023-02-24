@@ -476,3 +476,16 @@ function validerFormulaireModifierClasse() {
         $("#f-form-modifier-classe").submit();
     }
 }
+
+function validerFormulaireModifierAnneeUniversitaireActuel() {
+    var annee_universitaire = document.getElementById("annee_universitaire").value;
+
+    if((annee_universitaire == "#") || (annee_universitaire == "")){
+        event.preventDefault();
+        afficherErreur("Vous devez sélectionner l'année universitaire.");
+    }
+
+    else{
+        $("#f-form-modifier-annee-universitaire-actuel").submit();
+    }
+}

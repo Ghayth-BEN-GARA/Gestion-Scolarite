@@ -46,7 +46,7 @@
                                                 <div class = "text-sm-end">
                                                     <a href = "{{url('/add-etage')}}" class = "btn btn-success mb-2 text-capitalize">
                                                         <i class = "mdi mdi-plus-circle me-2"></i> 
-                                                        Créer Des étages
+                                                        Créer Des Étages
                                                     </a>
                                                 </div>
                                             </div>
