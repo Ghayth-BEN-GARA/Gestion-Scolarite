@@ -21,15 +21,15 @@
         }
 
         public function getListeEtudiants(){
-            return User::where("type_user", "=", "Etudiant")->get();
+            return User::where("type_user", "=", "Etudiant")->orderBy("prenom", "asc")->get();
         }
 
         public function getListeAnneeUniversite(){
-            return AnneeUniversitaire::get();
+            return AnneeUniversitaire::orderBy("debut_annee_universitaire", "asc")->get();
         }
 
         public function getListeSpecialite(){
-            return Specialite::get();
+            return Specialite::orderBy("nom_specialite", "asc")->get();
         }
 
         public function gestionCreerClasse(Request $request){
@@ -157,7 +157,42 @@
         }
 
         public function ouvrirEditClasse(Request $request){
-            return view("Classes.edit_classe");
+            $classe = $this->getInformationsClasse($request->input("id_classe"));
+            $liste_etudiants = $this->getListeEtudiants();
+            $liste_annees_universitaire = $this->getListeAnneeUniversite();
+            $liste_specialite = $this->getListeSpecialite();
+            return view("Classes.edit_classe", compact("classe", "liste_etudiants", "liste_annees_universitaire", "liste_specialite"));
+        }
+
+        public function gestionModifierClasse(Request $request){
+            if($this->verifierClasseAnneeUniversitaireNotActuelExiste($request->designation, $request->annee_universitaire, $request->id_classe)){
+                return back()->with("erreur", "Nous sommes désolés de vous dire qu'il y a une autre classe déjà inscrit avec cette désignation.");
+            }
+
+            else if($this->updateClasse($request->etudiants, $request->designation, $request->annee_universitaire, $request->specialite, $request->niveau, $request->id_classe)){
+                return back()->with("success", "Nous sommes très heureux de vous informer que cette classe a été modifiée avec succés.");
+            }
+
+            else{
+                return back()->with("erreur", "Pour des raisons techniques, vous ne pouvez pas modifier cette classe pour le moment. Veuillez réessayer plus tard.");
+            }
+        }
+
+        public function verifierClasseAnneeUniversitaireNotActuelExiste($designation, $id_annee_universitaire, $id_classe){
+            return Classe::where("designation_classe", "=", $designation)
+            ->where("id_annee_universitaire", "=", $id_annee_universitaire)
+            ->where("id_classe", "<>", $id_classe)
+            ->exists();
+        }
+
+        public function updateClasse($etudiants, $designation, $id_annee_universitaire, $specialite, $niveau, $id_classe){
+            return Classe::where("id_classe", "=", $id_classe)->update([
+                "etudiant_classe" => implode(",", $etudiants),
+                "designation_classe" => $designation,
+                "id_annee_universitaire" => $id_annee_universitaire,
+                "id_specialite" => $specialite,
+                "niveau_classe" => $niveau
+            ]);
         }
     }
 ?>

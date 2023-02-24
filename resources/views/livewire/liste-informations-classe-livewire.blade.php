@@ -32,7 +32,6 @@
                         <td>Année <br> Universitaire :</td>
                         <td class = "pt-3">{{$classe->debut_annee_universitaire}} - {{$classe->fin_annee_universitaire}}</td>
                     </tr>
-                    
                 </tbody>
             </table>
         </div>

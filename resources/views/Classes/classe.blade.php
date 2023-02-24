@@ -75,9 +75,9 @@
                                                         </div>
                                                         <div class = "col-sm-6">
                                                             <div class = "text-sm-end">
-                                                                <a href = "javascript:void(0)" class = "btn btn-primary">
-                                                                    <i class = "mdi mdi-pencil me-1"></i>
-                                                                     Modifier la classe 
+                                                                <a href = "{{url('/add-classe')}}" class = "btn btn-primary">
+                                                                    <i class = "mdi mdi-plus me-1"></i>
+                                                                     Ajouter une classe 
                                                                 </a>
                                                             </div>
                                                         </div>
