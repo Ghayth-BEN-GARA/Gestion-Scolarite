@@ -27,7 +27,7 @@
          */
         public function envelope(){
             return new Envelope(
-                subject: 'Classe effectué',
+                subject: 'Classe effectuée',
             );
         }
 
@@ -37,7 +37,7 @@
          * @return \Illuminate\Mail\Mailables\Content
          */
         public function build(){
-            return $this->subject("Classe effectué")->markdown('Emails.email_inviter_etudiants_classe');
+            return $this->subject("Classe effectuée")->markdown('Emails.email_inviter_etudiants_classe');
         }
 
         /**

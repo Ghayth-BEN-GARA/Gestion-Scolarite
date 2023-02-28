@@ -27,9 +27,6 @@
             $acteur4->setTypeUserAttribute("Enseignant");
             $acteur4->save();
 
-            $acteur5 = new Acteur();
-            $acteur5->setTypeUserAttribute("Parent");
-            $acteur5->save();
         }
     }
 ?>

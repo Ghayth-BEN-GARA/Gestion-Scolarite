@@ -115,7 +115,6 @@
                                                             <option value = "Comptable" <?php  echo !$user->getTypeUserAttribute() == null && $user->getTypeUserAttribute() == "Comptable" ? "selected" : '' ?>>Comptable</option>
                                                             <option value = "Enseignant" <?php echo !$user->getTypeUserAttribute() == null && $user->getTypeUserAttribute() == "Enseignant" ? "selected" : '' ?>>Enseignant</option>
                                                             <option value = "Etudiant" <?php echo !$user->getTypeUserAttribute() == null && $user->getTypeUserAttribute() == "Etudiant" ? "selected" : '' ?>>Etudiant</option>
-                                                            <option value = "Parent" <?php echo !$user->getTypeUserAttribute() == null && $user->getTypeUserAttribute() == "Parent" ? "selected" : '' ?>>Parent</option>
                                                         </select>
                                                     </div>
                                                 </div>

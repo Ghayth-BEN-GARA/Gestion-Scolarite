@@ -115,7 +115,6 @@
                                                             <option value = "Comptable">Comptable</option>
                                                             <option value = "Enseignant">Enseignant</option>
                                                             <option value = "Etudiant">Etudiant</option>
-                                                            <option value = "Parent">Parent</option>
                                                         </select>
                                                     </div>
                                                 </div>

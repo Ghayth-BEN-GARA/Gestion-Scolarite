@@ -35,7 +35,6 @@
     Route::get("/dashboard-comptable",[DashboardController::class,"ouvrirDashboardComptable"])->middleware("session_user_not_exist_comptable");
     Route::get("/dashboard-enseignant",[DashboardController::class,"ouvrirDashboardEnseignant"])->middleware("session_user_not_exist_enseignant");
     Route::get("/dashboard-etudiant",[DashboardController::class,"ouvrirDashboardEtudiant"])->middleware("session_user_not_exist_etudiant");
-    Route::get("/dashboard-parent",[DashboardController::class,"ouvrirDashboardParent"])->middleware("session_user_not_exist_parent");
     Route::get("/delete-journal-authentification",[JournalAuthentificationController::class,"gestionDeleteJournalAuthentification"]);
     Route::get("/update-type-mode-configuration",[ConfigurationCompteController::class,"modificationModeConfiguration"]);
     Route::get("/update-status-compte",[CompteController::class,"modificationStatusCompte"]);
