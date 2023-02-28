@@ -3,6 +3,7 @@
     use Illuminate\Http\Request;
     use Illuminate\Support\Facades\Mail;
     use App\Mail\creerMailInviterEtudiantsClasse;
+    use App\Mail\creerMailEnvoyerEmploiClasse;
     use App\Models\User;
     use App\Models\AnneeUniversitaire;
     use App\Models\Classe;
@@ -193,6 +194,54 @@
                 "id_specialite" => $specialite,
                 "niveau_classe" => $niveau
             ]);
+        }
+
+        public function ouvrirEnvoieEmploiClasse(Request $request){
+            $classe = $this->getInformationsClasse($request->input("id_classe"));
+            return view("Classes.envoie_emploi_classe", compact("classe"));
+        }
+
+        public function gestionEnvoyerEmploi(Request $request){
+            if($this->envoyerEmploi($request->id_classe, $request->objet, $request->message, $request)){
+                return back()->with("success", "Nous sommes très heureux de vous informer que l'emploi du temps a été envoyé aux étudiants avec succés.");
+            }
+
+            else{
+                return back()->with("erreur", "Pour des raisons techniques, vous ne pouvez pas envoyer l'emploi de temps aux étudiants pour le moment. Veuillez réessayer plus tard.");
+            }
+        }
+
+        public function envoyerEmploi($id_classe, $objet, $message, $request){
+            $classe = $this->getInformationsClasse($id_classe);
+            $etudiants = explode(",", $classe->getEtudiantClasseAttribute());
+            $count_mails = 0;
+            $filename = time().$request->file('file')->getClientOriginalName();
+            $path = $request->file->move('emploi_classes/', $filename);
+            $attach = $path;
+
+            foreach ($etudiants as $key => $item) {
+                $user = User::where("id_user", "=", $etudiants[$key])->get();
+                
+                foreach ($user as $data) {
+                    $mailData = [
+                        'fullname' => $data->getFullNameUserAttribute(),
+                        'objet' => $objet,
+                        'message' => $message,
+                    ];
+    
+                    Mail::to($data->getEmailUserAttribute())
+                    ->send(new creerMailEnvoyerEmploiClasse($mailData, $attach));
+                    $count_mails++;
+                }
+            }
+
+            if($count_mails == count($etudiants)){
+                return true;
+            }
+
+            else{
+                return false;
+            }
         }
     }
 ?>

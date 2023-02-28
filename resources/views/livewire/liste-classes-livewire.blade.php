@@ -43,6 +43,10 @@
                                         <i class = "mdi mdi-email-outline me-1"></i>
                                         Inviter
                                     </a>
+                                    <a href = "{{url('/envoie-emploi-classe?id_classe='.$data->getIdClasseAttribute())}}" class = "dropdown-item">
+                                        <i class = "mdi mdi-file-send-outline me-1"></i>
+                                        Emploi
+                                    </a>
                                 </div>
                             </div>
                             <h4 class = "mt-0">
