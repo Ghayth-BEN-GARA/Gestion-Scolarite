@@ -61,30 +61,40 @@
                                                     <button type = "button" class = "btn-close" data-bs-dismiss = "alert" aria-label = "Close"></button>
                                                 </div>
                                             @endif
-                                            <form name = "f-form-envoyer-emploi-classe" id  = "f-form-envoyer-emploi-classe" method = "post" action = "{{url('/envoyer-emploi-classe')}}" enctype = "multipart/form-data" >
+                                            <form name = "f-form-envoyer-emploi-classe" id  = "f-form-envoyer-emploi-classe" method = "post" action = "{{url('/envoyer-emploi-classe')}}" enctype = "multipart/form-data" onsubmit = "validerFormulaireEnvoieEmploiDuTemps()">
                                                 {{ csrf_field() }}
                                                 <div class = "row mb-3">
-                                                    <label for = "classe" class = "col-1 col-form-label">À</label>
-                                                    <div class = "col-11">
+                                                    <label for = "classe" class = "col-2 col-form-label">À</label>
+                                                    <div class = "col-10">
                                                         <input type = "text" class = "form-control" id = "classe" name = "classe" placeholder = "Saisissez la classe.." value = "{{$classe->getDesignationClasseAttribute()}}" required disabled>
                                                     </div>
                                                 </div>
                                                 <div class = "row mb-3">
-                                                    <label for = "objet" class = "col-1 col-form-label">Objet</label>
-                                                    <div class = "col-11">
+                                                    <label for = "objet" class = "col-2 col-form-label">Objet</label>
+                                                    <div class = "col-10">
                                                         <input type = "text" class = "form-control" id = "objet" name = "objet" placeholder = "Saisissez l'objet.." required>
                                                     </div>
                                                 </div>
                                                 <div class = "row mb-3">
-                                                    <label for = "contenu" class = "col-1 col-form-label">Contenu</label>
-                                                    <div class = "col-11">
+                                                    <label for = "message" class = "col-2 col-form-label">Message</label>
+                                                    <div class = "col-10">
                                                         <textarea id = "message" name = "message" rows = "10" class = "form-control" placeholder = "Saisissez le message.." required></textarea>
                                                     </div>
                                                 </div>
                                                 <div class = "row mb-3">
-                                                    <label for = "objet" class = "col-1 col-form-label">Emploi</label>
-                                                    <div class = "col-11">
+                                                    <label for = "objet" class = "col-2 col-form-label">Emploi</label>
+                                                    <div class = "col-10">
                                                         <input type = "file" class = "form-control" id = "file" name = "file" accept = ".xlsx, .xls, .csv" required>
+                                                    </div>
+                                                </div>
+                                                <div class = "row mb-3">
+                                                    <label for = "semestre" class = "col-2 col-form-label">Semestre</label>
+                                                    <div class = "col-10">
+                                                        <select class = "form-select" id = "semestre" name = "semestre" required>
+                                                            <option value = "#" selected disabled>Sélectionnez la semestre..</option>
+                                                            <option value = "Semestre 1">Semestre 1</option>
+                                                            <option value = "Semestre 2">Semestre 2</option>
+                                                        </select>
                                                     </div>
                                                 </div>
                                                 <input type = "hidden" id = "id_classe" name = "id_classe" value = "{{$_GET['id_classe']}}">

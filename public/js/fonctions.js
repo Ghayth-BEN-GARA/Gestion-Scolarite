@@ -489,3 +489,16 @@ function validerFormulaireModifierAnneeUniversitaireActuel() {
         $("#f-form-modifier-annee-universitaire-actuel").submit();
     }
 }
+
+function validerFormulaireEnvoieEmploiDuTemps() {
+    var semestre = document.getElementById("semestre").value;
+
+    if((semestre == "#") || (semestre == "")){
+        event.preventDefault();
+        afficherErreur("Vous devez sélectionner la semestre.");
+    }
+
+    else{
+        $("#f-form-envoyer-emploi-classe").submit();
+    }
+}

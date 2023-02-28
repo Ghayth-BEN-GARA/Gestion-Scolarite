@@ -32,6 +32,9 @@
                                 <p style = "margin-top: 0; margin-bottom: 1rem;">
                                     {{$mailData['message']}}
                                 </p>
+                                <p style = "margin-top: 0; margin-bottom: 1rem;">
+                                    Semestre : <b>{{$mailData['semestre']}}</b>
+                                </p>
                                 <hr style = "margin: 1rem 0; color: inherit; background-color: currentColor; border: 0; opacity: 0.25; height: 1px;">
                                 <p style = "margin-top: 0; margin-bottom: 1rem;">
                                     Copyright © <?php setlocale (LC_TIME, 'fr_FR.utf8','fra'); echo utf8_encode(strftime("%B %Y",strtotime(strftime(date('Y-m-d')))));?> <b> Université Sesame </b>.

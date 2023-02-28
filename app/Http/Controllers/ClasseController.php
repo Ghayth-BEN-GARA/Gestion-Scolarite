@@ -8,6 +8,7 @@
     use App\Models\AnneeUniversitaire;
     use App\Models\Classe;
     use App\Models\Specialite;
+    use App\Models\Emploi;
 
     class ClasseController extends Controller{
         public function ouvrirListeClasses(){
@@ -202,23 +203,45 @@
         }
 
         public function gestionEnvoyerEmploi(Request $request){
-            if($this->envoyerEmploi($request->id_classe, $request->objet, $request->message, $request)){
-                return back()->with("success", "Nous sommes très heureux de vous informer que l'emploi du temps a été envoyé aux étudiants avec succés.");
+            $path = $this->creerPathEmploi($request);
+
+            if(!$this->verifierEmploiTempsClasseExiste($request->id_classe, $request->semestre)){
+                $this->creerEmploi($request->id_classe, $path, $request->semestre);
+                if($this->envoyerEmploi($request->id_classe, $request->objet, $request->message, $path, $request->semestre)){
+                    return back()->with("success", "Nous sommes très heureux de vous informer que l'emploi du temps a été envoyé aux étudiants avec succés.");
+                }
+    
+                else{
+                    return back()->with("erreur", "Pour des raisons techniques, vous ne pouvez pas envoyer l'emploi de temps aux étudiants pour le moment. Veuillez réessayer plus tard.");
+                }
             }
 
             else{
-                return back()->with("erreur", "Pour des raisons techniques, vous ne pouvez pas envoyer l'emploi de temps aux étudiants pour le moment. Veuillez réessayer plus tard.");
+                $this->updateEmploi($request->id_classe, $path, $request->semestre);
+                if($this->envoyerEmploi($request->id_classe, $request->objet, $request->message, $path, $request->semestre)){
+                    return back()->with("success", "Nous sommes très heureux de vous informer que l'emploi du temps a été envoyé aux étudiants avec succés.");
+                }
+    
+                else{
+                    return back()->with("erreur", "Pour des raisons techniques, vous ne pouvez pas envoyer l'emploi de temps aux étudiants pour le moment. Veuillez réessayer plus tard.");
+                }
             }
         }
 
-        public function envoyerEmploi($id_classe, $objet, $message, $request){
+        public function creerEmploi($id_classe, $emploi_classe, $semestre){
+            $emploi = new Emploi();
+            $emploi->setIdClasseAttribute($id_classe);
+            $emploi->setEmploiClasseAttribute($emploi_classe);
+            $emploi->setSemestreAttribute($semestre);
+            return $emploi->save();
+        }
+
+        public function envoyerEmploi($id_classe, $objet, $message, $path, $semestre){
             $classe = $this->getInformationsClasse($id_classe);
             $etudiants = explode(",", $classe->getEtudiantClasseAttribute());
             $count_mails = 0;
-            $filename = time().$request->file('file')->getClientOriginalName();
-            $path = $request->file->move('emploi_classes/', $filename);
+            
             $attach = $path;
-
             foreach ($etudiants as $key => $item) {
                 $user = User::where("id_user", "=", $etudiants[$key])->get();
                 
@@ -227,6 +250,7 @@
                         'fullname' => $data->getFullNameUserAttribute(),
                         'objet' => $objet,
                         'message' => $message,
+                        'semestre' =>$semestre
                     ];
     
                     Mail::to($data->getEmailUserAttribute())
@@ -242,6 +266,24 @@
             else{
                 return false;
             }
+        }
+
+        public function updateEmploi($id_classe, $emploi, $semestre){
+            return Emploi::where("id_classe", "=", $id_classe)->update([
+                "emploi_classe" => $emploi,
+                "semestre" => $semestre
+            ]);
+        }
+
+        public function verifierEmploiTempsClasseExiste($id_classe, $semestre){
+            return Emploi::where("id_classe", "=", $id_classe)
+            ->where("semestre", "=", $semestre)
+            ->exists();
+        }
+
+        public function creerPathEmploi($request){
+            $filename = time().$request->file('file')->getClientOriginalName();
+            return $request->file->move('emploi_classes/', $filename);
         }
     }
 ?>
