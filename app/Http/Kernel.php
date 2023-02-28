@@ -67,6 +67,7 @@
             'session_user_not_exist_comptable' => \App\Http\Middleware\SessionUserNotExistComptable::class,
             'session_user_not_exist_enseignant' => \App\Http\Middleware\SessionUserNotExistEnseignant::class,
             'session_user_not_exist_etudiant' => \App\Http\Middleware\SessionUserNotExistEtudiant::class,
+            'session_user_not_exist_admin_etudiant' => \App\Http\Middleware\SessionUserNotExistAdminEtudiant::class,
         ];
     }
 ?>

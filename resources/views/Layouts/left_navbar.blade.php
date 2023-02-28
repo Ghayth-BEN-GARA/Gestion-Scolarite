@@ -216,6 +216,22 @@
                     </div>
                 </li>
             @endif
+            @if(Session()->get("acteur") == "Admin" || Session()->get("acteur") == "Etudiant")
+                <li class = "side-nav-item">
+                    <a data-bs-toggle = "collapse" href = "#emplois" aria-expanded = "false" aria-controls = "emplois" class = "side-nav-link">
+                        <i class = " uil-file-redo-alt"></i>
+                        <span> Emplois </span>
+                        <span class = "menu-arrow"></span>
+                    </a>
+                    <div class = "collapse" id = "emplois">
+                        <ul class = "side-nav-second-level">
+                            <li>
+                                <a href = "{{url('/liste-emplois')}}">Gérer</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+            @endif
         </ul>
     </div>
     <div class = "clearfix"></div>

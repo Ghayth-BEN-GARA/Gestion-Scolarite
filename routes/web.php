@@ -14,7 +14,8 @@
     use App\Http\Controllers\SpecialiteController;
     use App\Http\Controllers\AnneeUniversitaireController;
     use App\Http\Controllers\ClasseController;
-    
+    use App\Http\Controllers\EmploiController;
+
     /*
     |--------------------------------------------------------------------------
     | Web Routes
@@ -97,11 +98,12 @@
     Route::get("/classe",[ClasseController::class,"ouvrirClasse"])->middleware("session_user_not_exist_admin");
     Route::get("/delete-etudiant-classe",[ClasseController::class,"gestionDeleteEtudiantDeClasse"]);
     Route::get("/inviter-etudiant-classe",[ClasseController::class,"gestionInviterEtudiantDeClasse"]);
-    Route::get("/page-email-inviter-etudiants-classe",[FooterController::class,"ouvrirPageEmailInviterEtudiantsClasse"])->middleware("session_user_not_exist");
+    Route::get("/page-email-inviter-etudiants-classe",[FooterController::class,"ouvrirPageEmailInviterEtudiantsClasse"])->middleware("session_user_not_exist_admin");
     Route::get("/edit-classe",[ClasseController::class,"ouvrirEditClasse"])->middleware("session_user_not_exist_admin");
     Route::post("/modifier-classe",[ClasseController::class,"gestionModifierClasse"]);
     Route::get("/edit-annee-universitaire-actuel",[AnneeUniversitaireController::class,"ouvrirEditAnneeUniversitaireActuel"])->middleware("session_user_not_exist_admin");
     Route::post("/modifier-annee-universitaire-actuel",[AnneeUniversitaireController::class,"gestionModifierAnneeUniversitaireActuel"]);
-    Route::get("/envoie-emploi-classe",[ClasseController::class,"ouvrirEnvoieEmploiClasse"])->middleware("session_user_not_exist");
+    Route::get("/envoie-emploi-classe",[ClasseController::class,"ouvrirEnvoieEmploiClasse"])->middleware("session_user_not_exist_admin");
     Route::post("/envoyer-emploi-classe",[ClasseController::class,"gestionEnvoyerEmploi"]);
+    Route::get("/liste-emplois",[EmploiController::class,"ouvrirListeEmplois"])->middleware("session_user_not_exist_admin_etudiant");
 ?>
