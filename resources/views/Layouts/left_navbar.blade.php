@@ -222,6 +222,20 @@
                         </ul>
                     </div>
                 </li>
+                <li class = "side-nav-item">
+                    <a data-bs-toggle = "collapse" href = "#cours" aria-expanded = "false" aria-controls = "cours" class = "side-nav-link">
+                        <i class = " uil-book-alt"></i>
+                        <span> Cours </span>
+                        <span class = "menu-arrow"></span>
+                    </a>
+                    <div class = "collapse" id = "cours">
+                        <ul class = "side-nav-second-level">
+                            <li>
+                                <a href = "{{url('/liste-cours')}}">Gérer</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
             @endif
             @if(Session()->get("acteur") == "Etudiant")
                 <li class = "side-nav-item">

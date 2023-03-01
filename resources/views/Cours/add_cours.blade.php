@@ -2,7 +2,7 @@
 <html lang = "en">
     <head>
         @include("Layouts.head_site")
-        <title>Nouvelle Classe | Université Sesame</title>
+        <title>Nouveau Cours | Université Sesame</title>
     </head>
     @include("Layouts.body_configuration")
         <div id = "preloader">
@@ -24,10 +24,10 @@
                                     <div class = "page-title-right">
                                         <ol class = "breadcrumb m-0">
                                             @include("Layouts.page_title_site")
-                                            <li class = "breadcrumb-item active">Nouvelle Classe</li>
+                                            <li class = "breadcrumb-item active">Nouveau Cours</li>
                                         </ol>    
                                     </div>
-                                    <h4 class = "page-title text-blue">Nouvelle Classe</h4>
+                                    <h4 class = "page-title text-blue">Nouveau Cours</h4>
                                 </div>
                             </div>
                         </div>
@@ -35,9 +35,9 @@
                             <div class = "col-12">
                                 <div class = "card">
                                     <div class = "card-body">
-                                        <h4 class = "header-title">Nouvelle Classe</h4>
+                                        <h4 class = "header-title">Nouveau Cours</h4>
                                         <p class = "text-muted font-14">
-                                            Créez une nouvelle classe en ajoutant les informations réquises de la classe tels que la liste des étudiants, l'année universitaire et la désignation de la classe.
+                                            Créez un nouveau cours en ajoutant les informations réquises du cours en respectant les details de l'année universitaire.
                                         </p>
                                         @if(Session()->has("erreur"))
                                             <div class = "alert alert-danger d-flex alert-dismissible fade show mt-1" role = "alert">
@@ -60,35 +60,34 @@
                                                 <button type = "button" class = "btn-close" data-bs-dismiss = "alert" aria-label = "Close"></button>
                                             </div>
                                         @endif
-                                        <form name = "f-form-ajouter-classe" id  = "f-form-ajouter-classe" method = "post" action = "{{url('/creer-classe')}}" onsubmit = "validerFormulaireCreerClasse()">
+                                        <form name = "f-form-ajouter-cours" id  = "f-form-ajouter-cours" method = "post" action = "{{url('/creer-cours')}}">
                                             {{ csrf_field() }}
                                             <div class = "row">
                                                 <div class = "col-md-6">
                                                     <div class = "mb-3">
-                                                        <label for = "etudiants" class = "form-label">Liste Des Étudiants</label>
-                                                        <select class = "select2 form-control select2-multiple" data-toggle = "select2" multiple data-placeholder = "Sélectionnez les étudiants.." name = "etudiants[]" id = "etudiants">
-                                                            <optgroup label = "Étudiants">
-                                                                @if(count($liste_etudiants) == 0)
-                                                                    <option value = "#" selected disabled>La liste des étudiants est vide.</option>
-                                                                @else
-                                                                    @foreach($liste_etudiants as $data)
-                                                                        <option value = "{{$data->getIdUserAttribute()}}">{{$data->getFullNameUserAttribute()}}</option>
-                                                                    @endforeach
-                                                                @endif
-                                                            </optgroup>
+                                                        <label for = "module" class = "form-label">Module</label>
+                                                        <select class = "form-select" name = "module" id = "module" required>
+                                                            <option value = "#">Sélectionnez la module..</option>
+                                                            @if(count($liste_modules) == 0)
+                                                                <option value = "#" selected disabled>La liste des modules est vide.</option>
+                                                            @else
+                                                                @foreach($liste_modules as $data)
+                                                                    <option value = "{{$data->getIdModuleAttribute()}}">{{$data->getNomModuleAttribute()}}</option>
+                                                                @endforeach
+                                                            @endif
                                                         </select>
                                                     </div>
                                                 </div>
                                                 <div class = "col-md-6">
                                                     <div class = "mb-3">
-                                                        <label for = "annee_universitaire" class = "form-label">Année Universitaire</label>
-                                                        <select class = "form-select" name = "annee_universitaire" id = "annee_universitaire">
-                                                            <option value = "#">Sélectionnez l'année universitaire..</option>
-                                                            @if(count($liste_annees_universitaire) == 0)
-                                                                <option value = "#" selected disabled>La liste des année universitaire est vide.</option>
+                                                        <label for = "enseignant" class = "form-label">Enseignant</label>
+                                                        <select class = "form-select" name = "enseignant" id = "module" required>
+                                                            <option value = "#">Sélectionnez l'enseignant..</option>
+                                                            @if(count($liste_enseignants) == 0)
+                                                                <option value = "#" selected disabled>La liste des enseignants est vide.</option>
                                                             @else
-                                                                @foreach($liste_annees_universitaire as $data)
-                                                                    <option value = "{{$data->getIdAnneeUniversitaireAttribute()}}">Année universitaire {{$data->getDebutAnneeUniversitaireAttribute()}} - {{$data->getFinAnneeUniversitaireAttribute()}}</option>
+                                                                @foreach($liste_enseignants as $data)
+                                                                    <option value = "{{$data->getIdUserAttribute()}}">{{$data->getFullnameUserAttribute()}}</option>
                                                                 @endforeach
                                                             @endif
                                                         </select>
@@ -98,14 +97,14 @@
                                             <div class = "row">
                                                 <div class = "col-md-6">
                                                     <div class = "mb-3">
-                                                        <label for = "specialite" class = "form-label">Spécialité</label>
-                                                        <select class = "form-select" name = "specialite" id = "specialite" required>
-                                                            <option value = "#">Sélectionnez la spécialité..</option>
-                                                            @if(count($liste_specialite) == 0)
-                                                                <option value = "#" selected disabled>La liste des spécialités est vide.</option>
+                                                        <label for = "classe" class = "form-label">Classe</label>
+                                                        <select class = "form-select" name = "classe" id = "classe" required>
+                                                            <option value = "#">Sélectionnez la classe..</option>
+                                                            @if(count($liste_classes) == 0)
+                                                                <option value = "#" selected disabled>La liste des classes est vide.</option>
                                                             @else
-                                                                @foreach($liste_specialite as $data)
-                                                                    <option value = "{{$data->getIdSpecialiteAttribute()}}">{{$data->getNomSpecialiteAttribute()}}</option>
+                                                                @foreach($liste_classes as $data)
+                                                                    <option value = "{{$data->getIdClasseAttribute()}}">{{$data->getDesignationClasseAttribute()}} ({{$data->debut_annee_universitaire}} - {{$data->fin_annee_universitaire}})</option>
                                                                 @endforeach
                                                             @endif
                                                         </select>
@@ -113,21 +112,12 @@
                                                 </div>
                                                 <div class = "col-md-6">
                                                     <div class = "mb-3">
-                                                        <label for = "niveau" class = "form-label">Niveau</label>
-                                                        <select class = "form-select" name = "niveau" id = "niveau">
-                                                            <option value = "#">Sélectionnez le niveau..</option>
-                                                            <option value = "Licence">Licence</option>
-                                                            <option value = "Master professionnels">Master professionnels</option>
-                                                            <option value = "Cycle d'ingénieur">Cycle d'ingénieur</option>
+                                                        <label for = "semestre" class = "form-label">Semestre</label>
+                                                        <select class = "form-select" name = "semestre" id = "semestre" required>
+                                                            <option value = "#">Sélectionnez la semestre..</option>
+                                                            <option value = "Semestre 1">Semestre 1</option>
+                                                            <option value = "Semestre 2">Semestre 2</option>
                                                         </select>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class = "row">
-                                                <div class = "col-md-12">
-                                                    <div class = "mb-3">
-                                                        <label for = "designation" class = "form-label">Désignation</label>
-                                                        <input type = "text" class = "form-control" id = "designation" name = "designation" placeholder = "Saisissez la désignation de la classe.." required>
                                                     </div>
                                                 </div>
                                             </div>

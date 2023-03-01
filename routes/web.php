@@ -15,7 +15,7 @@
     use App\Http\Controllers\AnneeUniversitaireController;
     use App\Http\Controllers\ClasseController;
     use App\Http\Controllers\EmploiController;
-
+    use App\Http\Controllers\CoursController;
     /*
     |--------------------------------------------------------------------------
     | Web Routes
@@ -108,4 +108,7 @@
     Route::get("/liste-emplois",[EmploiController::class,"ouvrirListeEmplois"])->middleware("session_user_not_exist_admin");
     Route::get("/emploi",[EmploiController::class,"ouvrirEmploi"])->middleware("session_user_not_exist_admin");
     Route::get("/liste-mes-emplois",[EmploiController::class,"ouvrirListeMesEmplois"])->middleware("session_user_not_exist_etudiant");
+    Route::get("/liste-cours",[CoursController::class,"ouvrirListeCours"])->middleware("session_user_not_exist_admin");
+    Route::get("/add-cours",[CoursController::class,"ouvrirAddCours"])->middleware("session_user_not_exist_admin");
+
 ?>
