@@ -116,13 +116,6 @@
                         <span> Statistiques </span>
                     </a>
                 </li>
-            @elseif(Session()->get("acteur") == "Parent")
-                <li class = "side-nav-item">
-                    <a href = "{{url('/dashboard-parent')}}" class = "side-nav-link">
-                        <i class = "uil-home-alt"></i>
-                        <span> Statistiques </span>
-                    </a>
-                </li>
             @endif
             <li class = "side-nav-item">
                 <a href = "{{url('/profil')}}" class = "side-nav-link">
@@ -215,8 +208,6 @@
                         </ul>
                     </div>
                 </li>
-            @endif
-            @if(Session()->get("acteur") == "Admin" || Session()->get("acteur") == "Etudiant")
                 <li class = "side-nav-item">
                     <a data-bs-toggle = "collapse" href = "#emplois" aria-expanded = "false" aria-controls = "emplois" class = "side-nav-link">
                         <i class = " uil-file-redo-alt"></i>

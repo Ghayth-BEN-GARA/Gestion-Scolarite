@@ -105,5 +105,5 @@
     Route::post("/modifier-annee-universitaire-actuel",[AnneeUniversitaireController::class,"gestionModifierAnneeUniversitaireActuel"]);
     Route::get("/envoie-emploi-classe",[ClasseController::class,"ouvrirEnvoieEmploiClasse"])->middleware("session_user_not_exist_admin");
     Route::post("/envoyer-emploi-classe",[ClasseController::class,"gestionEnvoyerEmploi"]);
-    Route::get("/liste-emplois",[EmploiController::class,"ouvrirListeEmplois"])->middleware("session_user_not_exist_admin_etudiant");
+    Route::get("/liste-emplois",[EmploiController::class,"ouvrirListeEmplois"])->middleware("session_user_not_exist_admin");
 ?>
