@@ -106,4 +106,5 @@
     Route::get("/envoie-emploi-classe",[ClasseController::class,"ouvrirEnvoieEmploiClasse"])->middleware("session_user_not_exist_admin");
     Route::post("/envoyer-emploi-classe",[ClasseController::class,"gestionEnvoyerEmploi"]);
     Route::get("/liste-emplois",[EmploiController::class,"ouvrirListeEmplois"])->middleware("session_user_not_exist_admin");
+    Route::get("/emploi",[EmploiController::class,"ouvrirEmploi"])->middleware("session_user_not_exist_admin");
 ?>

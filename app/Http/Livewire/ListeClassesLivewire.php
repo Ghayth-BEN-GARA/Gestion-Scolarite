@@ -65,7 +65,7 @@
         }
 
         public function getNbrCoursClasse($id_classe){
-            return Cour::count();
+            return Cour::where("id_classe", "=", $id_classe)->count();
         }
     }
 ?>
