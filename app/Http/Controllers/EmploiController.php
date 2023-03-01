@@ -14,8 +14,8 @@
 
         public function ouvrirEmploi(Request $request){
             $classe = $this->getInformationsClasse($request->input("id_classe"));
-            $emploi_semestre1 = $this->getEmploislassePremiereSemestre($request->input("id_classe"));
-            $emploi_semestre2 = $this->getEmploislasseDeuxiemeSemestre($request->input("id_classe"));
+            $emploi_semestre1 = $this->getEmploisclassePremiereSemestre($request->input("id_classe"));
+            $emploi_semestre2 = $this->getEmploisclasseDeuxiemeSemestre($request->input("id_classe"));
             $nbr_cours = $this->getNbrCoursClasse($request->input("id_classe"));
 
             return view("Emplois.emploi", compact("classe", "emploi_semestre1", "emploi_semestre2", "nbr_cours"));
@@ -29,13 +29,13 @@
             ->first();
         }
 
-        public function getEmploislassePremiereSemestre($id_classe){
+        public function getEmploisclassePremiereSemestre($id_classe){
             return Emploi::where("semestre", "=", "Semestre 1")
             ->where("id_classe", "=", $id_classe)
             ->first();
         }
 
-        public function getEmploislasseDeuxiemeSemestre($id_classe){
+        public function getEmploisclasseDeuxiemeSemestre($id_classe){
             return Emploi::where("semestre", "=", "Semestre 2")
             ->where("id_classe", "=", $id_classe)
             ->first();
@@ -43,6 +43,10 @@
 
         public function getNbrCoursClasse($id_classe){
             return cour::where("id_classe", "=", $id_classe)->count();
+        }
+
+        public function ouvrirListeMesEmplois(){
+            return view("Emplois.liste_mes_emplois");
         }
     }
 ?>

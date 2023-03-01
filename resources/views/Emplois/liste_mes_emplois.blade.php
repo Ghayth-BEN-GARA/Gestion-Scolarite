@@ -2,7 +2,7 @@
 <html lang = "en">
     <head>
         @include("Layouts.head_site")
-        <title>Emplois | Université Sesame</title>
+        <title>Mes Emplois | Université Sesame</title>
     </head>
     @include("Layouts.body_configuration")
         <div id = "preloader">
@@ -24,10 +24,10 @@
                                     <div class = "page-title-right">
                                         <ol class = "breadcrumb m-0">
                                             @include("Layouts.page_title_site")
-                                            <li class = "breadcrumb-item active">Liste Des Emplois</li>
+                                            <li class = "breadcrumb-item active">Liste Mes Emplois</li>
                                         </ol>    
                                     </div>
-                                    <h4 class = "page-title text-blue">Liste Des Emplois</h4>
+                                    <h4 class = "page-title text-blue">Liste Mes Emplois</h4>
                                 </div>
                             </div>
                         </div>
@@ -35,7 +35,7 @@
                             <div class = "col-12">
                                 <div class = "card">
                                     <div class = "card-body">
-                                        <livewire:liste-emplois-classe-livewire/>
+                                        <livewire:liste-mes-emplois-livewire  />
                                     </div>
                                 </div>
                             </div>
