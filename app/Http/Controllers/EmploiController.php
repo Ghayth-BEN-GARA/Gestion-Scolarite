@@ -5,7 +5,7 @@
     use App\Models\AnneeUniversitaire;
     use App\Models\Specialite;
     use App\Models\Emploi;
-    use App\Models\Cour;
+    use App\Models\Cours;
 
     class EmploiController extends Controller{
         public function ouvrirListeEmplois(){
@@ -42,7 +42,7 @@
         }
 
         public function getNbrCoursClasse($id_classe){
-            return cour::where("id_classe", "=", $id_classe)->count();
+            return Cours::where("id_classe", "=", $id_classe)->count();
         }
 
         public function ouvrirListeMesEmplois(){

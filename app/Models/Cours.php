@@ -3,7 +3,7 @@
     use Illuminate\Database\Eloquent\Factories\HasFactory;
     use Illuminate\Database\Eloquent\Model;
 
-    class Cour extends Model{
+    class Cours extends Model{
         use HasFactory;
         protected $table = "cours";
         protected $primaryKey = "id_cours";
@@ -17,23 +17,15 @@
          */
         protected $fillable = [
             "id_cours",
-            "id_enseignant",
             "id_module",
+            "id_enseignant",
             "id_classe",
-            "heure_debut",
-            "heure_fin"
+            "semestre",
+            "date_creation_cours"
         ];
 
         public function getIdCoursAttribute(){
             return $this->attributes["id_cours"];
-        }
-
-        public function getIdEnseignantAttribute(){
-            return $this->attributes["id_enseignant"];
-        }
-
-        public function setIdEnseignantAttribute($value){
-            $this->attributes["date_creid_enseignantation_classe"] = $value;
         }
 
         public function getIdModuleAttribute(){
@@ -44,6 +36,14 @@
             $this->attributes["id_module"] = $value;
         }
 
+        public function getIdEnseignantAttribute(){
+            return $this->attributes["id_enseignant"];
+        }
+
+        public function setIdEnseignantAttribute($value){
+            $this->attributes["id_enseignant"] = $value;
+        }
+
         public function getIdClasseAttribute(){
             return $this->attributes["id_classe"];
         }
@@ -52,20 +52,20 @@
             $this->attributes["id_classe"] = $value;
         }
 
-        public function getHeureDebutAttribute(){
-            return $this->attributes["heure_debut"];
+        public function getSemestreAttribute(){
+            return $this->attributes["semestre"];
         }
 
-        public function setHeureDebutAttribute($value){
-            $this->attributes["heure_debut"] = $value;
+        public function setSemestreAttribute($value){
+            $this->attributes["semestre"] = $value;
         }
 
-        public function getHeureFinAttribute(){
-            return $this->attributes["heure_fin"];
+        public function getDateCreationCoursAttribute(){
+            return $this->attributes["date_creation_cours"];
         }
 
-        public function setHeureFinAttribute($value){
-            $this->attributes["heure_fin"] = $value;
+        public function setDateCreationCoursAttribute($value){
+            $this->attributes["date_creation_cours"] = $value;
         }
     }
 ?>

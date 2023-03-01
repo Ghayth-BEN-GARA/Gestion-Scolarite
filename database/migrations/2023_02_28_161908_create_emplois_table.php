@@ -15,7 +15,7 @@
                 $table->charset = "utf8";
                 $table->id("id_emploi_classe");
                 $table->string("emploi_classe", 999)->default("Aucun");
-                $table->string("semestre", 300)->default("Aucun");
+                $table->string("semestre", 300)->default("Semestre 1");
                 $table->bigInteger("id_classe")->unsigned()->nullable();
                 $table->foreign("id_classe")->references("id_classe")->on("classes")->onDelete("cascade")->onUpdate("cascade");
             });

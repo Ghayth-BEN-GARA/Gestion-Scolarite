@@ -7,7 +7,7 @@
     use App\Models\Classe;
     use App\Models\Specialite;
     use App\Models\User;
-    use App\Models\Cour;
+    use App\Models\Cours;
 
     class ListeClassesLivewire extends Component{
         public $annee_universitaire = "Tout";
@@ -65,7 +65,7 @@
         }
 
         public function getNbrCoursClasse($id_classe){
-            return Cour::where("id_classe", "=", $id_classe)->count();
+            return Cours::where("id_classe", "=", $id_classe)->count();
         }
     }
 ?>
