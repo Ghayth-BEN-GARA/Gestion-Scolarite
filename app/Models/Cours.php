@@ -67,5 +67,9 @@
         public function setDateCreationCoursAttribute($value){
             $this->attributes["date_creation_cours"] = $value;
         }
+
+        public function getFormattedDateCreationCoursAttribute(){
+            return strftime("%A %d %B %Y",strtotime(strftime($this->getDateCreationCoursAttribute())));
+        }
     }
 ?>
