@@ -38,7 +38,7 @@
                     ->join("modules", "modules.id_module", "=", "cours.id_module")
                     ->join("users", "users.id_user", "=", "cours.id_enseignant")
                     ->join("annees_universitaires", "annees_universitaires.id_annee_universitaire", "=", "classes.id_annee_universitaire")
-                    ->orderBy("nom_module", "asc")
+                    ->orderBy("prenom", "asc")
                     ->paginate(10, array("classes.*", "modules.*", "users.*", "cours.*", "annees_universitaires.*"))
                 ]);
             }
@@ -69,7 +69,7 @@
                     ->join("modules", "modules.id_module", "=", "cours.id_module")
                     ->join("users", "users.id_user", "=", "cours.id_enseignant")
                     ->join("annees_universitaires", "annees_universitaires.id_annee_universitaire", "=", "classes.id_annee_universitaire")
-                    ->orderBy("nom_module", "asc")
+                    ->orderBy("prenom", "asc")
                     ->paginate(10, array("classes.*", "modules.*", "users.*", "cours.*", "annees_universitaires.*"))
                 ]);
             }
