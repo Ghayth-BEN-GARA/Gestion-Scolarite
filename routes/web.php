@@ -112,4 +112,6 @@
     Route::get("/add-cours",[CoursController::class,"ouvrirAddCours"])->middleware("session_user_not_exist_admin");
     Route::post("/creer-cours",[CoursController::class,"gestionCreerCours"]);
     Route::get("/delete-cours",[CoursController::class,"gestionDeleteCours"]);
+    Route::get("/edit-cours",[CoursController::class,"ouvrirEditCours"])->middleware("session_user_not_exist_admin");
+    Route::post("/modifier-cours",[CoursController::class,"gestionModifierCours"]);
 ?>
