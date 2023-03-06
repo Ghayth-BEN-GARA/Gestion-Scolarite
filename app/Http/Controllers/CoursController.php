@@ -68,5 +68,19 @@
         public function getInformationsClasse($id_classe){
             return Classe::where("id_classe", "=", $id_classe)->first();
         }
+
+        public function gestionDeleteCours(Request $request){
+            if($this->deleteCours($request->input("id_cours"))){
+                return back()->with("success", "Nous sommes très heureux de vous informer que ce cours a été supprimé avec succès.");
+            }
+
+            else{
+                return back()->with("error", "Pour des raisons techniques, vous ne pouvez pas supprimer ce cours pour le moment. Veuillez réessayer plus tard.");
+            }
+        }
+
+        public function deleteCours($id_cours){
+            return Cours::where("id_cours", "=", $id_cours)->delete();
+        }
     }
 ?>

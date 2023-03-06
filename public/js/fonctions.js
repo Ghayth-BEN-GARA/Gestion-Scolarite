@@ -533,3 +533,30 @@ function validerFormulaireCreerCours() {
         $("#f-form-ajouter-cours").submit();
     }
 }
+
+function questionSupprimerCours(id_cours) {
+    swal({
+        title: "Etes-vous sûr ?",
+        text: "Supprimer définitivement le cours !",
+        type: 'warning',
+        showConfirmButton: true,
+        showCancelButton: true,
+        showCloseButton: true,
+        confirmButtonColor: '#033D89',
+        confirmButtonText: 'Oui, Je suis sûr !',
+        cancelButtonText: 'Annuler',
+        padding: 40
+    })
+
+    .then((result) => {
+        if (result.value) {
+            chargement("Suppression en cours..").then(
+                location.href = "/delete-cours?id_cours="+id_cours
+            );
+        }
+
+        else if (result.dismiss === swal.DismissReason.cancel) {
+            swal.close();
+        }
+    });
+}
