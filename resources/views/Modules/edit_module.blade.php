@@ -81,7 +81,7 @@
                                                     <div class = "col-md-6">
                                                         <div class = "mb-3">
                                                             <label for = "coefficient" class = "form-label">Coefficient</label>
-                                                            <input type = "number" class = "form-control" id = "coefficient" name = "coefficient" placeholder = "Saisissez le coefficient du module.." value = "{{$module->getCoefficientModuleAttribute()}}" onKeyPress = "return event.charCode>=48 && event.charCode<=57" required>
+                                                            <input type = "text" class = "form-control" id = "coefficient" name = "coefficient" placeholder = "Saisissez le coefficient du module.." value = "{{$module->getCoefficientModuleAttribute()}}" onKeyPress = "return (event.charCode>=46 && event.charCode<=57)" required>
                                                         </div>
                                                     </div>
                                                 </div>

@@ -17,7 +17,7 @@
                 $table->string("nom_module", 800)->default("Aucun");
                 $table->string("description_module", 999)->default("Aucun");
                 $table->integer("nombre_heure_module")->default(0);
-                $table->integer("coefficient_module")->default(0);
+                $table->decimal("coefficient_module", 10, 1)->default(0);
             });
         }
 
