@@ -60,7 +60,7 @@
                                                 <button type = "button" class = "btn-close" data-bs-dismiss = "alert" aria-label = "Close"></button>
                                             </div>
                                         @endif
-                                        <form name = "f-form-ajouter-cours" id  = "f-form-ajouter-cours" method = "post" action = "{{url('/creer-cours')}}">
+                                        <form name = "f-form-ajouter-cours" id  = "f-form-ajouter-cours" method = "post" action = "{{url('/creer-cours')}}" onsubmit = "validerFormulaireCreerCours()">
                                             {{ csrf_field() }}
                                             <div class = "row">
                                                 <div class = "col-md-6">
@@ -81,7 +81,7 @@
                                                 <div class = "col-md-6">
                                                     <div class = "mb-3">
                                                         <label for = "enseignant" class = "form-label">Enseignant</label>
-                                                        <select class = "form-select" name = "enseignant" id = "module" required>
+                                                        <select class = "form-select" name = "enseignant" id = "enseignant" required>
                                                             <option value = "#">Sélectionnez l'enseignant..</option>
                                                             @if(count($liste_enseignants) == 0)
                                                                 <option value = "#" selected disabled>La liste des enseignants est vide.</option>

@@ -110,5 +110,5 @@
     Route::get("/liste-mes-emplois",[EmploiController::class,"ouvrirListeMesEmplois"])->middleware("session_user_not_exist_etudiant");
     Route::get("/liste-cours",[CoursController::class,"ouvrirListeCours"])->middleware("session_user_not_exist_admin");
     Route::get("/add-cours",[CoursController::class,"ouvrirAddCours"])->middleware("session_user_not_exist_admin");
-
+    Route::post("/creer-cours",[CoursController::class,"gestionCreerCours"]);
 ?>

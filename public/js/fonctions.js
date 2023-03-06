@@ -502,3 +502,34 @@ function validerFormulaireEnvoieEmploiDuTemps() {
         $("#f-form-envoyer-emploi-classe").submit();
     }
 }
+
+function validerFormulaireCreerCours() {
+    var module = document.getElementById("module").value;
+    var enseignant = document.getElementById("enseignant").value;
+    var classe = document.getElementById("classe").value;
+    var semestre = document.getElementById("semestre").value;
+
+    if((module == "#") || (module == "")){
+        event.preventDefault();
+        afficherErreur("Vous devez sélectionner le module.");
+    }
+
+    else if((enseignant == "#") || (enseignant == "")){
+        event.preventDefault();
+        afficherErreur("Vous devez sélectionner l'enseignant.");
+    }
+
+    else if((classe == "#") || (classe == "")){
+        event.preventDefault();
+        afficherErreur("Vous devez sélectionner la classe.");
+    }
+
+    else if((semestre == "#") || (semestre == "")){
+        event.preventDefault();
+        afficherErreur("Vous devez sélectionner la semestre.");
+    }
+
+    else{
+        $("#f-form-ajouter-cours").submit();
+    }
+}
