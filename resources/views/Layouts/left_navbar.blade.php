@@ -236,6 +236,20 @@
                         </ul>
                     </div>
                 </li>
+                <li class = "side-nav-item mb-5 pb-3">
+                    <a data-bs-toggle = "collapse" href = "#seances" aria-expanded = "false" aria-controls = "seances" class = "side-nav-link">
+                        <i class = "uil uil-calender"></i>
+                        <span> Séances </span>
+                        <span class = "menu-arrow"></span>
+                    </a>
+                    <div class = "collapse" id = "seances">
+                        <ul class = "side-nav-second-level">
+                            <li>
+                                <a href = "{{url('/liste-seances')}}">Gérer</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
             @endif
             @if(Session()->get("acteur") == "Etudiant")
                 <li class = "side-nav-item">

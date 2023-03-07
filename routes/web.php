@@ -16,6 +16,8 @@
     use App\Http\Controllers\ClasseController;
     use App\Http\Controllers\EmploiController;
     use App\Http\Controllers\CoursController;
+    use App\Http\Controllers\SeanceController;
+    
     /*
     |--------------------------------------------------------------------------
     | Web Routes
@@ -115,4 +117,6 @@
     Route::get("/edit-cours",[CoursController::class,"ouvrirEditCours"])->middleware("session_user_not_exist_admin");
     Route::post("/modifier-cours",[CoursController::class,"gestionModifierCours"]);
     Route::get("/liste-mes-cours-enseignants",[CoursController::class,"ouvrirListeMesCoursEnseignats"])->middleware("session_user_not_exist_enseignant");
+    Route::get("/liste-seances",[SeanceController::class,"ouvrirListeSeances"])->middleware("session_user_not_exist_admin");
+    Route::get("/add-seance",[SeanceController::class,"ouvrirAddSeance"])->middleware("session_user_not_exist_admin");
 ?>
