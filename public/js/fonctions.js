@@ -560,3 +560,29 @@ function questionSupprimerCours(id_cours) {
         }
     });
 }
+
+function validerFormulaireCreerSeance() {
+    var cours_seance = document.getElementById("cours_seance").value;
+    var salle_seance = document.getElementById("salle_seance").value;
+    var heure_debut = document.getElementById("heure_debut_seance").value;
+    var heure_fin = document.getElementById("heure_fin_seance").value;
+
+    if((cours_seance == "#") || (cours_seance == "")){
+        event.preventDefault();
+        afficherErreur("Vous devez sélectionner le cours.");
+    }
+
+    else if((salle_seance == "#") || (salle_seance == "")){
+        event.preventDefault();
+        afficherErreur("Vous devez sélectionner la salle.");
+    }
+
+    else if(heure_fin < heure_debut){
+        event.preventDefault();
+        afficherErreur("L'heure de début et l'heure de la fin ne sont pas valides.");
+    }
+
+    else{
+        $("#f-form-ajouter-seance").submit();
+    }
+}

@@ -119,4 +119,5 @@
     Route::get("/liste-mes-cours-enseignants",[CoursController::class,"ouvrirListeMesCoursEnseignats"])->middleware("session_user_not_exist_enseignant");
     Route::get("/liste-seances",[SeanceController::class,"ouvrirListeSeances"])->middleware("session_user_not_exist_admin");
     Route::get("/add-seance",[SeanceController::class,"ouvrirAddSeance"])->middleware("session_user_not_exist_admin");
+    Route::post("/creer-seance",[CoursController::class,"gestionCreerSeance"]);
 ?>
