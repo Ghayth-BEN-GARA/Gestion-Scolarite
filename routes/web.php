@@ -114,4 +114,5 @@
     Route::get("/delete-cours",[CoursController::class,"gestionDeleteCours"]);
     Route::get("/edit-cours",[CoursController::class,"ouvrirEditCours"])->middleware("session_user_not_exist_admin");
     Route::post("/modifier-cours",[CoursController::class,"gestionModifierCours"]);
+    Route::get("/liste-mes-cours-enseignants",[CoursController::class,"ouvrirListeMesCoursEnseignats"])->middleware("session_user_not_exist_enseignant");
 ?>

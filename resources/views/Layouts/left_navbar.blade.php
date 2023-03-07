@@ -253,6 +253,22 @@
                     </div>
                 </li>
             @endif
+            @if(Session()->get("acteur") == "Enseignant")
+                <li class = "side-nav-item">
+                    <a data-bs-toggle = "collapse" href = "#mes_cours" aria-expanded = "false" aria-controls = "mes_cours" class = "side-nav-link">
+                        <i class = " uil-book-alt"></i>
+                        <span> Mes Cours </span>
+                        <span class = "menu-arrow"></span>
+                    </a>
+                    <div class = "collapse" id = "mes_cours">
+                        <ul class = "side-nav-second-level">
+                            <li>
+                                <a href = "{{url('/liste-mes-cours-enseignants')}}">Gérer</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+            @endif
         </ul>
     </div>
     <div class = "clearfix"></div>

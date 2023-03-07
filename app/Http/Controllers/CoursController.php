@@ -131,5 +131,21 @@
                 "semestre" => $semestre
             ]);
         }
+
+        public function ouvrirListeMesCoursEnseignats(){
+            $listes_cours = $this->getListeMesCoursEnseignants(auth()->user()->getIdUserAttribute());
+            return view("Cours.liste_mes_cours_enseignants", compact("listes_cours"));
+        }
+
+        public function getListeMesCoursEnseignants($id_enseignant){
+            return Classe::join("annees_universitaires", "annees_universitaires.id_annee_universitaire", "=", "classes.id_annee_universitaire")
+            ->join("annees_universitaires_actuels", "annees_universitaires_actuels.id_annee_universitaire", "=", "annees_universitaires.id_annee_universitaire")
+            ->join("cours", "cours.id_classe", "=", "classes.id_classe")
+            ->join("modules", "modules.id_module", "=", "cours.id_module")
+            ->join("users", "users.id_user", "=", "cours.id_enseignant")
+            ->where("cours.id_enseignant", "=", $id_enseignant)
+            ->orderBy("nom_module", "asc")
+            ->get();
+        }
     }
 ?>
