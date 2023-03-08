@@ -4,9 +4,13 @@
             <div class = "col-sm-4 mb-3">
                 <select class = "form-select" id = "classe" name = "classe" wire:model = "classe" required>
                     <option value = "Tout" selected disabled>Sélectionnez la classe..</option>
-                    @foreach($this->getListeClasses() as $data)
-                        <option value = "{{$data->getIdClasseAttribute()}}">{{$data->getDesignationClasseAttribute()}} ({{$data->debut_annee_universitaire}} - {{$data->fin_annee_universitaire}})</option>
-                    @endforeach
+                    @if(count($this->getListeClasses()) == 0)
+                        <option value = "#" selected disabled>La liste des classes est vide.</option>
+                    @else
+                        @foreach($this->getListeClasses() as $data)
+                            <option value = "{{$data->getIdClasseAttribute()}}">{{$data->getDesignationClasseAttribute()}} ({{$data->debut_annee_universitaire}} - {{$data->fin_annee_universitaire}})</option>
+                        @endforeach
+                    @endif
                 </select>
             </div>
         </div>
