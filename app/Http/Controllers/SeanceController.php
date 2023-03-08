@@ -77,5 +77,19 @@
             $seance->setIdCoursAttribute($cours);
             return $seance->save();
         }
+
+        public function gestionDeleteSeance(Request $request){
+            if($this->deleteSeance($request->input("id_seance"))){
+                return back()->with("success", "Nous sommes très heureux de vous informer que cette séance a été supprimée avec succès.");
+            }
+
+            else{
+                return back()->with("erreur", "Pour des raisons techniques, vous ne pouvez pas supprimer cette séance pour le moment. Veuillez réessayer plus tard.");
+            }
+        }
+
+        public function deleteSeance($id_seance){
+            return Seance::where("id_seance", "=", $id_seance)->delete();
+        }
     }
 ?>

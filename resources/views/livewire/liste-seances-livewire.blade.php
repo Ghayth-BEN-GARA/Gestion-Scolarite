@@ -37,7 +37,7 @@
                                     <a href = "javascript:void(0)" class = "dropdown-item">
                                         <i class = "mdi mdi-pencil me-1"></i>Modifier
                                     </a>
-                                    <a href = "javascript:void(0)" class = "dropdown-item">
+                                    <a href = "javascript:void(0)" class = "dropdown-item" onclick = "questionSupprimerSeance({{$data->id_seance}})">
                                         <i class = "mdi mdi-delete me-1"></i>Supprimer
                                     </a>
                                 </div>
@@ -56,21 +56,21 @@
                                 Une séance du cours de <b>{{$data->nom_module}}</b> enseignée par le professeur <b>{{$data->prenom}} {{$data->nom}}</b> en salle <b>numéro {{$data->id_salle}}</b> construite dans l'étage numéro <b>{{$data->numero_etage}}</b> le <b><?php setlocale (LC_TIME, 'fr_FR.utf8','fra'); echo utf8_encode(strftime("%A %d %B %Y",strtotime(strftime($data->date_seance)))); ?></b> de <b>{{date('H:i', strtotime($data->heure_debut_seance))}} à {{date('H:i', strtotime($data->heure_fin_seance))}}</b> pour la classe <b>{{$data->designation_classe}}</b> dont l'année universitaire est <b>{{$data->debut_annee_universitaire}} - {{$data->fin_annee_universitaire}}</b>.
                             </p>
                             <div class = "row">
-                                <div class = "col-md-4">
+                                <div class = "col-md-5">
                                     <div class = "mb-4">
                                         <h5>Date de la séance</h5>
                                         <small class = "text-capitalize"><?php setlocale (LC_TIME, 'fr_FR.utf8','fra'); echo utf8_encode(strftime("%A %d %B %Y",strtotime(strftime($data->date_seance)))); ?></small>
                                     </div>
                                 </div>
-                                <div class = "col-md-4">
+                                <div class = "col-md-3">
                                     <div class = "mb-4">
-                                        <h5>Heure du début</h5>
+                                        <h5>Début</h5>
                                         <small>{{date('H:i', strtotime($data->heure_debut_seance))}}</small>
                                     </div>
                                 </div>
-                                <div class = "col-md-4">
+                                <div class = "col-md-3">
                                     <div class = "mb-4">
-                                        <h5>Heure de la fin</h5>
+                                        <h5>Fin</h5>
                                         <small>{{date('H:i', strtotime($data->heure_fin_seance))}}</small>
                                     </div>
                                 </div>

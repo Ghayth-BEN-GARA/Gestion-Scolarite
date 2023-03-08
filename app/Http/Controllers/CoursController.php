@@ -45,7 +45,7 @@
             }   
             
             else{
-                return back()->with("error", "Pour des raisons techniques, vous ne pouvez pas créer ce nouveau cours pour le moment. Veuillez réessayer plus tard.");
+                return back()->with("erreur", "Pour des raisons techniques, vous ne pouvez pas créer ce nouveau cours pour le moment. Veuillez réessayer plus tard.");
             }
         }
 
@@ -76,7 +76,7 @@
             }
 
             else{
-                return back()->with("error", "Pour des raisons techniques, vous ne pouvez pas supprimer ce cours pour le moment. Veuillez réessayer plus tard.");
+                return back()->with("erreur", "Pour des raisons techniques, vous ne pouvez pas supprimer ce cours pour le moment. Veuillez réessayer plus tard.");
             }
         }
 
