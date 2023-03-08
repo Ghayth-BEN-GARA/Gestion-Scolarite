@@ -87,7 +87,7 @@
                                                                 <option value = "#" selected disabled>La liste des salles est vide.</option>
                                                             @else
                                                                 @foreach($liste_salles as $data)
-                                                                    <option value = "{{$data->getIdSalleAttribute()}}">Salle numéro {{$data->getNumeroSalleAttribute()}}</option>
+                                                                    <option value = "{{$data->getIdSalleAttribute()}}">La salle numéro {{$data->getNumeroSalleAttribute()}}</option>
                                                                 @endforeach
                                                             @endif
                                                         </select>

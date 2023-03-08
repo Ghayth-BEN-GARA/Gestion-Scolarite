@@ -2,7 +2,7 @@
 <html lang = "en">
     <head>
         @include("Layouts.head_site")
-        <title>Modifier un Cours | Université Sesame</title>
+        <title>Modifier une Séance | Université Sesame</title>
     </head>
     @include("Layouts.body_configuration")
         <div id = "preloader">
@@ -24,10 +24,10 @@
                                     <div class = "page-title-right">
                                         <ol class = "breadcrumb m-0">
                                             @include("Layouts.page_title_site")
-                                            <li class = "breadcrumb-item active">Modifier Un Cours</li>
+                                            <li class = "breadcrumb-item active">Modifier Une Séance</li>
                                         </ol>    
                                     </div>
-                                    <h4 class = "page-title text-blue">Modifier Un Cours</h4>
+                                    <h4 class = "page-title text-blue">Modifier Une Séance</h4>
                                 </div>
                             </div>
                         </div>
@@ -35,9 +35,9 @@
                             <div class = "col-12">
                                 <div class = "card">
                                     <div class = "card-body">
-                                        <h4 class = "header-title">Modifier Un Cours</h4>
+                                        <h4 class = "header-title">Modifier Une Séance</h4>
                                         <p class = "text-muted font-14">
-                                            Modifiez ce cours en ajoutant les nouvelles informations requises pour le cours choisi.
+                                            Modifiez cette séance en ajoutant les nouvelles informations requises pour la séance choisie.
                                         </p>
                                         @if(Session()->has("erreur"))
                                             <div class = "alert alert-danger d-flex alert-dismissible fade show mt-1" role = "alert">
@@ -60,20 +60,20 @@
                                                 <button type = "button" class = "btn-close" data-bs-dismiss = "alert" aria-label = "Close"></button>
                                             </div>
                                         @endif
-                                        @if($cours != null)
-                                            <form name = "f-form-modifier-cours" id  = "f-form-modifier-cours" method = "post" action = "{{url('/modifier-cours')}}">
+                                        @if($seance != null)
+                                            <form name = "f-form-modifier-seance" id  = "f-form-modifier-seance" method = "post" action = "{{url('/modifier-seance')}}">
                                                 {{ csrf_field() }}
                                                 <div class = "row">
                                                     <div class = "col-md-6">
                                                         <div class = "mb-3">
-                                                            <label for = "module" class = "form-label">Module</label>
-                                                            <select class = "form-select" name = "module" id = "module" required>
-                                                            <option value = "#">Sélectionnez la module..</option>
-                                                                @if(count($liste_modules) == 0)
-                                                                    <option value = "#" selected disabled>La liste des modules est vide.</option>
+                                                            <label for = "cours" class = "form-label">Cours</label>
+                                                            <select class = "form-select" name = "cours" id = "cours" required>
+                                                                <option value = "#">Sélectionnez le cours..</option>
+                                                                @if(count($liste_cours) == 0)
+                                                                    <option value = "#" selected disabled>La liste des cours est vide.</option>
                                                                 @else
-                                                                    @foreach($liste_modules as $data)
-                                                                        <option value = "{{$data->getIdModuleAttribute()}}" <?php echo !$data->getIdModuleAttribute() == null && $data->getIdModuleAttribute() == $cours->id_module ? "selected" : '' ?>>{{$data->getNomModuleAttribute()}}</option>
+                                                                    @foreach($liste_cours as $data)
+                                                                        <option value = "{{$data->id_cours}}" <?php echo !$data->id_cours == null && $data->id_cours == $seance->id_cours ? "selected" : '' ?>>{{$data->nom_module}} : {{$data->designation_classe}} | {{$data->semestre}}</option>
                                                                     @endforeach
                                                                 @endif
                                                             </select>
@@ -81,14 +81,14 @@
                                                     </div>
                                                     <div class = "col-md-6">
                                                         <div class = "mb-3">
-                                                            <label for = "enseignant" class = "form-label">Enseignant</label>
-                                                            <select class = "form-select" name = "enseignant" id = "enseignant" required>
-                                                                <option value = "#">Sélectionnez l'enseignant..</option>
-                                                                @if(count($liste_enseignants) == 0)
-                                                                    <option value = "#" selected disabled>La liste des enseignants est vide.</option>
+                                                            <label for = "salle" class = "form-label">Salle</label>
+                                                            <select class = "form-select" name = "salle" id = "salle" required>
+                                                                <option value = "#">Sélectionnez la salle..</option>
+                                                                @if(count($liste_salles) == 0)
+                                                                    <option value = "#" selected disabled>La liste des salles est vide.</option>
                                                                 @else
-                                                                    @foreach($liste_enseignants as $data)
-                                                                        <option value = "{{$data->getIdUserAttribute()}}" <?php echo !$data->getIdUserAttribute() == null && $data->getIdUserAttribute() == $cours->id_user ? "selected" : '' ?>>{{$data->getFullnameUserAttribute()}}</option>
+                                                                    @foreach($liste_salles as $data)
+                                                                        <option value = "{{$data->getIdSalleAttribute()}}" <?php echo !$data->getIdSalleAttribute() == null && $data->getIdSalleAttribute() == $seance->id_salle ? "selected" : '' ?>>La salle numéro {{$data->getNumeroSalleAttribute()}}</option>
                                                                     @endforeach
                                                                 @endif
                                                             </select>
@@ -96,35 +96,30 @@
                                                     </div>
                                                 </div>
                                                 <div class = "row">
-                                                    <div class = "col-md-6">
+                                                    <div class = "col-md-12">
                                                         <div class = "mb-3">
-                                                            <label for = "classe" class = "form-label">Classe</label>
-                                                            <select class = "form-select" name = "classe" id = "classe" required>
-                                                                <option value = "#">Sélectionnez la classe..</option>
-                                                                @if(count($liste_classes) == 0)
-                                                                    <option value = "#" selected disabled>La liste des classes est vide.</option>
-                                                                @else
-                                                                    @foreach($liste_classes as $data)
-                                                                        <option value = "{{$data->getIdClasseAttribute()}}" <?php echo !$data->getIdClasseAttribute() == null && $data->getIdClasseAttribute() == $cours->id_classe ? "selected" : '' ?>>{{$data->getDesignationClasseAttribute()}} ({{$data->debut_annee_universitaire}} - {{$data->fin_annee_universitaire}})</option>
-                                                                    @endforeach
-                                                                @endif
-                                                            </select>
-                                                        </div>
-                                                    </div>
-                                                    <div class = "col-md-6">
-                                                        <div class = "mb-3">
-                                                            <label for = "semestre" class = "form-label">Semestre</label>
-                                                            <select class = "form-select" name = "semestre" id = "semestre" required>
-                                                                <option value = "#">Sélectionnez la semestre..</option>
-                                                                <option value = "Semestre 1" <?php echo !$cours->getSemestreAttribute() == null && $cours->getSemestreAttribute() ==  "Semestre 1"? "selected" : ''?>>Semestre 1</option>
-                                                                <option value = "Semestre 2" <?php echo !$cours->getSemestreAttribute() == null && $cours->getSemestreAttribute() ==  "Semestre 2"? "selected" : ''?>>Semestre 2</option>
-                                                            </select>
+                                                            <label for = "date" class = "form-label">Date</label>
+                                                            <input type = "date" class = "form-control" name = "date" id = "date" value = "{{$seance->date_seance}}" required>
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <input type = "hidden" name = "id_cours" id = "id_cours" value = "{{$_GET['id_cours']}}">
+                                                <div class = "row">
+                                                    <div class = "col-md-6">
+                                                        <div class = "mb-3">
+                                                            <label for = "heure_debut" class = "form-label">Heure Du Début</label>
+                                                            <input type = "time" class = "form-control" name = "heure_debut" id = "heure_debut" value = "{{$seance->heure_debut_seance}}" required>
+                                                        </div>
+                                                    </div>
+                                                    <div class = "col-md-6">
+                                                        <div class = "mb-3">
+                                                            <label for = "heure_fin" class = "form-label">Heure De La Fin</label>
+                                                            <input type = "time" class = "form-control" name = "heure_fin" id = "heure_fin" value = "{{$seance->heure_fin_seance}}" required>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <input type = "hidden" name = "id_seance" id = "id_seance" value = "{{$seance->id_seance}}">
                                                 <div class = "text-end">
-                                                    <button type = "submit" class = "btn btn-primary">
+                                                    <button type = "submit" class = "btn btn-primary mt-2">
                                                         <i class = "mdi mdi-pencil"></i> 
                                                         Modifier
                                                     </button>
@@ -138,7 +133,7 @@
                                                         <h2 class = "text-error mt-0">404</h2>
                                                         <h4 class = "text-uppercase text-danger mt-3">Page Introuvable</h4>
                                                         <p class = "text-muted mt-2">
-                                                            Malheureusement, nous n'avons pas trouvé un cours avec cet identifiant. Veuillez vérifier l'identifiant et réessayer plus tard.
+                                                            Malheureusement, nous n'avons pas trouvé une séance avec cet identifiant. Veuillez vérifier l'identifiant et réessayer plus tard.
                                                         </p>
                                                     </div>
                                                 </div>

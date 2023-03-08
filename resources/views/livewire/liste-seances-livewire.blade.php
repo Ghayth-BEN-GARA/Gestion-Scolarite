@@ -34,11 +34,14 @@
                                     <a href = "javascript:void(0)" class = "dropdown-item">
                                         <i class = "mdi mdi-eye me-1"></i>Consulter
                                     </a>
-                                    <a href = "javascript:void(0)" class = "dropdown-item">
+                                    <a href = "{{url('/edit-seance?id_seance='.$data->id_seance)}}" class = "dropdown-item">
                                         <i class = "mdi mdi-pencil me-1"></i>Modifier
                                     </a>
                                     <a href = "javascript:void(0)" class = "dropdown-item" onclick = "questionSupprimerSeance({{$data->id_seance}})">
                                         <i class = "mdi mdi-delete me-1"></i>Supprimer
+                                    </a>
+                                    <a href = "javascript:void(0)" class = "dropdown-item">
+                                        <i class = "mdi mdi-account-cancel-outline me-1"></i>Présences
                                     </a>
                                 </div>
                             </div>
