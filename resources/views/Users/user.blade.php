@@ -266,7 +266,7 @@
                                     <h2 class = "text-error mt-0">404</h2>
                                     <h4 class = "text-uppercase text-danger mt-3">Page Introuvable</h4>
                                     <p class = "text-muted mt-2">
-                                        Malheureusement, nous n'avons pas trouvé de compte avec cet identifiant. Veuillez vérifier l'identifiant et réessayer plus tard.
+                                        Malheureusement, nous n'avons pas trouvé de compte avec cette identifiant. Veuillez vérifier l'identifiant et réessayer plus tard.
                                     </p>
                                 </div>
                             </div>
