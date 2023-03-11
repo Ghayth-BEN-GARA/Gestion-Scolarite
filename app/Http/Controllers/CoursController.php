@@ -147,5 +147,9 @@
             ->orderBy("nom_module", "asc")
             ->get();
         }
+
+        public function ouvrirCours(Request $request){
+            return view("Cours.cours");
+        }
     }
 ?>
