@@ -285,5 +285,10 @@
             $filename = time().$request->file('file')->getClientOriginalName();
             return $request->file->move('emploi_classes/', $filename);
         }
+
+        public function ouvrirInformationsClasse(Request $request){
+            $classe = $this->getInformationsClasse($request->input("id_classe"));
+            return view("classes.informations_classe", compact("classe"));
+        }
     }
 ?>

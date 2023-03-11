@@ -7,7 +7,9 @@
                     <th>Étudiant</th>
                     <th>Email</th>
                     <th>Mobile</th>
-                    <th style = "width: 50px;"></th>
+                    @if(Session()->get("acteur") == "Admin")
+                        <th style = "width: 50px;"></th>
+                    @endif
                 </tr>
             </thead>
             <tbody>
@@ -30,11 +32,13 @@
                             <td>
                                 {{$this->getInformationsEtudiants($data)->getFormattedMobile2UserAttribute()}}
                             </td>
-                            <td>
-                                <a href = "javascript:void(0)" class = "action-icon" onclick = "questionSupprimerEtudiant({{$this->getInformationsEtudiants($data)->getIdUserAttribute()}}, {{$id_classe}})"> 
-                                    <i class = "mdi mdi-delete"></i>
-                                </a>
-                            </td>
+                            @if(Session()->get("acteur") == "Admin")
+                                <td>
+                                    <a href = "javascript:void(0)" class = "action-icon" onclick = "questionSupprimerEtudiant({{$this->getInformationsEtudiants($data)->getIdUserAttribute()}}, {{$id_classe}})"> 
+                                        <i class = "mdi mdi-delete"></i>
+                                    </a>
+                                </td>
+                            @endif
                         </tr>
                     @endforeach
                 @else

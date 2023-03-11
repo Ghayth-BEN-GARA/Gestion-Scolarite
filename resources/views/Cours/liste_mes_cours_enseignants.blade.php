@@ -42,8 +42,8 @@
                                                         <i class = 'uil uil-ellipsis-h'></i>
                                                     </a>
                                                     <div class = "dropdown-menu dropdown-menu-end">
-                                                        <a href = "javascript:void(0)" class = "dropdown-item">
-                                                            <i class = 'uil uil-meeting-board me-1'></i>Informations du classe
+                                                        <a href = "{{url('/informations-classe?id_classe='.$data->id_classe)}}" class = "dropdown-item">
+                                                            <i class = 'uil uil-meeting-board me-1'></i>Informations de la classe
                                                         </a>
                                                         <a href = "javascript:void(0)" class = "dropdown-item">
                                                             <i class = 'uil uil-users-alt me-1'></i>Gérer les absences
