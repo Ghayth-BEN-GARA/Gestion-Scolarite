@@ -172,5 +172,9 @@
             ->orderBy("date_seance", "desc")
             ->get();
         }
+
+        public function ouvrirMonPlanningEnseignant(){
+            return view("Cours.mon_planning_enseignant");
+        }
     }
 ?>

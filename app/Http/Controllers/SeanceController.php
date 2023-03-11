@@ -160,5 +160,21 @@
             $seance = $this->getInformationsSeance($request->input("id_seance"));
             return view("Seances.seance", compact("seance"));
         }
+
+        public function ouvrirAddSeanceEnseignant(){
+            $liste_cours = $this->getListeCoursEnseignantAnneeUniversitaireActuel(auth()->user()->getIdUserAttribute());
+            $liste_salles = $this->getListeSalles();
+            return view("Seances.add_seance_enseignant", compact("liste_cours", "liste_salles"));
+        }
+
+        public function getListeCoursEnseignantAnneeUniversitaireActuel($id_enseignant){
+            return Classe::join("annees_universitaires", "annees_universitaires.id_annee_universitaire", "=", "classes.id_annee_universitaire")
+            ->join("annees_universitaires_actuels", "annees_universitaires_actuels.id_annee_universitaire", "=", "annees_universitaires.id_annee_universitaire")
+            ->join("cours", "cours.id_classe", "=", "classes.id_classe")
+            ->join("modules", "modules.id_module", "=", "cours.id_module")
+            ->where("cours.id_enseignant", "=", $id_enseignant)
+            ->orderBy("modules.nom_module", "asc")
+            ->get();
+        }
     }
 ?>

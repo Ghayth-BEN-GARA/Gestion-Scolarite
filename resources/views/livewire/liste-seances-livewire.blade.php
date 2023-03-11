@@ -41,7 +41,7 @@
                                         <i class = "mdi mdi-delete me-1"></i>Supprimer
                                     </a>
                                     <a href = "javascript:void(0)" class = "dropdown-item">
-                                        <i class = "mdi mdi-account-cancel-outline me-1"></i>Présences
+                                        <i class = "mdi mdi-account-multiple me-1"></i>Absences
                                     </a>
                                 </div>
                             </div>

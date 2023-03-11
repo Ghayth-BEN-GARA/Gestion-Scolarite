@@ -126,4 +126,6 @@
     Route::get("/cours",[CoursController::class,"ouvrirCours"])->middleware("session_user_not_exist_admin");
     Route::get("/informations-classe",[ClasseController::class,"ouvrirInformationsClasse"])->middleware("session_user_not_exist_enseignant");
     Route::get("/seance",[SeanceController::class,"ouvrirSeance"])->middleware("session_user_not_exist_admin");
+    Route::get("/mon-planning-enseignant",[CoursController::class,"ouvrirMonPlanningEnseignant"])->middleware("session_user_not_exist_enseignant");
+    Route::get("/add-seance-enseignant",[SeanceController::class,"ouvrirAddSeanceEnseignant"])->middleware("session_user_not_exist_enseignant");
 ?>
