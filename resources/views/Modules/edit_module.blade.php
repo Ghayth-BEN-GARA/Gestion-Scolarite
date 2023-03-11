@@ -37,7 +37,7 @@
                                     <div class = "card-body">
                                         <h4 class = "header-title">Modifier Un Module</h4>
                                         <p class = "text-muted font-14">
-                                            Modifiez ce module en ajoutant les nouvelles informations requises pour le module choisi.
+                                            Modification de ce module en ajoutant les nouvelles informations requises pour le module choisi.
                                         </p>
                                         @if(Session()->has("erreur"))
                                             <div class = "alert alert-danger d-flex alert-dismissible fade show mt-1" role = "alert">

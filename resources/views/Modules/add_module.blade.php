@@ -2,7 +2,7 @@
 <html lang = "en">
     <head>
         @include("Layouts.head_site")
-        <title>Nouvel Module | Université Sesame</title>
+        <title>Nouveau Module | Université Sesame</title>
     </head>
     @include("Layouts.body_configuration")
         <div id = "preloader">
@@ -27,7 +27,7 @@
                                             <li class = "breadcrumb-item active">Nouvel Module</li>
                                         </ol>    
                                     </div>
-                                    <h4 class = "page-title text-blue">Nouvel Module</h4>
+                                    <h4 class = "page-title text-blue">Nouveau Module</h4>
                                 </div>
                             </div>
                         </div>
@@ -37,7 +37,7 @@
                                     <div class = "card-body">
                                         <h4 class = "header-title">Nouvel Module</h4>
                                         <p class = "text-muted font-14">
-                                            Créez un nouvel module en ajoutant les informations réquises du nouvel module. notez bien qu'il est possible qu'un module peut être enseigné par plusieurs enseignants.
+                                            Création d'un nouveau module en ajoutant les informations réquises du nouvel module. notez bien qu'il est possible qu'un module peut être enseigné par plusieurs enseignants.
                                         </p>
                                         @if(Session()->has("erreur"))
                                             <div class = "alert alert-danger d-flex alert-dismissible fade show mt-1" role = "alert">

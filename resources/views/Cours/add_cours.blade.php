@@ -37,7 +37,7 @@
                                     <div class = "card-body">
                                         <h4 class = "header-title">Nouveau Cours</h4>
                                         <p class = "text-muted font-14">
-                                            Créez un nouveau cours en ajoutant les informations réquises du cours en respectant les details de l'année universitaire.
+                                            Création  d'un nouveau cours en ajoutant les informations réquises du cours en respectant les details de l'année universitaire.
                                         </p>
                                         @if(Session()->has("erreur"))
                                             <div class = "alert alert-danger d-flex alert-dismissible fade show mt-1" role = "alert">

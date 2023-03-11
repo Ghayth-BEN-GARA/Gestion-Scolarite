@@ -37,7 +37,7 @@
                                     <div class = "card-body">
                                         <h4 class = "header-title">Module</h4>
                                         <p class = "text-muted font-14">
-                                            Consultez les informations de ce module qui est enregistré dans notre système.
+                                            Consultation des informations de ce module qui est enregistré dans notre système.
                                         </p>
                                         @if($module != null)
                                             <table class = "table table-bordered table-centered mb-0">

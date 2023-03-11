@@ -37,7 +37,7 @@
                                     <div class = "card-body">
                                         <h4 class = "header-title">Année Universitaire</h4>
                                         <p class = "text-muted font-14">
-                                            Consultez les informations de cette année universitaire qui est enregistré dans notre système.
+                                            Consultation des informations de cette année universitaire qui est enregistré dans notre système.
                                         </p>
                                         @if($annee_universitaire != null)
                                             <table class = "table table-bordered table-centered mb-0">

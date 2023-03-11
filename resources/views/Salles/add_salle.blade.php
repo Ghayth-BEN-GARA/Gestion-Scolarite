@@ -37,7 +37,7 @@
                                     <div class = "card-body">
                                         <h4 class = "header-title">Nouvelle Salle</h4>
                                         <p class = "text-muted font-14">
-                                            Créez une nouvelle salle en ajoutant les informations réquises de la nouvelle salle. Notez bien qu'il y a des salles qui sont déjà créés par défaut.
+                                            Création d'une nouvelle salle en ajoutant les informations réquises de la nouvelle salle. Notez bien qu'il y a des salles qui sont déjà créés par défaut.
                                         </p>
                                         @if(Session()->has("erreur"))
                                             <div class = "alert alert-danger d-flex alert-dismissible fade show mt-1" role = "alert">

@@ -37,7 +37,7 @@
                                     <div class = "card-body">
                                         <h4 class = "header-title">Emploi</h4>
                                         <p class = "text-muted font-14">
-                                            Consultez les informations et l'emploi de cette classe qui est enregistré dans notre système.
+                                            Consultation des informations et l'emploi de cette classe qui est enregistré dans notre système.
                                         </p>
                                         @if($classe != null)
                                             <table class = "table table-bordered table-centered mb-0">

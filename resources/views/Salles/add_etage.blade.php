@@ -2,7 +2,7 @@
 <html lang = "en">
     <head>
         @include("Layouts.head_site")
-        <title>Nouvel Étage | Université Sesame</title>
+        <title>Nouvelle Étage | Université Sesame</title>
     </head>
     @include("Layouts.body_configuration")
         <div id = "preloader">
@@ -24,10 +24,10 @@
                                     <div class = "page-title-right">
                                         <ol class = "breadcrumb m-0">
                                             @include("Layouts.page_title_site")
-                                            <li class = "breadcrumb-item active">Nouvel Étage</li>
+                                            <li class = "breadcrumb-item active">Nouvelle Étage</li>
                                         </ol>    
                                     </div>
-                                    <h4 class = "page-title text-blue">Nouvel Étage</h4>
+                                    <h4 class = "page-title text-blue">Nouvelle Étage</h4>
                                 </div>
                             </div>
                         </div>
@@ -35,9 +35,9 @@
                             <div class = "col-12">
                                 <div class = "card">
                                     <div class = "card-body">
-                                        <h4 class = "header-title">Nouvel Étage</h4>
+                                        <h4 class = "header-title">Nouvelle Étage</h4>
                                         <p class = "text-muted font-14">
-                                            Créez un nouvel étage en ajoutant le numéro de l'étage. Notez bien qu'il y a des étages qui sont déjà créés par défaut.
+                                            Création d'une nouvelle étage en ajoutant le numéro de l'étage. Notez bien qu'il y a des étages qui sont déjà créés par défaut.
                                         </p>
                                         @if(Session()->has("erreur"))
                                             <div class = "alert alert-danger d-flex alert-dismissible fade show mt-1" role = "alert">

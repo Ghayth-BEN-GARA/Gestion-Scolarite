@@ -37,7 +37,7 @@
                                     <div class = "card-body">
                                         <h4 class = "header-title">Nouvelle Année Universitaire</h4>
                                         <p class = "text-muted font-14">
-                                            Créez une nouvelle année universitaire en ajoutant les informations réquises de cette nouvelle année universitaire.
+                                            Création d'une nouvelle année universitaire en ajoutant les informations réquises de cette nouvelle année universitaire.
                                         </p>
                                         @if(Session()->has("erreur"))
                                             <div class = "alert alert-danger d-flex alert-dismissible fade show mt-1" role = "alert">

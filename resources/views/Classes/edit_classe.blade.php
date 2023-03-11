@@ -37,7 +37,7 @@
                                     <div class = "card-body">
                                         <h4 class = "header-title">Modifier Une Classe</h4>
                                         <p class = "text-muted font-14">
-                                            Modifiez cette classe en ajoutant les nouvelles informations requises pour la classe choisie.
+                                            Modification de cette classe en ajoutant les nouvelles informations requises pour la classe choisie.
                                         </p>
                                         @if(Session()->has("erreur"))
                                             <div class = "alert alert-danger d-flex alert-dismissible fade show mt-1" role = "alert">

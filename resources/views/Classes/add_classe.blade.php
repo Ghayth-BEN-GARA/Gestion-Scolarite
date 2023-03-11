@@ -37,7 +37,7 @@
                                     <div class = "card-body">
                                         <h4 class = "header-title">Nouvelle Classe</h4>
                                         <p class = "text-muted font-14">
-                                            Créez une nouvelle classe en ajoutant les informations réquises de la classe tels que la liste des étudiants, l'année universitaire et la désignation de la classe.
+                                            Création d'une nouvelle classe en ajoutant les informations réquises de la classe tels que la liste des étudiants, l'année universitaire et la désignation de la classe.
                                         </p>
                                         @if(Session()->has("erreur"))
                                             <div class = "alert alert-danger d-flex alert-dismissible fade show mt-1" role = "alert">

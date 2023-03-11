@@ -37,7 +37,7 @@
                                     <div class = "card-body">
                                         <h4 class = "header-title">Modifier Une Spécialité</h4>
                                         <p class = "text-muted font-14">
-                                            Modifiez cette spécialité en ajoutant les nouvelles informations requises pour la spécialité choisie.
+                                            Modification de cette spécialité en ajoutant les nouvelles informations requises pour la spécialité choisie.
                                         </p>
                                         @if(Session()->has("erreur"))
                                             <div class = "alert alert-danger d-flex alert-dismissible fade show mt-1" role = "alert">

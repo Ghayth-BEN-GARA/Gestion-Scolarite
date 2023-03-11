@@ -37,7 +37,7 @@
                                     <div class = "card-body">
                                         <h4 class = "header-title">Nouvelle Spécialité</h4>
                                         <p class = "text-muted font-14">
-                                            Créez une nouvelle spécialité en ajoutant le nom de la spécialité. Notez bien qu'il y a des spécialités qui sont déjà créés par défaut.
+                                            Création d'une nouvelle spécialité en ajoutant le nom de la spécialité. Notez bien qu'il y a des spécialités qui sont déjà créés par défaut.
                                         </p>
                                         @if(Session()->has("erreur"))
                                             <div class = "alert alert-danger d-flex alert-dismissible fade show mt-1" role = "alert">

@@ -37,7 +37,7 @@
                                     <div class = "card-body">
                                         <h4 class = "header-title">Modifier Un Utilisateur</h4>
                                         <p class = "text-muted font-14">
-                                            Modifiez cet utilisateur en ajoutant les nouvelles informations requises pour l'utilisateur choisi. Cet utilisateur peut être un admin, un comptable, un étudiant, un enseignant ou un parent.
+                                            Modification de cette utilisateur en ajoutant les nouvelles informations requises pour l'utilisateur choisi. Cette utilisateur peut être un admin, un comptable, un étudiant ou un enseignant.
                                         </p>
                                         @if(Session()->has("erreur"))
                                             <div class = "alert alert-danger d-flex alert-dismissible fade show mt-1" role = "alert">

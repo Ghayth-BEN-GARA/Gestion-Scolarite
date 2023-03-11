@@ -37,7 +37,7 @@
                                     <div class = "card-body">
                                         <h4 class = "header-title">Nouvelle Séance</h4>
                                         <p class = "text-muted font-14">
-                                            Créez une nouvelle séance en ajoutant les informations réquises de cette séance.
+                                            Création d'une nouvelle séance en ajoutant les informations réquises de cette séance.
                                         </p>
                                         @if(Session()->has("erreur"))
                                             <div class = "alert alert-danger d-flex alert-dismissible fade show mt-1" role = "alert">

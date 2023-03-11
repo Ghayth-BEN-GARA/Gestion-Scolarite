@@ -37,7 +37,7 @@
                                     <div class = "card-body">
                                         <h4 class = "header-title">Modifier L'année Universitaire Actuelle</h4>
                                         <p class = "text-muted font-14">
-                                            Modifiez cette année universitaire en ajoutant les nouvelles informations requises pour l'année universitaire Actuelle.
+                                            Modification de cette année universitaire en ajoutant les nouvelles informations requises pour l'année universitaire Actuelle.
                                         </p>
                                         @if(Session()->has("erreur"))
                                             <div class = "alert alert-danger d-flex alert-dismissible fade show mt-1" role = "alert">
