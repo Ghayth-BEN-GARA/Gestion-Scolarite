@@ -7,6 +7,8 @@
     use App\Models\AnneeUniversitaire;
     use App\Models\AnneeUniversitaireActuel;
     use App\Models\Cours;
+    use App\Models\Seance;
+    use App\Models\Salle;
 
     class CoursController extends Controller{
         public function ouvrirListeCours(){
@@ -149,7 +151,26 @@
         }
 
         public function ouvrirCours(Request $request){
-            return view("Cours.cours");
+            $cours  = $this->getToutesLesInformationsCours($request->input("id_cours"));
+            $liste_seances = $this->getListeSeances($request->input("id_cours"));
+            return view("Cours.cours", compact("cours", "liste_seances"));
+        }
+
+        public function getToutesLesInformationsCours($id_cours){
+            return Cours::join("users", "users.id_user", "=", "cours.id_enseignant")
+            ->join("classes", "classes.id_classe", "=", "cours.id_classe")
+            ->join("annees_universitaires", "annees_universitaires.id_annee_universitaire", "=", "classes.id_annee_universitaire")
+            ->join("modules", "modules.id_module", "=", "cours.id_module")
+            ->join("specialites", "specialites.id_specialite", "=", "classes.id_specialite")
+            ->where("id_cours", "=", $id_cours) 
+            ->first();
+        }
+
+        public function getListeSeances($id_cours){
+            return Seance::where("id_cours", "=", $id_cours)
+            ->join("salles", "salles.id_salle", "=", "seances.id_salle")
+            ->orderBy("date_seance", "desc")
+            ->get();
         }
     }
 ?>
