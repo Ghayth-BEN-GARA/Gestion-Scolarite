@@ -105,6 +105,8 @@
             ->join("modules", "modules.id_module", "=", "cours.id_module")
             ->join("seances", "seances.id_cours", "cours.id_cours")
             ->join("salles", "salles.id_salle", "=", "seances.id_salle")
+            ->join("users", "users.id_user", "=", "cours.id_enseignant")
+            ->join("specialites", "specialites.id_specialite", "=", "classes.id_specialite")
             ->first();
         }
 
@@ -152,6 +154,11 @@
                 "id_salle" => $salle,
                 "id_cours" => $cours
             ]);
+        }
+
+        public function ouvrirSeance(Request $request){
+            $seance = $this->getInformationsSeance($request->input("id_seance"));
+            return view("Seances.seance", compact("seance"));
         }
     }
 ?>

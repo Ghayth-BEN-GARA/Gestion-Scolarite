@@ -14846,6 +14846,7 @@ h6 {
     color: #98a6ad;
     border-color: #98a6ad;
 }
+
 .horizontal-steps {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -14863,6 +14864,7 @@ h6 {
     align-items: center;
     width: 100%;
 }
+
 .horizontal-steps:before {
     content: "";
     display: block;
@@ -14871,13 +14873,15 @@ h6 {
     height: 0.2em;
     background-color: #eef2f7;
 }
+
 .horizontal-steps .process-line {
     display: block;
     position: absolute;
     width: 50%;
     height: 0.2em;
-    background-color: #727cf5;
+    background-color: #033D89;
 }
+
 .horizontal-steps .horizontal-steps-content {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -14895,6 +14899,7 @@ h6 {
     align-items: center;
     width: 100%;
 }
+
 .horizontal-steps .horizontal-steps-content .step-item {
     display: block;
     position: relative;
@@ -14904,19 +14909,22 @@ h6 {
     margin: 0 2em;
     -webkit-box-sizing: content-box;
     box-sizing: content-box;
-    color: #727cf5;
+    color: #033D89;
     background-color: currentColor;
     border: 0.25em solid #fafbfe;
     border-radius: 50%;
     z-index: 5;
 }
+
 .horizontal-steps .horizontal-steps-content .step-item:first-child {
     margin-left: 0;
 }
+
 .horizontal-steps .horizontal-steps-content .step-item:last-child {
     margin-right: 0;
     color: #0acf97;
 }
+
 .horizontal-steps .horizontal-steps-content .step-item span {
     position: absolute;
     top: calc(100% + 1em);
@@ -14926,6 +14934,7 @@ h6 {
     white-space: nowrap;
     color: #adb5bd;
 }
+
 .horizontal-steps .horizontal-steps-content .step-item.current:before {
     content: "";
     display: block;
@@ -14946,9 +14955,11 @@ h6 {
     -webkit-animation-timing-function: ease-out;
     animation-timing-function: ease-out;
 }
+
 .horizontal-steps .horizontal-steps-content .step-item.current span {
-    color: #727cf5;
+    color: #033D89;
 }
+
 @-webkit-keyframes animation-steps-current {
     from {
         -webkit-transform: translate(-50%, -50%) scale(0);
@@ -14973,6 +14984,7 @@ h6 {
         opacity: 0;
     }
 }
+
 @media (max-width: 767.98px) {
     .horizontal-steps .horizontal-steps-content .step-item span {
         white-space: inherit;

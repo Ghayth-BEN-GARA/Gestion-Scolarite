@@ -125,4 +125,5 @@
     Route::post("/modifier-seance",[SeanceController::class,"gestionModifierSeance"]);
     Route::get("/cours",[CoursController::class,"ouvrirCours"])->middleware("session_user_not_exist_admin");
     Route::get("/informations-classe",[ClasseController::class,"ouvrirInformationsClasse"])->middleware("session_user_not_exist_enseignant");
+    Route::get("/seance",[SeanceController::class,"ouvrirSeance"])->middleware("session_user_not_exist_admin");
 ?>
