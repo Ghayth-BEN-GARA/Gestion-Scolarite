@@ -173,8 +173,47 @@
             ->get();
         }
 
-        public function ouvrirMonPlanningEnseignant(){
-            return view("Cours.mon_planning_enseignant");
+        public function ouvrirMonPlanningEnseignant(Request $request){
+            $events = array();
+            $class_name = null;
+            $date_time_debut = null;
+            $date_time_fin = null;
+
+            $planing = Cours::join("classes", "classes.id_classe", "=", "cours.id_classe")
+            ->join("modules", "modules.id_module", "=", "cours.id_module")
+            ->join("users", "users.id_user", "=", "cours.id_enseignant")
+            ->join("seances", "seances.id_cours", "cours.id_cours")
+            ->join("annees_universitaires", "annees_universitaires.id_annee_universitaire", "=", "classes.id_annee_universitaire")
+            ->join("annees_universitaires_actuels", "annees_universitaires_actuels.id_annee_universitaire", "=", "annees_universitaires.id_annee_universitaire")
+            ->where("cours.id_enseignant", "=", auth()->user()->getIdUserAttribute())
+            ->orderBy("seances.date_seance", "desc")
+            ->get();
+
+            foreach($planing as $data){
+                if($data->date_seance < date('Y-m-d')){
+                    $class_name = "bg-danger";
+                }
+
+                else if($data->date_seance == date('Y-m-d')){
+                    $class_name = "bg-success";
+                }
+
+                else{
+                    $class_name = "bg-secondary";
+                }
+
+                $date_time_debut = date('Y-m-d H:i',strtotime($data->date_seance." ".$data->heure_debut_seance));
+                $date_time_fin = date('Y-m-d H:i',strtotime($data->date_seance." ".$data->heure_fin_seance));
+                
+                $events[] = [
+                    "title" => $data->nom_module.": ".$data->designation_classe,
+                    "start" => $date_time_debut,
+                    "end" => $data->date_time_fin,
+                    "className" => $class_name
+                ];
+            }
+    
+            return view("Cours.mon_planning_enseignant", compact("events"));
         }
     }
 ?>

@@ -17788,13 +17788,14 @@ th.fc-day-header {
     text-align: center;
     color: #fff;
 }
-.external-event {
-    cursor: move;
+
+.bg-event {
     margin: 10px 0;
     padding: 8px 10px;
     color: #fff;
     border-radius: 4px;
 }
+
 .fc-basic-view td.fc-week-number span {
     padding-right: 8px;
 }

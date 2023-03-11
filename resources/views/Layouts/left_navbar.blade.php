@@ -282,6 +282,20 @@
                         </ul>
                     </div>
                 </li>
+                <li class = "side-nav-item">
+                    <a data-bs-toggle = "collapse" href = "#planing" aria-expanded = "false" aria-controls = "planing" class = "side-nav-link">
+                        <i class = "uil-calendar-alt"></i>
+                        <span> Mon Planing </span>
+                        <span class = "menu-arrow"></span>
+                    </a>
+                    <div class = "collapse" id = "planing">
+                        <ul class = "side-nav-second-level">
+                            <li>
+                                <a href = "{{url('/mon-planning-enseignant')}}">Consulter</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
             @endif
         </ul>
     </div>

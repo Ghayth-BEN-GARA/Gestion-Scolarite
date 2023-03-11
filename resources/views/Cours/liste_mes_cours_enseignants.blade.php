@@ -51,9 +51,6 @@
                                                         <a href = "javascript:void(0)" class = "dropdown-item">
                                                             <i class = 'uil uil-exposure-alt me-1'></i>Gérer les notes
                                                         </a>
-                                                        <a href = "{{url('/mon-planning-enseignant')}}" class = "dropdown-item">
-                                                            <i class = 'uil uil-calendar-alt me-1'></i>Consulter mon planning
-                                                        </a>
                                                     </div>
                                                 </div>
                                                 <div class = "form-check float-start">
