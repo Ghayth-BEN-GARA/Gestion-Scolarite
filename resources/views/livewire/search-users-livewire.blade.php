@@ -61,7 +61,7 @@
                         @foreach($liste_users as $data)
                             <a href = "{{url('user?id_user='.$data->id_user)}}" class = "dropdown-item notify-item">
                                 <div class = "d-flex">
-                                    <img class = "d-flex me-2 rounded-circle" src = "{{URL::asset($data->getPathPhotoProfileUserAttribute())}}" alt = "Photo de profil" height = "32">
+                                    <img class = "d-flex me-2 rounded-circle" src = "{{URL::asset($data->getPathPhotoProfileUserAttribute())}}" alt = "Photo de profil" height = "33" width = "38">
                                     <div class = "w-100">
                                         <h5 class = "m-0 font-14">{{$data->getFullNameUserAttribute()}}</h5>
                                         <span class = "font-12 mb-0">{{$data->getTypeUserAttribute()}}</span>
