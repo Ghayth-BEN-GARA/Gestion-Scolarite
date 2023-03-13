@@ -17,7 +17,9 @@
                 ConfigurationCompteSeeder::class,
                 ReseauSocialSeeder::class,
                 EtageSeeder::class,
-                SpecialiteSeeder::class
+                SpecialiteSeeder::class,
+                MethodePaiementSeeder::class,
+                TypePaiementSeeder::class
             ]);
         }
     }
