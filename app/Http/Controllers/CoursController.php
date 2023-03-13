@@ -208,7 +208,7 @@
                 $events[] = [
                     "title" => $data->nom_module.": ".$data->designation_classe,
                     "start" => $date_time_debut,
-                    "end" => $data->date_time_fin,
+                    "end" => $date_time_fin,
                     "className" => $class_name
                 ];
             }
