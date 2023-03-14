@@ -130,4 +130,5 @@
     Route::get("/mon-planning-enseignant",[CoursController::class,"ouvrirMonPlanningEnseignant"])->middleware("session_user_not_exist_enseignant");
     Route::get("/add-seance-enseignant",[SeanceController::class,"ouvrirAddSeanceEnseignant"])->middleware("session_user_not_exist_enseignant");
     Route::get("/liste-etudiants",[PaiementController::class,"ouvrirListeEtudiants"])->middleware("session_user_not_exist_comptable");
+    Route::get("/paiement",[PaiementController::class,"ouvrirPaiement"])->middleware("session_user_not_exist_comptable");
 ?>

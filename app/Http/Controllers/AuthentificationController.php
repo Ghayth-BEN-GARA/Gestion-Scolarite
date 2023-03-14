@@ -42,10 +42,6 @@
                 else if(auth()->user()->getTypeUserAttribute() == "Etudiant"){
                     return redirect("/dashboard-etudiant");
                 }
-
-                else if(auth()->user()->getTypeUserAttribute() == "Parent"){
-                    return redirect("/dashboard-parent");
-                }
             }
 
             else{

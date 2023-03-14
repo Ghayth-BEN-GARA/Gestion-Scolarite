@@ -14063,11 +14063,13 @@ select.form-control-sm:not([size]):not([multiple]) {
     padding-right: 17px !important;
     padding-left: 0 !important;
 }
+
 .nav-pills > li > a,
 .nav-tabs > li > a {
     color: #6c757d;
     font-weight: 600;
 }
+
 .nav-pills > a {
     color: #6c757d;
     font-weight: 600;
@@ -14075,6 +14077,7 @@ select.form-control-sm:not([size]):not([multiple]) {
 .bg-nav-pills {
     background-color: #eef2f7;
 }
+
 .nav-tabs.nav-bordered {
     border-bottom: 2px solid rgba(152, 166, 173, 0.2);
 }

@@ -27,9 +27,14 @@
                             </td>
                             <td>{{$data->getEmailUserAttribute()}}</td>
                             <td>{{$data->getFormattedMobile2UserAttribute()}}</td>
-                            <td>{{$data->getFormattedDateNaissanceUserAttribute()}}</td>
+                            <td class = "text-capitalize">
+                                <?php
+                                    setlocale (LC_TIME, 'fr_FR.utf8','fra'); 
+                                    echo utf8_encode($data->getFormattedDateNaissanceUserAttribute());
+                                ?>
+                            </td>
                             <td>
-                                <a href = "{{url('/paiement?id_user='.$data->getIdUserAttribute())}}" class = "btn btn-primary">Payer</a>
+                                <a href = "{{url('/paiement?id_user='.$data->getIdUserAttribute())}}" class = "btn btn-primary">Consulter</a>
                             </td>
                         </tr>
                     @endforeach

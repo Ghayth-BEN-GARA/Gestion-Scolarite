@@ -15,8 +15,8 @@
                 $table->charset = "utf8";
                 $table->id("id_paiement_etudiant");
                 $table->bigInteger("id_etudiant")->unsigned()->nullable();
-                $table->string("methode_paiement", 30);
-                $table->string("type_paiement", 30);
+                $table->string("methode_paiement", 30)->default("Chèque");
+                $table->string("type_paiement", 30)->default("Tranche");
                 $table->decimal("montant_tranche1", 10, 3)->default(0.000);
                 $table->decimal("montant_tranche2", 10, 3)->default(0.000);
                 $table->decimal("montant_tranche3", 10, 3)->default(0.000);

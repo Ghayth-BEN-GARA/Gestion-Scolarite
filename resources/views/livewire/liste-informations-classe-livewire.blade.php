@@ -9,7 +9,7 @@
                         <td>{{$classe->getIdClasseAttribute()}}</td>
                     </tr>
                     <tr>
-                        <td>Désignation :</td>
+                        <td>Classe :</td>
                         <td>{{$classe->getDesignationClasseAttribute()}}</td>
                     </tr>
                     <tr>
