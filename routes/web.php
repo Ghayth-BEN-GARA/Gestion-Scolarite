@@ -17,6 +17,7 @@
     use App\Http\Controllers\EmploiController;
     use App\Http\Controllers\CoursController;
     use App\Http\Controllers\SeanceController;
+    use App\Http\Controllers\PaiementController;
     
     /*
     |--------------------------------------------------------------------------
@@ -128,4 +129,5 @@
     Route::get("/seance",[SeanceController::class,"ouvrirSeance"])->middleware("session_user_not_exist_admin");
     Route::get("/mon-planning-enseignant",[CoursController::class,"ouvrirMonPlanningEnseignant"])->middleware("session_user_not_exist_enseignant");
     Route::get("/add-seance-enseignant",[SeanceController::class,"ouvrirAddSeanceEnseignant"])->middleware("session_user_not_exist_enseignant");
+    Route::get("/liste-etudiants",[PaiementController::class,"ouvrirListeEtudiants"])->middleware("session_user_not_exist_comptable");
 ?>

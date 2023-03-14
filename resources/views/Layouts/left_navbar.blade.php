@@ -297,6 +297,28 @@
                     </div>
                 </li>
             @endif
+            @if(Session()->get("acteur") == "Comptable")
+                <li class = "side-nav-item">
+                    <a data-bs-toggle = "collapse" href = "#paiement" aria-expanded = "false" aria-controls = "paiement" class = "side-nav-link">
+                        <i class = "uil uil-dollar-alt"></i>
+                        <span> Paiements </span>
+                        <span class = "menu-arrow"></span>
+                    </a>
+                    <div class = "collapse" id = "paiement">
+                        <ul class = "side-nav-second-level">
+                            <li>
+                                <a href = "#">Enseignants</a>
+                            </li>
+                            <li>
+                                <a href = "{{url('/liste-etudiants')}}">Etudiants</a>
+                            </li>
+                            <li>
+                                <a href = "#">Responsables</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+            @endif
         </ul>
     </div>
     <div class = "clearfix"></div>

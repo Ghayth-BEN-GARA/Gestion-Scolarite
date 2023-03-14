@@ -46,6 +46,9 @@
                                                             <i class = 'uil uil-meeting-board me-1'></i>Informations de la classe
                                                         </a>
                                                         <a href = "javascript:void(0)" class = "dropdown-item">
+                                                            <i class = 'uil uil-calender me-1'></i>Gérer les séances
+                                                        </a>
+                                                        <a href = "javascript:void(0)" class = "dropdown-item">
                                                             <i class = 'uil uil-users-alt me-1'></i>Gérer les absences
                                                         </a>
                                                         <a href = "javascript:void(0)" class = "dropdown-item">
