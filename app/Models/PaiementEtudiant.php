@@ -18,14 +18,19 @@
         protected $fillable = [
             "id_paiement_etudiant",
             "id_etudiant",
-            "methode_paiement",
+            "methode_paiement1",
+            "methode_paiement2",
+            "methode_paiement3",
+            "methode_paiement_totale",
             "type_paiement",
             "montant_tranche1",
             "montant_tranche2",
             "montant_tranche3",
+            "montant_totale",
             "date_paiement_tranche1",
             "date_paiement_tranche2",
             "date_paiement_tranche3",
+            "date_paiement_totale",
             "id_annee_universitaire"
         ];
 
@@ -41,12 +46,36 @@
             $this->attributes["id_etudiant"] = $value;
         }
 
-        public function getMethodePaiementAttribute(){
-            return $this->attributes["methode_paiement"];
+        public function getMethodePaiement1Attribute(){
+            return $this->attributes["methode_paiement1"];
         }
 
-        public function setMethodePaiementAttribute($value){
-            $this->attributes["methode_paiement"] = $value;
+        public function setMethodePaiement1Attribute($value){
+            $this->attributes["methode_paiement1"] = $value;
+        }
+
+        public function getMethodePaiement2Attribute(){
+            return $this->attributes["methode_paiement2"];
+        }
+
+        public function setMethodePaiement2Attribute($value){
+            $this->attributes["methode_paiement2"] = $value;
+        }
+
+        public function getMethodePaiement3Attribute(){
+            return $this->attributes["methode_paiement3"];
+        }
+
+        public function setMethodePaiement3Attribute($value){
+            $this->attributes["methode_paiement3"] = $value;
+        }
+
+        public function getMethodePaiementTotaleAttribute(){
+            return $this->attributes["methode_paiement_totale"];
+        }
+
+        public function setMethodePaiementTotaleAttribute($value){
+            $this->attributes["methode_paiement_totale"] = $value;
         }
 
         public function getTypePaiementAttribute(){
@@ -81,6 +110,14 @@
             $this->attributes["montant_tranche3"] = $value;
         }
 
+        public function getMontantTotaleAttribute(){
+            return $this->attributes["montant_totale"];
+        }
+
+        public function setMontantTotaleAttribute($value){
+            $this->attributes["montant_totale"] = $value;
+        }
+
         public function getDatePaiementTranche1Attribute(){
             return $this->attributes["date_paiement_tranche1"];
         }
@@ -105,6 +142,14 @@
             $this->attributes["date_paiement_tranche3"] = $value;
         }
 
+        public function getDatePaiementTotaleAttribute(){
+            return $this->attributes["date_paiement_totale"];
+        }
+
+        public function setDatePaiementTotaleAttribute($value){
+            $this->attributes["date_paiement_totale"] = $value;
+        }
+
         public function getIdAnneeUniversitaireAttribute(){
             return $this->attributes["id_annee_universitaire"];
         }
@@ -123,6 +168,10 @@
 
         public function getFormattedDatePaiementTranche3Attribute(){
             return strftime("%A %d %B %Y",strtotime(strftime($this->getDatePaiementTranche3Attribute())));
+        }
+
+        public function getFormattedDatePaiementTotaleAttribute(){
+            return strftime("%A %d %B %Y",strtotime(strftime($this->getDatePaiementTotaleAttribute())));
         }
     }
 ?>

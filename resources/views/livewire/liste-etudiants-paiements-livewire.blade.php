@@ -34,7 +34,7 @@
                                 ?>
                             </td>
                             <td>
-                                <a href = "{{url('/paiement?id_user='.$data->getIdUserAttribute())}}" class = "btn btn-primary">Consulter</a>
+                                <a href = "{{url('/paiement-etudiants?id_user='.$data->getIdUserAttribute())}}" class = "btn btn-primary">Consulter</a>
                             </td>
                         </tr>
                     @endforeach

@@ -613,3 +613,22 @@ function questionSupprimerSeance(id_seance) {
         }
     });
 }
+
+function validerFormulaireAjouterPaiement() {
+    var type = document.getElementById("type").value;
+    var annee_universitaire = document.getElementById("annee_universitaire").value;
+
+    if((type == "#") || (type == "")){
+        event.preventDefault();
+        afficherErreur("Vous devez sélectionner le type de paiement.");
+    }
+
+    else if((annee_universitaire == "#") || (annee_universitaire == "")){
+        event.preventDefault();
+        afficherErreur("Vous devez sélectionner l'année universitaire de paiement.");
+    }
+
+    else{
+        $("#f-form-ajouter-paiement").submit();
+    }
+}

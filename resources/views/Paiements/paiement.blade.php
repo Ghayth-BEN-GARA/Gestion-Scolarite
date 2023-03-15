@@ -82,7 +82,7 @@
                                                                     <button type = "button" class = "btn-close" data-bs-dismiss = "alert" aria-label = "Close"></button>
                                                                 </div>
                                                             @endif
-                                                            <form name = "f-form-ajouter-paiement" id  = "f-form-ajouter-paiement" method = "post" action = "{{url('/creer-paiement')}}">
+                                                            <form name = "f-form-ajouter-paiement" id  = "f-form-ajouter-paiement" method = "post" action = "{{url('/creer-paiement')}}" onsubmit = "validerFormulaireAjouterPaiement()">
                                                                 {{ csrf_field() }}
                                                                 <div class = "row">
                                                                     <div class = "col-6">
@@ -174,6 +174,7 @@
                                                                         </div>
                                                                     </div>
                                                                 </div>
+                                                                <input type = "hidden" name = "id_user" id = "id_user" value = "{{$_GET['id_user']}}" required>
                                                                 <div class = "row mt-4">
                                                                     <div class = "col-sm-6">
                                                                         <a href = "{{url('/liste-etudiants')}}" class = "btn text-muted d-none d-sm-inline-block btn-link fw-semibold">
@@ -181,10 +182,10 @@
                                                                     </div> 
                                                                     <div class = "col-sm-6">
                                                                         <div class = "text-sm-end">
-                                                                        <button type = "submit" class = "btn btn-primary">
-                                                                            <i class = "mdi mdi-cash-multiple me-1"></i> 
-                                                                            Payer
-                                                                        </button>
+                                                                            <button type = "submit" class = "btn btn-primary">
+                                                                                <i class = "mdi mdi-cash-multiple me-1"></i> 
+                                                                                Payer
+                                                                            </button>
                                                                         </div>
                                                                     </div>
                                                                 </div>
