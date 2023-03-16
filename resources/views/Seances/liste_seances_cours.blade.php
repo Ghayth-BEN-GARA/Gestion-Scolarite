@@ -42,7 +42,7 @@
                                                         <i class = "dripicons-dots-3"></i>
                                                     </a>
                                                     <div class = "dropdown-menu dropdown-menu-end">
-                                                        <a href = "javascript:void(0)" class = "dropdown-item">
+                                                        <a href = "{{url('/absences-seance?id_seance='.$data->id_seance)}}" class = "dropdown-item">
                                                             <i class = 'uil uil-users-alt me-1'></i>Gérer les absences
                                                         </a>
                                                     </div>

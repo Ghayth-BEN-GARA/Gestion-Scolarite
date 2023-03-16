@@ -18,7 +18,7 @@
     use App\Http\Controllers\CoursController;
     use App\Http\Controllers\SeanceController;
     use App\Http\Controllers\PaiementController;
-    
+    use App\Http\Controllers\AbsenceController;
     /*
     |--------------------------------------------------------------------------
     | Web Routes
@@ -134,4 +134,7 @@
     Route::post("/creer-paiement",[PaiementController::class,"gestionCreerPaiement"]);
     Route::get("/informations-paiement-etudiant",[PaiementController::class,"ouvrirInformationsPaiementEtudiant"])->middleware("session_user_not_exist_comptable");
     Route::get("/liste-seances-cours",[SeanceController::class,"ouvrirListeSeancesCours"])->middleware("session_user_not_exist_enseignant");
+    Route::get("/absences-seance",[AbsenceController::class,"ouvrirAbsencesSeance"])->middleware("session_user_not_exist_enseignant");
 ?>
+
+
