@@ -632,3 +632,15 @@ function validerFormulaireAjouterPaiement() {
         $("#f-form-ajouter-paiement").submit();
     }
 }
+
+function selectAllCheckBox() {
+    $(':checkbox[name=select_etudiant]').each(function() {
+        if(this.checked == true) {
+            this.checked = false; 
+        }  
+        
+        else{
+            this.checked = true; 
+        }
+    });
+}
