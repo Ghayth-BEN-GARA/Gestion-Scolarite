@@ -132,4 +132,5 @@
     Route::get("/liste-etudiants",[PaiementController::class,"ouvrirListeEtudiants"])->middleware("session_user_not_exist_comptable");
     Route::get("/paiement-etudiants",[PaiementController::class,"ouvrirPaiement"])->middleware("session_user_not_exist_comptable");
     Route::post("/creer-paiement",[PaiementController::class,"gestionCreerPaiement"]);
+    Route::get("/informations-paiement-etudiant",[PaiementController::class,"ouvrirInformationsPaiementEtudiant"])->middleware("session_user_not_exist_comptable");
 ?>

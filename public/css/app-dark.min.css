@@ -13719,12 +13719,23 @@ body[data-layout="topnav"] .container-xxl {
 .card-pricing .card-pricing-features li {
     padding: 15px;
 }
+
 @media (min-width: 992px) {
-    .card-pricing-recommended {
+    .card-paied, .card-impaied {
         margin-top: -1.9375rem;
     }
 }
-.card-pricing-recommended .card-pricing-plan-tag {
+
+.card-paied .card-paied-plan-tag {
+    background-color: rgba(10, 207, 151, 0.2);
+    color: #0acf97;
+    padding: 5px 0;
+    font-weight: 700;
+    border-radius: 0.25rem 0.25rem 0 0;
+    margin: -1.5rem -1.5rem 1.5rem -1.5rem;
+}
+
+.card-impaied .card-impaied-plan-tag{
     background-color: rgba(250, 92, 124, 0.2);
     color: #fa5c7c;
     padding: 5px 0;
@@ -13732,6 +13743,7 @@ body[data-layout="topnav"] .container-xxl {
     border-radius: 0.25rem 0.25rem 0 0;
     margin: -1.5rem -1.5rem 1.5rem -1.5rem;
 }
+
 .card-h-100 {
     height: calc(100% - 24px);
 }

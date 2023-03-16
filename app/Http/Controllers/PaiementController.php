@@ -17,7 +17,8 @@
             $etudiant = $this->getInformationsEtudiants($request->input("id_user"));
             $liste_annees_universitaires = $this->getListeAnneesUniversitaires();
             $liste_methodes_paiement = $this->getListeMethodesPaiements();
-            return view("Paiements.paiement", compact("liste_types_paiements", "etudiant", "liste_annees_universitaires", "liste_methodes_paiement"));
+            $liste_paiements = $this->getInformationsPaiementsEtudiants($request->input("id_user"));
+            return view("Paiements.paiement", compact("liste_types_paiements", "etudiant", "liste_annees_universitaires", "liste_methodes_paiement", "liste_paiements"));
         }
 
         public function getListeTypesPaiements(){
@@ -135,6 +136,24 @@
                     "methode_paiement3" => $methode
                 ]);
             }
+        }
+
+        public function getInformationsPaiementsEtudiants($id_user){
+            return PaiementEtudiant::join("annees_universitaires", "annees_universitaires.id_annee_universitaire", "=", "paiements_etudiants.id_annee_universitaire")
+            ->join("users", "users.id_user", "=", "paiements_etudiants.id_etudiant")
+            ->where("id_etudiant", "=", $id_user)
+            ->get();
+        }
+
+        public function ouvrirInformationsPaiementEtudiant(Request $request){
+            $informations_paiements = $this->getInformationsPaiements($request->input("id_paiement"));
+            return view("Paiements.informations_paiement_etudiant", compact("informations_paiements"));
+        }
+
+        public function getInformationsPaiements($id_paiement){
+            return PaiementEtudiant::join("annees_universitaires", "annees_universitaires.id_annee_universitaire", "=", "paiements_etudiants.id_annee_universitaire")
+            ->where("id_paiement_etudiant", "=", $id_paiement)
+            ->first();
         }
     }
 ?>

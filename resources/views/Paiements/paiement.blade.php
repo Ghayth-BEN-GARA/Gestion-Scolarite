@@ -52,7 +52,55 @@
                                         @if($etudiant != null)
                                             <div class = "tab-content">
                                                 <div class = "tab-pane show active" id = "billing-information">
-                                                
+                                                    @if(!empty($liste_paiements)  && ($liste_paiements->count()))
+                                                        <table class = "table mb-0">
+                                                            <thead>
+                                                                <tr>
+                                                                    <td>Étudiant</td>
+                                                                    <td>Année Universitaire</td>
+                                                                    <td>Type De Paiement</td>
+                                                                    <td>Etat De Paiement</td>
+                                                                    <td>Actions</td>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                @foreach($liste_paiements as $data)
+                                                                    <tr>
+                                                                        <td class = "table-user">
+                                                                            <img src = "{{URL::asset($data->path_photo_profile)}}" alt = "Photo de profil" class = "me-2 rounded-circle" width = 38 height = 38/>
+                                                                             {{$data->prenom}} {{$data->nom}}
+                                                                        </td>
+                                                                        <td>
+                                                                            Année universitaire {{$data->debut_annee_universitaire}} - {{$data->fin_annee_universitaire}}
+                                                                        </td>
+                                                                        <td>
+                                                                            @if($data->getTypePaiementAttribute() == "Totale")
+                                                                                Totale
+                                                                            @else
+                                                                                Tranche
+                                                                            @endif
+                                                                        </td>
+                                                                        <td>
+                                                                            @if($data->getTypePaiementAttribute() == "Totale")
+                                                                                <span class = "badge bg-success p-2">Payé</span>
+                                                                            @else
+                                                                                @if($data->getMethodePaiement1Attribute() != null && $data->getMethodePaiement2Attribute() != null && $data->getMethodePaiement3Attribute())
+                                                                                    <span class = "badge bg-success p-2">Payé</span>
+                                                                                @else
+                                                                                    <span class = "badge bg-danger p-2">Impayé</span>
+                                                                                @endif
+                                                                            @endif
+                                                                        </td>
+                                                                        <td>
+                                                                            <a href = "{{url('/informations-paiement-etudiant?id_paiement='.$data->getIdPaiementEtudiantAttribute())}}" class = "btn btn-primary">Informations</a>
+                                                                        </td>
+                                                                    </tr>
+                                                                @endforeach
+                                                            </tbody>
+                                                        </table>
+                                                    @else
+                                                        <p class = "text-center text-black">Aucune information n'est disponible concernant les paiements pour le moment.</p>
+                                                    @endif
                                                 </div>
                                                 <div class = "tab-pane" id = "payment-information">
                                                     <div class = "row">
