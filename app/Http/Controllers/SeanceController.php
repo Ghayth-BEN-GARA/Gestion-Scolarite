@@ -176,5 +176,23 @@
             ->orderBy("modules.nom_module", "asc")
             ->get();
         }
+
+        public function ouvrirListeSeancesCours(Request $request){
+            $liste_seances = $this->getListeSeancesEnseignantAnneeUniversitaireActuel(auth()->user()->getIdUserAttribute(), $request->input("id_cours"));
+            return view("Seances.liste_seances_cours", compact("liste_seances"));
+        }
+
+        public function getListeSeancesEnseignantAnneeUniversitaireActuel($id_enseignant, $id_cours){
+            return Cours::join("classes", "classes.id_classe", "=", "cours.id_classe")
+            ->join("annees_universitaires", "annees_universitaires.id_annee_universitaire", "=", "classes.id_annee_universitaire")
+            ->join("annees_universitaires_actuels", "annees_universitaires_actuels.id_annee_universitaire", "=", "annees_universitaires.id_annee_universitaire")
+            ->join("seances", "seances.id_cours", "cours.id_cours")
+            ->join("modules", "modules.id_module", "=", "cours.id_module")
+            ->join("users", "users.id_user", "=", "cours.id_enseignant")
+            ->where("cours.id_enseignant", "=", $id_enseignant)
+            ->where("cours.id_cours", "=", $id_cours)
+            ->orderBy("seances.date_seance", "desc")
+            ->get();
+        }
     }
 ?>
