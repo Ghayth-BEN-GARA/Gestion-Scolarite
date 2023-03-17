@@ -44,19 +44,26 @@
                     <i class = "mdi mdi-plus"></i> 
                     Faire l'appel
                 </button>
-                <p class = "text-danger mt-2 mx-2">La date de la séance n'est pas encore commencée.</p>
-            @elseif($seance->date_seance == date("Y-m-d") && ($seance->heure_debut_seance) < now('+02:00')->format('H:i'))
-                <button type = "submit" class = "btn btn-primary mx-2" disabled>
-                    <i class = "mdi mdi-plus"></i> 
-                    Faire l'appel
-                </button>
-                <p class = "text-danger mt-2 mx-2">L'heure de début n'est pas encore commencé.</p>
-            @elseif($seance->date_seance == date("Y-m-d") && ($seance->heure_fin_seance) > now('-02:30')->format('H:i'))
-                <button type = "submit" class = "btn btn-primary mx-2" disabled>
-                    <i class = "mdi mdi-plus"></i> 
-                    Faire l'appel
-                </button>
-                <p class = "text-danger mt-2 mx-2">L'heure de début est déjà dépassée.</p>
+                <p class = "text-danger mt-2 mx-2">La date de la séance n'est pas encore venue.</p>
+            @elseif($seance->date_seance == date("Y-m-d")) 
+                @if(now('+01:00')->format('H:i:s') < $seance->heure_debut_seance)
+                    <button type = "submit" class = "btn btn-primary mx-2" disabled>
+                        <i class = "mdi mdi-plus"></i> 
+                        Faire l'appel
+                    </button>
+                    <p class = "text-danger mt-2 mx-2">La séance n'est pas encore commencée.</p>
+                @elseif(now('+01:00')->format('H:i:s') > date("H:i:s", strtotime($seance->heure_debut_seance)+(60*31)))
+                    <button type = "submit" class = "btn btn-primary mx-2" disabled>
+                        <i class = "mdi mdi-plus"></i> 
+                        Faire l'appel
+                    </button>
+                    <p class = "text-danger mt-2 mx-2">L'heure de début est déjà dépassée plus que 30 minutes de retard.</p>
+                @else
+                    <button type = "submit" class = "btn btn-primary mx-2">
+                        <i class = "mdi mdi-plus"></i> 
+                        Faire l'appel
+                    </button>
+                @endif
             @endif
         </form>
     </div>

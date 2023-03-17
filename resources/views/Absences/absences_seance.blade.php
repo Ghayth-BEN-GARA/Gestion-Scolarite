@@ -89,6 +89,16 @@
                                         </div>
                                     </div>
                                 </div>
+                                <div class = "col-xxl-8 col-lg-4">
+                                    <div class = "card">
+                                        <div class = "card-body">
+                                            <div class = "pe-xl-3">
+                                                <h5 class = "mt-0 mb-3">Absences</h5>
+                                                @livewire("liste-absences-seance-livewire", ["id_seance" => $seance->id_seance])
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             @else
                                 <div class = "row justify-content-center">
                                     <div class = "col-lg-4">

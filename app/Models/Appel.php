@@ -18,7 +18,7 @@
         protected $fillable = [
             "id_appel",
             "id_seance",
-            "liste_presences",
+            "absence_collectif",
             "liste_absences",
             "date_time_appel"
         ];
@@ -35,12 +35,12 @@
             $this->attributes["id_seance"] = $value;
         }
 
-        public function getListePresencesAttribute(){
-            return $this->attributes["liste_presences"];
+        public function getAbsenceCollectifAttribute(){
+            return $this->attributes["absence_collectif"];
         }
 
-        public function setListePresencesAttribute($value){
-            $this->attributes["liste_presences"] = $value;
+        public function setAbsenceCollectifAttribute($value){
+            $this->attributes["absence_collectif"] = $value;
         }
 
         public function getListeAbsencesAttribute(){

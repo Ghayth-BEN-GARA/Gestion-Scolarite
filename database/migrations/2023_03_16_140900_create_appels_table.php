@@ -15,7 +15,7 @@
                 $table->charset = "utf8";
                 $table->id("id_appel");
                 $table->bigInteger("id_seance")->unsigned()->nullable();
-                $table->string("liste_presences", 999)->default("Aucun");
+                $table->boolean("absence_collectif")->default(false);
                 $table->string("liste_absences", 999)->default("Aucun");
                 $table->datetime("date_time_appel")->default(DB::raw('CURRENT_TIMESTAMP'))->setTimezone('GMT');
                 $table->foreign("id_seance")->references("id_seance")->on("seances")->onDelete("cascade")->onUpdate("cascade");
