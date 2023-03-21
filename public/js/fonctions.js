@@ -634,13 +634,52 @@ function validerFormulaireAjouterPaiement() {
 }
 
 function selectAllCheckBox() {
-    $(':checkbox[name=select_etudiant]').each(function() {
+    $('.etudiants').each(function() {
         if(this.checked == true) {
             this.checked = false; 
         }  
         
         else{
             this.checked = true; 
+        }
+    });
+}
+
+function UnselectAllCheckBox() {
+    $('.etudiants').each(function() { 
+        if($('#absence_collectif').is(':checked')){
+            $('table#table input[type=checkbox]').attr('disabled','true');
+        }
+
+        else{
+            $('table#table input[type=checkbox]').removeAttr('disabled');
+        }
+    });
+}
+
+function questionSupprimerAbsences(id_etudiant, id_seance) {
+    swal({
+        title: "Etes-vous sûr ?",
+        text: "Marquer l'étudiant présent !",
+        type: 'warning',
+        showConfirmButton: true,
+        showCancelButton: true,
+        showCloseButton: true,
+        confirmButtonColor: '#033D89',
+        confirmButtonText: 'Oui, Je suis sûr !',
+        cancelButtonText: 'Annuler',
+        padding: 45
+    })
+
+    .then((result) => {
+        if (result.value) {
+            chargement("Suppression de l'absence en cours..").then(
+                location.href = "/delete-absence-seance?id_seance="+id_seance+"&id_etudiant="+id_etudiant
+            );
+        }
+
+        else if (result.dismiss === swal.DismissReason.cancel) {
+            swal.close();
         }
     });
 }

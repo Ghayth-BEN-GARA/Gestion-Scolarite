@@ -31,7 +31,7 @@
             return $this->attributes["id_seance"];
         }
 
-        public function setSeanceAttribute($value){
+        public function setIdSeanceAttribute($value){
             $this->attributes["id_seance"] = $value;
         }
 

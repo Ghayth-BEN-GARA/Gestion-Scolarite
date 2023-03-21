@@ -135,6 +135,8 @@
     Route::get("/informations-paiement-etudiant",[PaiementController::class,"ouvrirInformationsPaiementEtudiant"])->middleware("session_user_not_exist_comptable");
     Route::get("/liste-seances-cours",[SeanceController::class,"ouvrirListeSeancesCours"])->middleware("session_user_not_exist_enseignant");
     Route::get("/absences-seance",[AbsenceController::class,"ouvrirAbsencesSeance"])->middleware("session_user_not_exist_enseignant");
+    Route::post("/creer-appel",[AbsenceController::class,"gestionCreerAppel"]);
+    Route::get("/delete-absence-seance",[AbsenceController::class,"gestionDeleteAbsenceSeance"]);
 ?>
 
 
