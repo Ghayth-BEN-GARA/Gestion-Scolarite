@@ -89,7 +89,32 @@
         }
 
         public function gestionDeleteAbsenceSeance(Request $request){
-            # code...
+            $absences = $this->getListeEtudiantsAbsentsClasse($request->input("id_seance"));
+            $new_absences = array();
+
+            foreach(explode(',', $absences) as $data){
+                if($data != $request->input("id_etudiant")){
+                    $new_absences[] = $data;
+                }
+            }
+
+            if($this->updateAppelSeance($request->input("id_seance"), $new_absences)){
+                return back()->with("success_absences", "la liste des absences est modifiée.");
+            }
+            
+            else{
+                return back()->with("erreur_absences", "Pour des raisons techniques, vous ne pouvez pas modifier la liste des absences pour le moment. Veuillez réessayer plus tard.");
+            }
+        }
+
+        public function getListeEtudiantsAbsentsClasse($id_seance){
+            return Appel::where("id_seance", "=", $id_seance)->first()->liste_absences;
+        }
+
+        public function updateAppelSeance($id_seance, $lise_etudiants){
+            return Appel::where("id_seance", "=", $id_seance)->update([
+                "liste_absences" => implode(",", $lise_etudiants)
+            ]);
         }
     }
 ?>

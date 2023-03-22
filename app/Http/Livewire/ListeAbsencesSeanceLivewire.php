@@ -7,6 +7,7 @@
     class ListeAbsencesSeanceLivewire extends Component{
         public $id_seance;
         public $etudiants;
+        public $seance;
 
         public function render(){
             return view('livewire.liste-absences-seance-livewire');

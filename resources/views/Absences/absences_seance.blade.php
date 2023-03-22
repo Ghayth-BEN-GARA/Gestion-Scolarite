@@ -94,7 +94,7 @@
                                         <div class = "card-body">
                                             <div class = "pe-xl-3">
                                                 <h5 class = "mt-0 mb-3">Absences</h5>
-                                                @livewire("liste-absences-seance-livewire", ["etudiants" => $seance->etudiant_classe, "id_seance" => $seance->id_seance])
+                                                @livewire("liste-absences-seance-livewire", ["etudiants" => $seance->etudiant_classe, "id_seance" => $seance->id_seance, "seance" => $seance])
                                             </div>
                                         </div>
                                     </div>
