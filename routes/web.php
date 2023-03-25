@@ -137,6 +137,7 @@
     Route::get("/absences-seance",[AbsenceController::class,"ouvrirAbsencesSeance"])->middleware("session_user_not_exist_enseignant");
     Route::post("/creer-appel",[AbsenceController::class,"gestionCreerAppel"]);
     Route::get("/delete-absence-seance",[AbsenceController::class,"gestionDeleteAbsenceSeance"]);
+    Route::get("/liste-absences-cours",[AbsenceController::class,"ouvrirListeAbsencesCours"])->middleware("session_user_not_exist_enseignant");
 ?>
 
 

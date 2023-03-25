@@ -116,5 +116,9 @@
                 "liste_absences" => implode(",", $lise_etudiants)
             ]);
         }
+
+        public function ouvrirListeAbsencesCours(Request $request){
+            return view("Absences.liste_absences_cours");
+        }
     }
 ?>

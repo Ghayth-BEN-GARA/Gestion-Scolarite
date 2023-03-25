@@ -50,7 +50,9 @@
                     <thead class = "table-light">
                         <tr>
                             <th>Nom et prénom</th>
-                            <th>Actions</th>
+                            @if($seance->date_seance == date("Y-m-d") && now('+01:00')->format('H:i:s') < date("H:i:s", strtotime($seance->heure_debut_seance)+(60*31)))
+                                <th>Actions</th>
+                            @endif
                         </tr>
                     </thead>
                     <tbody>

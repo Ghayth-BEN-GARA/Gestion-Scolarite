@@ -122,7 +122,7 @@
             </footer>
             @include("Layouts.right_navbar_site")
         </div>
+        <div class = "rightbar-overlay"></div>
+        @include("Layouts.script_site")
     </body>
-    <div class = "rightbar-overlay"></div>
-    @include("Layouts.script_site")
 </html>

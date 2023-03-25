@@ -48,7 +48,7 @@
                                                         <a href = "{{url('/liste-seances-cours?id_cours='.$data->id_cours)}}" class = "dropdown-item">
                                                             <i class = 'uil uil-calender me-1'></i>Gérer les séances
                                                         </a>
-                                                        <a href = "javascript:void(0)" class = "dropdown-item">
+                                                        <a href = "{{url('/liste-absences-cours?id_cours='.$data->id_cours)}}" class = "dropdown-item">
                                                             <i class = 'uil uil-users-alt me-1'></i>Gérer les absences
                                                         </a>
                                                         <a href = "javascript:void(0)" class = "dropdown-item">
