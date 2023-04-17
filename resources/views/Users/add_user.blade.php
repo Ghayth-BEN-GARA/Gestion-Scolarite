@@ -145,7 +145,7 @@
                                                 <div class = "col-md-6">
                                                     <div class = "mb-3">
                                                         <label for = "numero_mobile" class = "form-label">Numéro Mobile</label>
-                                                        <input type = "phone" class = "form-control" id = "numero_mobile" name = "numero_mobile" placeholder = "Saisissez le numéro mobile.." onKeyPress = "if(this.value.length==8) return false; return event.charCode>=48 && event.charCode<=57" required>
+                                                        <input type = "number" class = "form-control" id = "numero_mobile" name = "numero_mobile" placeholder = "Saisissez le numéro mobile.." onKeyPress = "if(this.value.length==8) return false; return event.charCode>=48 && event.charCode<=57" required>
                                                     </div>
                                                 </div>
                                             </div>

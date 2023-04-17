@@ -12,7 +12,7 @@
                 <div class = "dropdown-header noti-title">
                     <h5 class = "text-overflow mb-2">
                         <span class = "text-danger">{{count($liste_users)}}</span> 
-                        @if(count($liste_users) > 0)
+                        @if(count($liste_users) > 1)
                             utilisateurs trouvés
                         @else
                             utilisateur trouvé
